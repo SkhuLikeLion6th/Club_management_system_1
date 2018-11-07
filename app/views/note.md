@@ -130,6 +130,32 @@
             <% end %>
         </div>
       </div>
-
-      
     </div>
+    
+    <!--login-->
+    
+    
+
+<div class="login_body">
+  <div class="loginbox">
+    <img src="/assets/user.png" class="login_person">
+      <h1>로그인하기</h1>
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        
+        <div class="form-inputs">
+          <P>학 번</P>
+          <input type="text" name="user[email]" placeholler="아이디">
+          <p>비밀번호</p>
+          <input type="password" name="user[password]" required="false" placeholler="비밀번호">
+        </div>
+      
+        <div class="form-actions">
+          <input type="submit" name="user[submit]" value="LOGIN">
+          <div>
+            <a href="/users/sign_up"><p>회원가입</p></a>
+            <a href="#"><p>비밀번호를 잊으셨나요?</p></a>
+          </div>
+        </div>
+      <% end %>
+  </div>
+</div>  
