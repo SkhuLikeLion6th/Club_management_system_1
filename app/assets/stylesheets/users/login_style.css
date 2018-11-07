@@ -35,7 +35,7 @@
 	margin: 0px;
 	padding: 0px;
 	font-weight: bold;
-	color: #555;
+	color: #000;
 }
 
 .loginbox input{
@@ -60,17 +60,18 @@
 
 .loginbox input[type="submit"]
 {
+	margin-top: 1rem;
 	border: none;
 	outline: none;
-	height: 40px;
-	background: #FEE19F;
-	font-size: 18px;
-	border-radius: 20px;
+	height: 2.5rem;
+	background: url(/assets/index/banner_1.png);
+	font-size: 1.2rem;
+	border-radius: 10px;
+	font-weight: bold;
 }
 
 .loginbox input[type="submit"]:hover{
 	cursor: pointer;
-	background: #ffc107;
 	color: #fff;
 }
 
@@ -85,16 +86,8 @@
 	color: #fff;
 }
 
-.form-actions div{
-	margin-top: 15px;
-}
-.form-actions a p{
-	font-size: 15px;
-	padding: 5px 0 0 20px;
-	color: #444;
-}
-
-.form-actions div a:hover{
-	cursor: pointer;
-	color: #ffc107;
+.form-actions p{
+	font-size: 0.8rem;
+	/*padding: 5px 0 0 20px;*/
+	color: #000;
 }
