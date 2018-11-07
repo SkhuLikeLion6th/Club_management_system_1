@@ -1,0 +1,53 @@
+<div class="mypage_body">
+    <div class="mypagebox">
+    <h1> My Page </h1>
+        <% @users.each do |u| %>
+            <% if u.id == current_user.id %>
+                <!--프로필이미지?<br>-->
+                <p class="my_info">이름 : <%= u.name %></p>
+                <% unless Department.find(u.department_id) == nil%>
+                <p class="my_info">학과 : <%= Department.find(u.department_id).department_name %></p>
+                <% end %>
+                <% if u.grade_id == '1' || u.grade_id == '2' || u.grade_id == '3' || u.grade_id == '4'%>
+                <p class="my_info">학년 : <%= Grade.find_by_id(u.grade_id).grade_name %></p>
+                <% end %>
+                <p class="my_info">학번 : <%= u.email %></p>
+                <p class="my_info">전화번호 : <%= u.phone_number %></p>
+                <p class="my_info">메일 : <%= u.mail %></p>
+                <% if @club_id == nil %>
+                    <p class="no-club"> 소속된 동아리가 없습니다. </p>
+                <% else %>
+                    <!--<div class="mypage_club_box">-->
+                    <p id="mypage_club">소속</p>
+                    <!--</div>-->
+                    <div class="mypage-above-my_club">
+                        <% @clubs.each do |x| %>
+                            <% if current_user.id == x.user_id %>
+                                <a href='/club/my_club' id="mypage_myclub" ><%= x.club.club_name %></a>
+                            <%end%>
+                        <% end %>
+                    </div>
+                <% end %>
+                <!--지원자 또는 서버 관리자 또는 동아리관리자는 지원내용 확인하는 페이지로 갈 수 있도록 버튼활성화-->
+                <div class="button-above-button">
+                    <div>
+                        <a href = '/users/<%=u.id%>/edit' class="mypage-edit">수정</a>
+                    </div>
+                </div>
+                <% if ApplyContent.find_by_user_id(current_user.id) != nil || current_user.authorization == '0' %>
+                    <% if ApplyContent.find_by_user_id(current_user.id) != nil %>
+                        <p>지원 여부: o</p>
+                    <% end %>
+                    <div class="button-above-button">
+                        <a href='/apply_content/index' id="mypage_myapply"><div id="mypage_p">지원 내용 확인</div></a>
+                    </div>
+                <% else %>
+                    <!--<p>지원 여부: X</p>-->
+                    <!--<div class="mypage-above-button">-->
+                    <!--    <a href='/club/index' id="mypage_myapply"><div id="mypage_p">동아리 보기</div></a>-->
+                    <!--</div>-->
+                <% end %>
+            <% end %>
+        <% end %>
+    </div>
+</div>

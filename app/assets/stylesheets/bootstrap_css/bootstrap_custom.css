@@ -1,0 +1,77 @@
+/* 버튼 */
+
+.btn-nav{
+    background-color: transparent;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000;
+    margin: 0 0.5rem;
+    border: none;
+}
+
+.btn-footer{
+    background-color: transparent;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ccc;
+    margin: 0 0.5rem 0 0; 
+    border: none;
+    padding-left: 0;
+}
+
+.btn-w-sz-ss{
+    width: 1rem;
+}
+.btn-w-sz-s{
+    width: 2rem;
+}
+.btn-w-sz-m{
+    width: 3rem;
+}
+.btn-w-sz-l{
+    width: 4rem;
+}
+.btn-w-sz-ll{
+    width: 5rem;
+}
+.btn-admin{
+    color: #FF5757;
+}
+.btn-admin:hover{
+    color: #FF5757;
+}
+
+/*align*/
+.align-right{
+    text-align: right;
+}
+.align-center{
+    text-align: center;
+}
+.align-left{
+    text-align: left;
+}
+
+/*img*/
+
+.img-sz-ss{
+    height: 40px;
+    padding: 0.5rem;
+}
+.img-sz-s{
+    height: 60px;
+    padding: 0.5rem;
+}
+.img-sz-m{
+    height: 80px;
+    padding: 0.5rem;
+}
+.img-sz-l{
+    height: 100px;
+    padding: 0.5rem;
+}
+.img-sz-ll{
+    height: 120px;
+    padding: 0.5rem;
+}
+

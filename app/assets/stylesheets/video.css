@@ -1,0 +1,100 @@
+/*video registers*/
+.video-title-div{
+    text-align: center;
+}
+.video-title-div p{
+    margin-top: 30px;
+    width: 50%;
+    text-align: center;
+    font-size: 25px;
+}
+.video-regi-title{
+    width: 60%;
+	border: 2px solid #9b9596;
+	border-radius: 10px;
+	font-size: 15px;
+	color: #333;
+	padding: 10px 15px;
+	outline: none;	
+}
+
+.video-regi-address{
+    width: 60%;
+	border: 2px solid #9b9596;
+	border-radius: 10px;
+	font-size: 15px;
+	color: #333;
+	padding: 10px 15px;
+	outline: none;	
+}
+
+
+
+.content-video{
+    width: 1200px;
+    margin: auto;
+    color: #434343;
+}
+
+.video-link-area{
+    width: 400px;
+}
+
+.button-in-video{
+    margin: auto;
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.button-in-video-new{
+    font-size: 18px;
+    margin: 0.3rem;
+    padding: 0.7rem;
+    background-color: #FEE19F;
+    color: #ffffff;
+    border-radius: 20px;
+    display: inline-block;
+    border-color: white;
+}
+
+/*.button-in-video-new:hover{*/
+/*    background-color: #fc7189;*/
+/*    color: #fff;*/
+/*}*/
+
+iframe{
+    width: 100% !important;
+    height: 240px;
+}
+
+.video-name{
+    font-size: 20px;
+}
+
+.video-uploader{
+    margin-top: -1rem;
+}
+
+.video-list{
+    margin-top: 30px;
+}
+
+.video-index-menu{
+    text-align: right;
+}
+
+.button-video-upload{
+    display: inline-block;
+}
+
+.club-select{
+    display: inline-block;
+}
+
+.selc_club{
+    background-color: #FFD0D6;
+    color: #ffffff;
+    border-color: transparent;
+    border-radius: 20px;
+    padding:  0.7rem;
+}

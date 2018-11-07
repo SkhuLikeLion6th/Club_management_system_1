@@ -1,0 +1,35 @@
+<% if current_user.id == @user.id %>
+    <%= form_for @user do |f| %>
+          <div class="signup_body">
+           	<div class="signupbox">
+          		<h1 class="edit-my">회원정보수정</h1> 
+          		<p>학번</p>
+          	    <p><%= @user.email %><br></p>
+          	    <p>비밀번호</p>
+          	    <%= f.password_field :password %><br>
+          	    <p>비밀번호 확인</p>
+          	    <%= f.password_field :password_confirmation %><br>
+          	    <p>이름</p>
+          	    <%= f.text_field :name %><br>
+          	    <p>이메일</p>
+          	    <%= f.email_field :mail %><br>
+          	    <p>전화번호</p>
+          	    <%= f.text_field :phone_number %>
+          
+          	    <div class="selc">
+          		    <p>학년</p>
+          		    <%= f.collection_select( :grade_id, Grade.all, :id, :grade_name,{}, {:class => "selc_1"}) %>
+         
+          		    <p class="p_1">학과</p>
+          		    <%= f.collection_select :department_id, Department.all, :id, :department_name,{}, {class: "selc_2"} %>
+      
+          		   	<input type="submit" name="user[submit]" value="완료">
+            		</div>
+            	</div>
+          	</div>
+    <%end%>
+<%end%>
+
+
+
+

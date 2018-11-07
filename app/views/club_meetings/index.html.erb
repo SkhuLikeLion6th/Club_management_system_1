@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Club Meetings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @club_meetings.each do |club_meeting| %>
+      <tr>
+        <td><%= club_meeting.name %></td>
+        <td><%= club_meeting.start_time %></td>
+        <td><%= club_meeting.end_time %></td>
+        <td><%= link_to 'Show', club_meeting %></td>
+        <td><%= link_to 'Edit', edit_club_meeting_path(club_meeting) %></td>
+        <td><%= link_to 'Destroy', club_meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Club Meeting', new_club_meeting_path %>

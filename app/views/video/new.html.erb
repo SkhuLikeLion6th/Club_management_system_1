@@ -1,0 +1,24 @@
+<div class="content-outline">
+    <div class="content">
+        <div class="content-title">동영상 등록</div>
+
+
+        <form action="/video/create/<%=@club_id.to_i%>" method="post">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <div class="video-title-div">
+                <p>제목</p>
+                <%= text_field_tag :title, nil, placeholder: "제목을 입력해주세요", class: "video-regi-title" %>
+            </div>
+            <div class="video-title-div" >
+                <p>주소</p>
+                <%= text_area_tag :content, nil, placeholder: "youtube주소를 적어주세요", class: "video-regi-address" %>
+            </div>
+            <div class="button-in-video">
+                <%= button_tag "작성하기", class: "button-in-video-new" %>
+            </div>            
+            
+        </form>
+    </div>
+</div>
+
+

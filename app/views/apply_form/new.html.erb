@@ -1,0 +1,112 @@
+<div class="content-outline">
+    <div class="content">
+        <div class="content-title">지원양식 생성 페이지</div>
+        <%if user_signed_in? && current_user.authorization == '1' && current_user.authorization == '0' %>
+            <% club_id = ClubMember.find_by_user_id(current_user.id).club_id %>
+            <form action="/apply_form/create/<%= club_id %>" method="post">
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                
+                <!-- 1번질문 -->
+                <div class="apply-content-outline">
+                    <!--<svg class="svg-line-apply-index-pink" height="100" width="100">-->
+                    <!--    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />-->
+                    <!--    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />-->
+                    <!--</svg>-->
+                    <div class="apply-content">
+                        <div class="question-q">Q 1.</div>
+                        <div class="apply_form_input">
+                            <input type="text" name="title1">
+                        </div>
+                    </div>
+                    <!--<div class="structure-end">-->
+                    <!--    <svg class="svg-line-apply-index-yellow" height="100" width="100">-->
+                    <!--        <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />-->
+                    <!--        <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />-->
+                    <!--    </svg>-->
+                    <!--</div>-->
+                </div>
+                <!-- 2번질문 -->
+                <div class="apply-content-outline">
+                    <!--<svg class="svg-line-apply-index-pink" height="100" width="100">-->
+                    <!--    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />-->
+                    <!--    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />-->
+                    <!--</svg>-->
+                    <div class="apply-content">
+                        <div class="question-q">Q 2.</div>
+                        <div class="apply_form_input">
+                            <input type="text" name="title2">
+                        </div>
+                    </div>
+                    <!--<div class="structure-end">-->
+                    <!--    <svg class="svg-line-apply-index-yellow" height="100" width="100">-->
+                    <!--        <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />-->
+                    <!--        <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />-->
+                    <!--    </svg>-->
+                    <!--</div>-->
+                </div>
+                <!-- 3번질문 -->
+                <div class="apply-content-outline">
+                    <!--<svg class="svg-line-apply-index-pink" height="100" width="100">-->
+                    <!--    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />-->
+                    <!--    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />-->
+                    <!--</svg>-->
+                    <div class="apply-content">
+                        <div class="question-q">Q 3.</div>
+                        <div class="apply_form_input">
+                            <input type="text" name="title3">
+                        </div>
+                    </div>
+                    <!--<div class="structure-end">-->
+                    <!--    <svg class="svg-line-apply-index-yellow" height="100" width="100">-->
+                    <!--        <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />-->
+                    <!--        <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />-->
+                    <!--    </svg>-->
+                    <!--</div>-->
+                </div>
+                <!-- 4번질문 -->
+                <div class="apply-content-outline">
+                    <!--<svg class="svg-line-apply-index-pink" height="100" width="100">-->
+                    <!--    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />-->
+                    <!--    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />-->
+                    <!--</svg>-->
+                    <div class="apply-content">
+                        <div class="question-q">Q 4.</div>
+                        <div class="apply_form_input">
+                            <input type="text" name="title4">
+                        </div>
+                    </div>
+                    <!--<div class="structure-end">-->
+                    <!--    <svg class="svg-line-apply-index-yellow" height="100" width="100">-->
+                    <!--        <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />-->
+                    <!--        <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />-->
+                    <!--    </svg>-->
+                    <!--</div>-->
+                </div>
+                <!-- 5번질문 -->
+                <div class="apply-content-outline">
+                    <!--<svg class="svg-line-apply-index-pink" height="100" width="100">-->
+                    <!--    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />-->
+                    <!--    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />-->
+                    <!--</svg>-->
+                    <div class="apply-content">
+                        <div class="question-q">Q 5.</div>
+                        <div class="apply_form_input">
+                            <input type="text" name="title5">
+                        </div>
+                    </div>
+                    <!--<div class="structure-end">-->
+                    <!--    <svg class="svg-line-apply-index-yellow" height="100" width="100">-->
+                    <!--        <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />-->
+                    <!--        <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />-->
+                    <!--    </svg>-->
+                    <!--</div>-->
+                </div>
+                
+                <div class="button-in-apply-form">
+                    <input class="button-apply-form-edit" type="submit" value="제출">
+                </div>
+                
+            </form>
+        <% end %>
+</div>
+</div>

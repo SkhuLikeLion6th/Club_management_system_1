@@ -1,0 +1,27 @@
+<div class="content-outline">
+    <div class="content">
+        <div class="content-title">지원 가능 단체 모음</div>
+        <div class="club-card-align">
+            <% if @club_check != nil %>
+                <% @clubs.each do |x| %>
+                    <% if x.apply_active == '1' && ApplyForm.find_by_club_id(x.club.id) != nil %>
+                            <div class="club-card">
+                                <div class="club-index-top">
+                                    <a href="/club/club_view/<%= x.club.id %>">
+                                        <img src="/assets/clubs/<%=x.id%>.jpg" class="club-img" alt="square" width="100%">
+                                    </a>
+                                    <div class="club-index-name"><a href="/club/club_view/<%= x.club.id %>"><%= x.club.club_name %></a></div>
+                                </div>
+                                <svg class="svg-line" height="25" width="150">
+                                    <line x1="0" y1="0" x2="150" y2="0" style="stroke: #FEE19F; stroke-width:5" />
+                                </svg>
+                                <div class="club-index-intro"><p><%= x.club.introduce %></p></div>
+                            </div>
+                    <% end %>
+                <% end %>
+            <% else %>
+                <div class="if-none-contents">지원 가능한 동아리가 없습니다.</div>
+            <% end %>
+        </div>
+    </div>
+</div>

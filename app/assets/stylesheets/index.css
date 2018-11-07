@@ -1,0 +1,129 @@
+/*header*/
+
+header{
+    margin-top: 2rem;
+    padding: 0.5rem 0 0 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.header-bottom{
+    height: 3rem;
+    
+}
+
+.car-h{
+    position: relative;
+    top: -7rem;
+    font-weight: bold;
+}
+
+.car-p{
+    position: relative;
+    top: -4rem;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+
+.car-btn{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin: 1rem 0.5rem 0 0.5rem;
+    border-radius: 100%
+}
+.car-btn:hover{
+    cursor: pointer;
+}
+
+.car-btn-1{
+    background-color: #56cec1;
+}
+.car-btn-2{
+    background-color: #3596b0;
+}
+.car-btn-3{
+    background-color: #327cac;
+}
+.car-btn-3{
+    background-color: #4363a4;
+}
+
+/*article*/
+
+article{
+    padding-top: 4rem;
+}
+
+/*article_1*/
+.artcl-add-top{
+    width: 100%;
+    background: url(/assets/index/banner_1.png);
+    border-radius: 5px;
+}
+
+.artcl-add-h{
+    padding: 2rem 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.artcl-add-btn{
+    margin: 1.8rem 0;
+    width: 7rem;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #fff;
+    border: none;
+    color: #327cac;
+    font-size: 1rem;
+    font-weight: bold;
+}
+.artcl-add-btn:hover{
+    cursor: pointer;
+}
+
+.artcl-clubs-h{
+    border-top: 1px solid #ddd;
+    padding: 0.5rem 0 1.5rem 0.5rem;
+    color: #333;
+}
+
+.artcl-clubs-p{
+    font-size: 12px;
+    color: #777;
+}
+
+.artcl-clubs-more{
+    width: 100px;
+    height: 40px;
+    border: 3px solid #999;
+    background-color: transparent;
+    border-radius: 50px;
+    color: #999;
+    font-size: 1.2rem;
+    margin: 30px;
+}
+.artcl-clubs-more:hover{
+    cursor: pointer;
+}
+
+/*article_2*/
+.article_2{
+    border-top: 1px solid #ddd;
+}
+
+.artcl_2-add-more{
+    margin-top: 1rem;
+    background-color: transparent;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    color: #4363a4;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.2rem 0.5rem;
+}
+.artcl_2-add-more:hover{
+    color: #ddd;
+}

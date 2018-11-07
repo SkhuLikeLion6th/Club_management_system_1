@@ -1,0 +1,33 @@
+.user_apply_info{
+    width: 470px;
+    margin: auto;
+    margin-bottom: 15px;
+    border: 1.5px solid #FFD0D6;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.user-info-line{
+    position: relative;
+}
+
+.user_info-title{
+    text-align: right;
+}
+
+.question_box{
+    display: inline;
+    padding-bottom: 3px;
+    font-size: 25px;
+    border-bottom: 2px solid #999;
+    font-weight: bold;
+    color: #555;
+}
+.answer_box{
+    min-height: 200px;
+    padding: 5px 1rem;
+    border: 1.5px solid #bbb;
+    border-radius: 7px;
+    font-size: 17px;
+    font-weight: bold;
+}

@@ -1,0 +1,53 @@
+/* main-index */
+.content-outline{
+    margin-top: 40px;
+    margin-bottom: 100px;
+    /*height: 800px;*/
+    min-height: 500px;
+    /*height: auto;*/
+}
+
+.content{
+    width: 880px;
+    margin: auto;
+    font-family: 'netmarbleL';
+    color: #434343;
+}
+
+.content-narrow{
+    width: 780px;
+    margin: auto;
+    font-family: 'netmarbleL';
+    color: #434343;
+}
+
+.content-calendar{
+    width: 1000px;
+    margin: auto;
+    font-family: 'netmarbleL';
+    color: #434343;
+}
+
+.content-main{
+    margin-top: 50px;
+    text-align: center;
+}
+
+.thumnail-in-main{
+    width: 90px;
+    margin-bottom: 7px;
+}
+
+.content-title{
+    font-size: 2.0rem;
+    text-align: center;
+    font-family: 'netmarbleL';
+    margin-bottom: 40px;
+    padding-top: 60px;
+}
+
+.if-none-contents{
+    padding-top: 8rem;
+    font-size: 1.5rem;
+    text-align: center;
+}

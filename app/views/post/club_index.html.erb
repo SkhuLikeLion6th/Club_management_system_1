@@ -1,0 +1,9 @@
+<form action="/post/update/<%= @posts.id %>" method='post'>
+    <p><%= @posts.title %></p>
+    <p><%= @posts.content %></p>
+    <a href='/post/index'>되돌아가기</a><br>
+    <% if current_user.id == @posts.user_id %>
+        <a href='/post/edit/<%= @posts.id %>'>수정</a>
+        <a href='/post/destroy/<%= @posts.id %>'>삭제</a>
+    <% end %>
+</form>

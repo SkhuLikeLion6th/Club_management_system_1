@@ -1,0 +1,167 @@
+/* club-index */
+.club-card-align{
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.club-card{
+    max-width: 25%;
+    min-width: 25%;
+    position: relative;
+    padding-right: 7px;
+    padding-left: 7px;
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+.club-index-name{
+    display: inline-block;
+    padding: 5px;
+    font-size: 20px;
+}
+
+.club-index-intro{
+    margin-top: -11px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 14px;
+    color: #434343;
+}
+
+.svg-line{
+    padding-left: 5px;
+}
+
+.club-view{
+    text-align: center;
+}
+
+.club-intro-detail{
+    margin: auto;
+    width: 510px;
+    margin-top: 1rem;
+    font-size: 18px;
+    color: #434343;
+    text-align: center;
+}
+
+.content-club-view{
+    width: 800px;
+    margin: auto;
+    font-family: 'netmarbleL';
+    color: #434343;
+}
+
+.member-view{
+    margin-top: 2rem;
+}
+
+.subheading{
+    font-size: 22px;
+    margin-top: 2rem;
+}
+
+.svg-line-club-view{
+    margin: 0;
+}
+
+.sub-content{
+    margin-top: -1rem;
+}
+
+.memeber-info{
+    text-align: center;
+}
+
+.button-club-index{
+    display: inline-block;
+    color: #929292 !important;
+    border-color: #929292;
+    border-width: 2px;
+    font-size: 14px;
+    padding-right: 2px;
+    padding-left: 2px;
+}
+
+.button-in-club-view{
+    margin: auto;
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.button-in-club-view-pink{
+    font-size: 18px;
+    margin: 0.3rem;
+    padding-top: 0.45rem;
+    padding-bottom: 0.45rem;
+    padding-right: 0.7rem;
+    padding-left: 0.7rem;
+    background-color: #FFD0D6;
+    color: white;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.button-in-club-view-yellow{
+    margin: 0.3rem;
+    font-size: 18px;
+    padding-top: 0.45rem;
+    padding-bottom: 0.45rem;
+    padding-right: 0.7rem;
+    padding-left: 0.7rem;
+    background-color: #FEE19F;
+    color: white;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+/* club_edit page*/
+
+.button-in-club-edit{
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.button-club-edit-submit{
+    margin: 0.3rem;
+    font-size: 18px;
+    padding-top: 0.45rem;
+    padding-bottom: 0.45rem;
+    padding-right: 0.7rem;
+    padding-left: 0.7rem;
+    background-color: #FEE19F;
+    color: white;
+    border-radius: 10px;
+    display: inline-block;
+    border-color: white;
+}
+
+.edit-content-outline{
+    width: 700px;
+    margin: auto;
+    padding: 15px;
+    position: relative;
+}
+
+.edit-content{
+    padding-top: 50px;
+    padding-left: 60px;
+    padding-bottom: 50px;
+    padding-right: 60px;
+    margin: auto;
+}
+
+.club-edit-title{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.club-edit-content{
+    margin-bottom: 20px;
+}
+
+

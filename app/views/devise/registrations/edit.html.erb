@@ -1,0 +1,59 @@
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :email, required: true, autofocus: true %>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+    <% end %>
+
+    <p>비밀번호</p>
+    <input type="password" name="user[password]" placeholder="비밀번호를 입력하세요.">
+    <p>비밀번호 확인</p>
+    <input type="password" name="user[password_confirmation]" placeholder="비밀번호를 다시 입력해주세요.">
+    <p>이름</p>
+    <input type="text" name="name" placeholder="이름을 입력하세요.">
+    <p>메일</p>
+    <input type="email" name="mail" placeholder="메일을 입력하세요.">
+    <p>전화번호</p>
+    <input type="text" name="phone_number" placeholder="핸드폰 번호를 입력하세요.">
+    <p>학년</p>
+    <select name="grade_id">
+      <option value=1 SELETED>1학년</option>
+      <option value=2>2학년</option>
+      <option value=3>3학년</option>
+      <option value=4>4학년</option>
+    </select>
+    <p>학과</p>
+    <select name="department_id">
+      <option value=1 SELETED>IT융합 자율학부</option>
+      <option value=2>컴퓨터공학</option>
+      <option value=3>소프트웨어공학</option>
+      <option value=4>정보통신공학</option>
+      <option value=5>글로컬IT</option>
+      <option value=6>미디어컨텐츠융합 자율학부</option>
+      <option value=7>신문방송학</option>
+      <option value=8>디지털컨텐츠</option>
+      <option value=9>사회융합 자율학부</option>
+      <option value=10>사회과학</option>
+      <option value=11>사회복지학</option>
+      <option value=12>경영학</option>
+      <option value=13>인문융합 자율학부</option>
+      <option value=14>일어일본학</option>
+      <option value=15>중어중국학</option>
+      <option value=16>기독교문화</option>
+      
+    </select>
+    
+    <input type="submit" value="완료">
+  </div>
+<% end %>
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+<%= link_to "Back", :back %>

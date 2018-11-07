@@ -1,0 +1,59 @@
+<div class="content-outline">
+    <div class="content-calendar">
+        <div class="content-title">일정</div>
+    <p id="notice"><%= notice %></p>
+    
+        <%= month_calendar events: @meetings do |date, meetings| %>
+          <%= date.day %>
+        
+          <% meetings.each do |meeting| %>
+            <div class="calendar-content">
+              <% @clubs.each do |c| %>
+                <% if meeting.club_id == c.id %>
+                  <a href="meetings/<%=meeting.id%>"><%= meeting.name %>[<%=c.club_name%>]</a>
+                <%end%>
+              <%end%>
+              
+            </div>
+          <% end %>
+        <% end %>
+    
+    <div class="calendar-content-outline">
+    <div class="row">
+      <% @meetings.each do |meeting| %>
+      <div class="col-9">
+        <div class="row">
+        <div class="col-4"><div class="calendar-content-title">일정</div></div>
+        <div class="col-8"><%= meeting.name %></div>
+        </div>
+        <div class="calendar-time row">
+          <div class="col-3"><div class="calendar-content-title">시작시간</div></div>
+          <div class="col-3"><div class="calendar-content-detail"><%= meeting.start_time.strftime('%m월 %d일 %H시') %></div></div>
+          <div class="col-3"><div class="calendar-content-title">끝나는 시간</div></div>
+          <div class="col-3"><div class="calendar-content-detail"><%= meeting.end_time.strftime('%m월 %d일 %H시') %></div></div>
+        </div>
+      </div>
+      <div class="calendar-btns col-3">
+        <div class="calendar-content-btn"><%= link_to '보기', meeting %></div>
+        <!--<div class="calendar-content-btn"><#%= link_to '수정', edit_meeting_path(meeting) %></div>-->
+        <% if user_signed_in? %>
+          <% if current_user.authorization == '1' || current_user.authorization == '0' %>
+            <div class="calendar-content-btn"><%= link_to '삭제', meeting, method: :delete, data: { confirm: '삭제하시겠습니까?' } %></div>
+          <% end %>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+    </div>
+    
+    <br>
+      <% if user_signed_in? %>
+         <% if current_user.authorization == '1' || current_user.authorization == '0' %>
+            <%= link_to '새로운 일정등록', new_meeting_path %>
+         <% end %>
+      <%end%>
+
+    </div>
+  </div>
+</div>
+

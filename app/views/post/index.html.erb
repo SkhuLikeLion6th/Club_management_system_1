@@ -1,0 +1,10 @@
+<% @posts.each do |x| %>
+    <% if x.club_id == @club.club_id %>
+        <a href="/post/club_index/<%= x.id %>"><%= x.title %></a>
+    <% end %>
+<% end %>
+
+<!--하는척 하고 사라진거냐? 라우트 수정중입니다!-->
+<!--오홍-->
+<!--한숨잘까-->
+<!--ㅋㅋ 저금방끝날듯-->

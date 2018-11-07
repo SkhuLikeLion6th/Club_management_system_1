@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>일정:</strong>
+  <%= @meeting.name %>
+</p>
+
+<p>
+  <strong>내용:</strong>
+  <%= @meeting.content %>
+</p>
+
+<p>
+  <strong>단체:</strong>
+        <% @meetings.each do |meeting| %>
+          <% @clubs.each do |c| %>
+            <% if meeting.club_id == c.id %>
+              <%=c.club.club_name%>
+            <%end%>
+          <%end%>
+        <%end%>
+</p>
+
+<p>
+  <strong>시작 시간:</strong>
+  <%= @meeting.start_time %>
+</p>
+
+<p>
+  <strong>끝나는 시간:</strong>
+  <%= @meeting.end_time %>
+</p>
+
+<%= link_to '수정', edit_meeting_path(@meeting) %> |
+<%= link_to '이전', meetings_path %>

@@ -1,0 +1,51 @@
+
+<div class="content-outline">
+    <div class="content-video">
+        <form action = "/video/club_video/<%= @club_id %>" method="get">
+        <div class="content-title">동영상 보기</div>
+            <div class="video-index-menu">
+                
+                    <% if user_signed_in? && (current_user.authorization == "1" || current_user.authorization == "0") %>
+                        <a class="button-in-video-new" href="/video/new">동영상 등록</a>
+                    <% end %>
+            <div class="club-select">
+
+                
+                <select onchange="window.location=this.value">
+                  <option>단체를 고르세요</option>
+                  <% @clubs.each do |c| %> 
+                    <option value=<%= c.id %>><%= c.club_name %></option>
+                  <% end %>
+                </select>            
+                
+                
+            </div>
+        </div>
+
+        
+         <div class="video-list">
+            <div class="row">
+                   <% @videos.each do |video| %>
+                       <% if params[:club_id].to_i == video.club_id %>
+                   
+                        <div class="col-4">
+                            <%= raw(youtube_embed(video.content)) %>
+                            <div class="video-name"><%= video.title %> </div>
+                            <svg class="svg-line-video" height="25" width="150">
+                                <line x1="0" y1="0" x2="150" y2="0" style="stroke:#FEE19F; stroke-width:5" />
+                            </svg>
+                            <div class="video-uploader"><%= video.user.name %></div>
+                            <% if current_user.id == video.user.id %>
+                                <%= link_to '삭제' , "/video/#{video.id}", method: 'delete'%>
+                            <% end %>
+                        </div>
+                    <%end%>
+                <% end %>
+            </div>
+        </div>
+
+        </div>
+        
+      </form>  
+    </div>
+</div>    

@@ -1,0 +1,87 @@
+<!--서버관리자: 전체 지원목록을 볼수 있음, 단체관리자: 소속된 단체의 지원 목록을 볼 수 있음, 일반 유저: 자신이 쓴 지원 목록밖에 못봄-->
+<div class="content-outline">
+  <div class="content-narrow">
+    <% if user_signed_in? %>
+        <% if current_user.authorization == '0' %>
+            <div class="content-title">지원 내용 확인</div>
+            <table class="clubmember-table">
+              <div>
+                <tr>
+                  <th scope="col">이름</th>
+                  <th scope="col">학과</th>
+                  <th scope="col">지원 단체</th>
+                  <th scope="col">시간</th>
+                  <th scope="col"></th>
+                </tr>
+              </div>
+            
+            <% @contents.each do |x| %>
+              <div>
+                    <tr>
+                        <td><%= User.find(x.user_id).name %></td>
+                        <td><%= User.find(x.user_id).department.department_name %></td>
+                        <td><%= x.apply_form.club.club_name %></td>
+                        <td><%= x.updated_at.strftime('%Y년 %m월 %d일 %H시%M분') %></td>
+                        <td><a id="clubmember-del" href = "/apply_content/user_application_view/<%= x.id %>">보기</a></td>
+                   </tr>
+              </div>
+            <% end %>
+            </table>
+            </div>
+        <% elsif current_user.authorization == '1' %>
+            <div class="clubmember-title"><%= ClubMember.find_by_user_id(current_user.id).club.club_name %> 지원자 목록</div>
+            <table class="clubmember-table">
+              <div>
+                <tr>
+                  <th scope="col">이름</th>
+                  <th scope="col">학과</th>
+                  <th scope="col"> 시간</th>
+                  <th scope="col"></th>
+                </tr>
+              </div>
+            <% @contents.each do |x| %>
+                <% if @current_check_club.club_id == x.apply_form.club_id %>
+                    <div>
+                        <tr>
+                            <td><%= User.find(x.user_id).name %></td>
+                            <td><%= User.find(x.user_id).department.department_name %></td>
+                            <td><%= x.updated_at.strftime('%Y년 %m월 %d일 %H시%M분') %></td>
+                            <td><a id="clubmember-del" href = "/apply_content/user_application_view/<%= x.id %>">보기</a></td>
+                        </tr>
+                    </div>
+                <% end %>
+            <% end %>
+            </table>
+            </div>
+        <% else %>
+            <div class="clubmember-title">지원 내용 확인</div>
+            <table class="clubmember-table">
+              <div>
+                <tr>
+                  <th scope="col">이름</th>
+                  <th scope="col">학과</th>
+                  <th scope="col">지원 단체</th>
+                  <th scope="col">시간</th>
+                  <th scope="col"></th>
+                </tr>
+              </div>
+            
+            <% @contents.each do |x| %>
+                <% if x.user_id == current_user.id %>
+                    <div>
+                        <tr>
+                            <td><%= User.find(x.user_id).name %></td>
+                            <td><%= User.find(x.user_id).department.department_name %></td>
+                            <td><%= x.apply_form.club.club_name %></td>
+                            <td><%= x.updated_at.strftime('%Y년 %m월 %d일 %H시%M분') %></td>
+                            <td><a id="clubmember-del" href = "/apply_content/user_application_view/<%= x.id %>">보기</a></td>
+                        </tr>
+                    </div>
+                <% end %>
+            <% end %>
+            </table>
+            </div>
+        <% end %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="content-outline">
+    <div class="content">
+        <div class="content-title">클럽 수정하기</div>
+        
+        <form action="/club/update_club/<%= @club.id %>" method="post" enctype="multipart/form-data">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            
+            <div class="edit-content-outline">
+                <svg class="svg-line-apply-index-pink" height="100" width="100">
+                    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />
+                    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />
+                </svg>
+                <div class="edit-content">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="club-edit-title">이미지</div>
+                            <div class="club-edit-title">단체 이름</div>
+                            <div class="club-edit-title">소개</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="club-edit-content"><input type="file" name="img" accept="image/*"></div>
+                            <div class="club-edit-content"><input type="text" name="club_name"></div>
+                            <div class="club-edit-content"><input type="text" name="introduce"></div>
+                        </div>
+                    </div>
+                </div>        
+                <div class="structure-end">
+                    <svg class="svg-line-apply-index-yellow" height="100" width="100">
+                        <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />
+                        <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />
+                    </svg>
+                </div>
+            </div>
+            <div class="button-in-club-edit">
+                <input class="button-club-edit-submit" type="submit" value="제출">
+            </div>
+        </form>
+
+    </div>
+</div>

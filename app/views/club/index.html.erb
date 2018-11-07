@@ -1,0 +1,34 @@
+<div class="content-outline">
+    <div class="content">
+        <div class="content-title">단체 목록</div>
+        
+        <div class="club-card-align">
+            <% @clubs.each do |x| %>
+                <div class=" club-card">
+                    <div class="club-index-top">
+                        <a href="/club/club_view/<%= x.id %>">
+                            <img src="/assets/clubs/<%=x.id%>.jpg" class="club-img" alt="square" width="100%">
+                        </a>
+                        <div class="club-index-name"><a href="/club/club_view/<%= x.id %>"><%= x.club_name %></a></div>
+                        <% if user_signed_in? %>
+                            <!--현재 로그인한 유저가 서버관리자면 수정, 삭제를 할 수 있다.-->
+                            <% if current_user.authorization == '0' %>
+                                    <a href="/club/edit_club/<%= x.id %>"><div class="button-club-index">수정</div></a>
+                                    <a href="/club/delete_club/<%= x.id %>"><div class="button-club-index">삭제</div></a>
+                            <!--현재 로그인한 유저가 단체 관리자이고 그 단체에 속하면 수정, 삭제 할 수 있다.-->
+                            <% elsif current_user.authorization == '1' && @current_check_club.club_id == x.id %>
+                                <a href="/club/edit_club/<%= x.id %>"><div class="button-club-index">수정</div></a>
+                                <a href="/club/delete_club/<%= x.id %>"><div class="button-club-index">삭제</div></a>
+                            <% end %>
+                        <% end %>
+                    </div>
+                    <svg class="svg-line" height="25" width="150">
+                        <line x1="0" y1="0" x2="150" y2="0" style="stroke: #FFD0D6; stroke-width:5" />
+                    </svg>
+                    <div class="club-index-intro"><p><%= x.introduce %></p></div>
+                </div>  
+            <% end %>
+        </div>
+        
+    </div>
+</div>

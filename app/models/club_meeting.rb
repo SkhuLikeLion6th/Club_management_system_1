@@ -1,0 +1,2 @@
+class ClubMeeting < ApplicationRecord
+end
