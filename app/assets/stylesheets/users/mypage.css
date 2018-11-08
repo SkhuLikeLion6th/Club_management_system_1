@@ -1,0 +1,48 @@
+/*signup body*/
+
+.mypage{
+	padding: 3rem 0 2rem 0;	
+}
+
+
+.mypagebox{
+	padding: 2rem;
+	box-sizing: border-box;
+	border-radius: 5px;
+	border: 1px solid #ddd;
+}
+
+.mypagebox h1{
+	font-size: 2rem;
+	color: #000;
+	font-weight: bold;
+	margin-bottom: 3rem;
+
+}
+
+.mypage-p{
+	font-size: 1.5rem;
+	/*padding: 0 0 0.5rem 3rem;*/
+	padding-left: 1rem;
+	padding-bottom: 0.5rem;
+	font-weight: bold;
+	color: #000;
+}
+
+.mypage-edit{
+	margin: 3rem 0 1.5rem 0;
+	border: none;
+	outline: none;
+	padding: 0.5rem 0;
+	background: url(/assets/index/banner_1.png);
+	counter-reset: #fff;
+	font-size: 1.2rem;
+	border-radius: 5px;
+	font-weight: bold;
+}
+
+.mypage-edit:hover{
+	cursor: pointer;
+	color: #fff;
+}
+

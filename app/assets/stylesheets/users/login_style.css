@@ -44,8 +44,8 @@
 }
 
 .loginbox .form-inputs p{
-	margin-bottom: 5px;
-	margin-left: 5px;
+	margin-bottom: 0.5rem;
+	margin-left: 0.5rem;
 }
 
 .loginbox input[type="text"], .loginbox input[type="password"]{
@@ -53,9 +53,9 @@
 	border-bottom: 1px solid #000;
 	background: transparent;
 	outline: none;
-	height: 40px;
+	height: 2.5rem;
 	color: #222;
-	font-size: 16px;
+	font-size: 1.2rem;
 }
 
 .loginbox input[type="submit"]
@@ -66,7 +66,7 @@
 	height: 2.5rem;
 	background: url(/assets/index/banner_1.png);
 	font-size: 1.2rem;
-	border-radius: 10px;
+	border-radius: 5px;
 	font-weight: bold;
 }
 

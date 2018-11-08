@@ -1,136 +1,83 @@
-/*signup body*/
-.signup_body{
-	height: 1000px;
-	font-family: 'WONDotum';
+.signup{
+	padding: 3rem 0 2rem 0;
 }
-
 
 /*signup box*/
 .signupbox{
-	margin-top: 100px;
-	width: 630px;
-	height: 830px;
-	background: #ffeaed;
-	color: #fff;
-	top: 600px;
-	left: 50%;
-	position: absolute;
-	transform: translate(-50%, -50%);
+	/*height: 830px;*/
+	padding: 3rem;
 	box-sizing: border-box;
-	padding: 40px 50px 70px 50px;
-	border-radius: 3%;
+	border-radius: 5px;
+	border: 1px solid #ddd;
 }
 
 .signupbox h1{
-	width: 40%;
-	text-align: center;
-	font-size: 40px;
-	margin: 0 auto;
-	margin-bottom: 60px;
-	color: #555;
+	font-size: 1.5rem;
+	color: #000;
 	font-weight: bold;
-	/*border-bottom: 4px solid #FEE19F;*/
-	border-radius: 20px;
-	padding-bottom: 10px;
-}
-.signupbox .edit-my{
-	font-size: 35px;
+	margin-bottom: 2rem;
 }
 
-.signupbox p{
-	margin: 0px;
-	padding: 0px;
+.signupbox-p{
+	/*font-size: 1rem;*/
 	font-weight: bold;
-	color: #555;
-	font-family: 'WONDotum' !important;
+	color: #000;
 }
 
 .signupbox input{
 	width: 100%;
-	margin-bottom: 20px;
-	font-family: 'WONDotum' !important;
+	margin-bottom: 1rem;
 }
 
 .signupbox input[type="text"], .signupbox input[type="email"]{
 	border: none;
-	border-bottom: 1px solid #fff;
+	border-bottom: 1px solid #000;
 	background: transparent;
 	outline: none;
 	height: 40px;
-	color: #888;
-	font-size: 16px;
+	color: #333;
+	font-size: 1rem;
+	padding-left: 1rem;
 }
 .signupbox input[type="password"]{
 	border: none;
-	border-bottom: 1px solid #fff;
+	border-bottom: 1px solid #000;
 	background: transparent;
 	outline: none;
 	height: 40px;
-	color: #888;
-	font-size: 16px;
+	color: #333;
+	font-size: 1rem;
+	padding-left: 1rem;
 }
 
 .signupbox input[type="submit"]
 {
-	margin-top: 30px;
+	margin-top: 2rem;
 	border: none;
 	outline: none;
-	height: 40px;
-	background: #FEE19F;
+	padding: 0.5rem 0;
+	background: url(/assets/index/banner_1.png);
 	counter-reset: #fff;
-	font-size: 18px;
-	border-radius: 20px;
+	font-size: 1.2rem;
+	border-radius: 5px;
+	font-weight: bold;
 }
 
 .signupbox input[type="submit"]:hover
 {
 	cursor: pointer;
-	background: #ffc107;
-	color: #555;
+	color: #fff;
 }
 
-/*select*/
 .selc{
-	overflow: hidden;
-
-}
-
-.selc_1{
-    width: 200px;
-    height: 30px;
-    padding-left: 70px;
-    margin: 23px 0;
-    font-size: 18px;
-    color: #888;
-    border: 1px solid #fff;
+    width: 100%;
+    /*height: 1rem;*/
+    margin: 0.3rem 0;
+    padding: 0.2rem 0.5rem;
+    font-size: 1rem;
+    color: #000;
+    border: 1px solid #4363a4;
     border-radius: 5px;
-    display: inline-block;
-    float: left;
-    background-color: #fff;
-}
-
-.selc_2 {
-    width: 200px;
-    height: 30px;
-    padding-left: 25px;
-    margin: 23px 0;
-    font-size: 18px;
-    color: #888;
-    border: 1px solid #fff;
-    border-radius: 5px;
-    display: inline-block;
-    float: left;
-    background-color: #fff;
-}
-
-
-.selc p{
-	margin: 26px 0;
-	float: left;
-	padding-left: 7px;
-	display: inline-block;
-	padding-right: 5px;
-}
-.selc p.p_1{
-	padding-left: 30px;
+    display: block;
+    background: transparent;
 }

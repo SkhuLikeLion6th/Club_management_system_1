@@ -159,3 +159,48 @@
       <% end %>
   </div>
 </div>  
+
+<!--mypage-->
+
+<% if @club_id == nil %>
+    <p class="mypage-p"> 소속된 동아리가 없습니다. </p>
+<% else %>
+    <!--<div class="mypage_club_box">-->
+    <p id="mypage-p">소속</p>
+    <!--</div>-->
+    <div class="mypage-above-my_club">
+        <% @clubs.each do |x| %>
+            <% if current_user.id == x.user_id %>
+                <a href='/club/my_club' id="mypage_myclub" ><%= x.club.club_name %></a>
+            <%end%>
+        <% end %>
+    </div>
+<% end %>
+<!--지원자 또는 서버 관리자 또는 동아리관리자는 지원내용 확인하는 페이지로 갈 수 있도록 버튼활성화-->
+
+<% if ApplyContent.find_by_user_id(current_user.id) != nil || current_user.authorization == '0' %>
+    <% if ApplyContent.find_by_user_id(current_user.id) != nil %>
+        <p class="mypage-p">지원 여부: o</p>
+    <% end %>
+    <div class="button-above-button">
+        <a href='/apply_content/index' id="mypage_myapply"><div id="mypage_p">지원 내용 확인</div></a>
+    </div>
+<% else %>
+    <!--<p>지원 여부: X</p>-->
+    <!--<div class="mypage-above-button">-->
+    <!--    <a href='/club/index' id="mypage_myapply"><div id="mypage_p">동아리 보기</div></a>-->
+    <!--</div>-->
+<% end %>
+
+<!--myclubs-->
+
+<div class="content-outline">
+    <div class="content">
+        <div class="content-title">내 동아리</div>
+        
+        <div class="club-card-align">
+            
+        </div>
+        
+    </div>
+</div>

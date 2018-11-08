@@ -1,29 +1,28 @@
-<div class="content-outline">
-    <div class="content">
-        <div class="content-title">내 동아리</div>
-        
-        <div class="club-card-align">
-            <% if @club_check != nil %>
-                <% @clubs.each do |x| %>
-                    <% if current_user.id == x.user_id %>
-                        
-                            <div class="club-card">
-                                <a href="/club/club_view/<%= x.club.id %>">
-                                    <img src="/assets/clubs/<%=x.club_id%>.jpg" class="club-img" alt="square" width="100%">
-                                </a>
-                                <div class="club-index-name"><a href="/club/club_view/<%= x.club.id %>"><%= x.club.club_name %></a></div>
-                                <svg class="svg-line" height="25" width="150">
-                                    <line x1="0" y1="0" x2="150" y2="0" style="stroke: #FFD0D6; stroke-width:5" />
-                                </svg>
-                                <div class="club-index-intro"><p><%= x.club.introduce %>Hack your life! <br>내가 만들고 싶은 페이지를 내 손으로</p></div>
-                            </div>
-                        
-                    <% end %>
-                <% end %>
-            <% else %>
-                <div class="if-none-contents"><p class="no-club">가입한 동아리가 없습니다.</p></div>
+<div class="my_club mt60 mb60">
+  <div class="container">
+    <div class="align-center"><h2 class="myclub-h2">나의 소속</h2></div>
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-10 align-center">
+        <% if @club_check != nil %>
+          <% @clubs.each do |x| %>
+            <% if current_user.id == x.user_id %>
+              <a href="/club/club_view/<%= x.club.id %>">    
+                <div class="card dsply-inbl pl05 pr05 ml10 mr10 mb20" style="width: 13rem;">
+                  <img class="card-img-top" src="/assets/clubs/<%=x.club_id%>.jpg" alt="Club image">
+                  <div class="card-body">
+                    <h5 class="myclubs-h3"><%= x.club.club_name %></h5>
+                    <p class="card-text clubs-p"><%= x.club.introduce %></p>
+                  </div>
+                </div>
+              </a>
             <% end %>
-        </div>
-        
-    </div>
+          <% end %>
+        <% else %>
+            <div class="if-none-contents"><p class="no-club">가입한 동아리가 없습니다.</p></div>
+        <% end %>
+      </div>
+      <div class="col-1"></div>
+    </div>  
+  </div>
 </div>

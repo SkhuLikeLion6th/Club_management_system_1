@@ -1,0 +1,19 @@
+.my_club{
+    padding: 3rem 0 2rem 0;
+}
+.myclub-h2{
+    margin: 2rem 0 3rem 0;
+}
+
+.myclubs-h3{
+    border-top: 1px solid #ddd;
+    padding: 1rem 0;
+    color: #000;
+    font-weight: bold;
+}
+
+
+.clubs-p{
+    font-size: 1rem;
+    color: #000;
+}
