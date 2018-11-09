@@ -1,4 +1,30 @@
-.club-name{
-    font-size: 40px;
-    /*font-weight: bold;*/
+.club-view{
+    padding: 4rem 0 2rem 0;
 }
+
+.club-view-img{
+   width: 20rem;
+   margin-bottom: 2rem;
+}
+
+.club-view-h{
+    padding: 1rem;
+    font-size: 2.5rem;
+    color: #000;
+    font-weight: bold;
+}
+
+.club-view-p{
+    font-size: 2rem;
+    color: #000;
+    padding: 1rem 0 2rem 0;
+}
+
+.club-view-memb{
+    width: 4rem;
+    padding: 0.3rem;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+}
+
+

@@ -53,6 +53,7 @@ class ClubController < ApplicationController
     end
   end
   
+  
   def edit_club # 클럽을 불러오는 함수
     if user_signed_in?
       @club = Club.find(params[:club_id])
@@ -75,7 +76,7 @@ class ClubController < ApplicationController
     uploader = ImguploaderUploader.new
     uploader.store!(params[:img])
     @club.img_url = uploader.url
-      
+
     @club.save
     
     redirect_to '/club/index'

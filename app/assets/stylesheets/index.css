@@ -63,7 +63,7 @@ article{
 }
 
 .artcl-add-h{
-    padding: 2rem 0;
+    padding: 2.15rem 0;
     font-size: 1.5rem;
     font-weight: bold;
     color: #fff;
@@ -119,11 +119,13 @@ article{
     background-color: transparent;
     border: 2px solid #ddd;
     border-radius: 5px;
-    color: #4363a4;
+    color: #999;
     font-size: 1rem;
     font-weight: bold;
     padding: 0.2rem 0.5rem;
 }
 .artcl_2-add-more:hover{
-    color: #ddd;
+    color: #999;
+    color: #4363a4;
+    border: 2px solid #4363a4;
 }
