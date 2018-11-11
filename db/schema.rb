@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181109041823) do
+ActiveRecord::Schema.define(version: 20181111044357) do
 
   create_table "apply_contents", force: :cascade do |t|
     t.integer  "apply_form_id"
@@ -74,6 +74,15 @@ ActiveRecord::Schema.define(version: 20181109041823) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "group_options", force: :cascade do |t|
+    t.integer  "small_group_id_id"
+    t.string   "apply_active",      default: "1"
+    t.string   "view_active",       default: "1"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.index ["small_group_id_id"], name: "index_group_options_on_small_group_id_id"
+  end
+
   create_table "meetings", force: :cascade do |t|
     t.string   "name"
     t.string   "content"
@@ -102,9 +111,10 @@ ActiveRecord::Schema.define(version: 20181109041823) do
   end
 
   create_table "small_groups", force: :cascade do |t|
-    t.string   "group_name"
+    t.text     "group_name"
     t.string   "introduce"
     t.string   "img_url"
+    t.string   "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

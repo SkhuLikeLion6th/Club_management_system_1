@@ -32,6 +32,7 @@
   
   <!--font-->
   <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script" rel="stylesheet">
   
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -60,7 +61,7 @@
               
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                   <a class="dropdown-item" href="/club/index">동아리</a>
-                  <a class="dropdown-item" href="#">소모임</a>
+                  <a class="dropdown-item" href="/small_group/index">소모임</a>
                   <a class="dropdown-item" href="#">학생회</a>
                 </div>
               </div>
@@ -97,7 +98,7 @@
                     <% if ApplyForm.find_by_club_id(@club_id) == nil %>
                       <a class="dropdown-item" href="/apply_form/index">지원서 관리</a>
                     <% else %>
-                      <a class="dropdown-item" href="/apply_form/edit/<%= @club.id %>">지원서 관리</a>
+                      <a class="dropdown-item" href="/apply_form/edit/<%= @club_id %>">지원서 관리</a>
                     <% end %>
                   </div>
                 </div>

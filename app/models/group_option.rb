@@ -1,0 +1,2 @@
+class GroupOption < ApplicationRecord
+end

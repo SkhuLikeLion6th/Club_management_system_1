@@ -67,6 +67,7 @@ a:hover{ color: #000; text-decoration: none; }
 .pb50 {padding-bottom: 50px !important;}
 .pb55 {padding-bottom: 55px !important;}
 .pb60 {padding-bottom: 60px !important;}
+.pb100 {padding-bottom: 100px !important;}
 
 .mauto {margin: auto !important;}
 .mt00 {margin-top: 0px !important;}
@@ -125,3 +126,4 @@ a:hover{ color: #000; text-decoration: none; }
 .mb50 {margin-bottom: 50px !important;}
 .mb55 {margin-bottom: 55px !important;}
 .mb60 {margin-bottom: 60px !important;}
+.mb100 {margin-bottom: 100px !important;}

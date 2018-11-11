@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :posts
   has_many :meetings
   has_many :clubs
+  has_many :small_groups
   
   belongs_to :department
   belongs_to :grade

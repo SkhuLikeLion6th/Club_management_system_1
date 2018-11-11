@@ -64,6 +64,17 @@ Rails.application.routes.draw do
   
   post 'club/create_club'
   
+  # 소모임을 보는 라우트
+  get 'small_group/index'
+  
+  get 'small_group/group_view/:group_id' => 'small_group#group_view'
+  
+  # group을 새로 만드는 라우트
+  get 'small_group/new_group'
+  
+  post 'small_group/create_group'
+  
+  
   ##############################
   
   get 'club/index'
