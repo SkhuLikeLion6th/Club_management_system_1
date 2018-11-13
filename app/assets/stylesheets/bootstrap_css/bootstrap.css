@@ -1522,9 +1522,14 @@ pre code {
 
 .table th,
 .table td {
-  padding: 0.75rem;
+  padding: 0.5rem;
   vertical-align: top;
   border-top: 1px solid #dee2e6;
+}
+
+.table thead{
+  /*background-image: url(/assets/index/banner_1.png);*/
+  background-color: #3596b0;
 }
 
 .table thead th {
@@ -1711,8 +1716,8 @@ pre code {
 
 .table .thead-dark th {
   color: #fff;
-  background-color: #212529;
-  border-color: #32383e;
+  background: inherit;
+  /*border-color: #32383e;*/
 }
 
 .table .thead-light th {

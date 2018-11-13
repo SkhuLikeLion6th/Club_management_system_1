@@ -26,13 +26,15 @@ ActiveRecord::Schema.define(version: 20181111044357) do
 
   create_table "apply_forms", force: :cascade do |t|
     t.integer  "club_id"
+    t.integer  "small_group_id"
     t.string   "title1"
     t.string   "title2"
     t.string   "title3"
     t.string   "title4"
     t.string   "title5"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["small_group_id"], name: "index_apply_forms_on_small_group_id"
   end
 
   create_table "club_meetings", force: :cascade do |t|
@@ -75,12 +77,12 @@ ActiveRecord::Schema.define(version: 20181111044357) do
   end
 
   create_table "group_options", force: :cascade do |t|
-    t.integer  "small_group_id_id"
-    t.string   "apply_active",      default: "1"
-    t.string   "view_active",       default: "1"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.index ["small_group_id_id"], name: "index_group_options_on_small_group_id_id"
+    t.integer  "small_group_id"
+    t.string   "apply_active",   default: "1"
+    t.string   "view_active",    default: "1"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["small_group_id"], name: "index_group_options_on_small_group_id"
   end
 
   create_table "meetings", force: :cascade do |t|

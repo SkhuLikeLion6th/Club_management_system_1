@@ -356,4 +356,78 @@
     </div>
 </div>
 
+<!---->
+
+<div class="clubmember-outline">
+  <div class="clubmember-content">
+    <% if current_user.authorization == '0' %>
+        <div class="clubmember-title">전체 회원 목록</div>
+        <table class="clubmember-table">
+          <div>
+            <tr>
+              <th scope="col">이름</th>
+              <th scope="col">전화번호</th>
+              <th scope="col">이메일</th>
+              <th scope="col">학번</th>
+              <th scope="col">학과</th>
+              <th scope="col">학년</th>
+              <th scope="col">소속 단체</th>
+              <th scope="col"></th>
+            </tr>
+          </div>
+        
+        <% @members.each do |x| %>
+          <div>
+              <tr>
+                <td><%= x.user.name %></td>
+                <td><%= x.user.phone_number %></td>
+                <td><%= x.user.mail %></td>
+                <td><%= x.user.email %></td>
+                <td><%= x.user.department.department_name %></td>
+                <td><%= x.user.grade_id %></td>
+                <td><%= x.club.club_name %></td>
+                <td><a id="clubmember-del" href = "/club/delete_club_member/<%= x.id %>">삭제</a></td>
+              </tr>
+          </div>
+        <% end %>
+        </table>
+    <% elsif current_user.authorization == '1' %>
+        <div class="clubmember-title"><%= ClubMember.find_by_user_id(current_user.id).club.club_name %> 회원 목록</div>
+        <table class="clubmember-table">
+          <div>
+            <tr>
+              <th scope="col">이름</th>
+              <th scope="col">전화번호</th>
+              <th scope="col">이메일</th>
+              <th scope="col">학번</th>
+              <th scope="col">학과</th>
+              <th scope="col">학년</th>
+              <th scope="col"></th>
+            </tr>
+          </div>
+        <% @members.each do |x| %>
+            <% if @club_check.club_id == x.club_id %>
+                <div>
+                    <tr>
+                      <td><%= x.user.name %></td>
+                      <td><%= x.user.phone_number %></td>
+                      <td><%= x.user.mail %></td>
+                      <td><%= x.user.email %></td>
+                      <td><%= x.user.department.department_name %></td>
+                      <td><%= x.user.grade_id %> </td>
+                      <td><a id="clubmember-del" href = "/club/delete_club_member/<%= x.id %>">삭제</a></td>
+                    </tr>
+                </div>
+            <% end %>
+        <% end %>
+        </table>
+        <div class="button-in-club-members">
+          <a href="/apply_content/index">
+            <div class="button-apply-content-confirm">지원자 관리</div>
+          </a>
+        </div>
+    <% end %>
+  </div>
+</div>
+
 

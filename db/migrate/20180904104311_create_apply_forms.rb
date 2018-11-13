@@ -2,6 +2,7 @@ class CreateApplyForms < ActiveRecord::Migration[5.0]
   def change
     create_table :apply_forms do |t|
       t.integer :club_id
+      t.belongs_to :small_group
       t.string :title1
       t.string :title2
       t.string :title3
