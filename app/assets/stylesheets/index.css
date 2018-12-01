@@ -93,8 +93,17 @@ article{
 .artcl-clubs-p{
     font-size: 12px;
     color: #777;
+    width:15rem;
+    overflow: hidden;
+    
 }
-
+.artcl-small-p{
+    font-size: 12px;
+    color: #777;
+    height: 5.5rem;
+    overflow: hidden;
+   
+}
 .artcl-clubs-more{
     width: 100px;
     height: 40px;

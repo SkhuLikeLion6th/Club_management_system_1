@@ -27,24 +27,22 @@ Grade.create(grade_name: '3학년')
 Grade.create(grade_name: '4학년')
 
 ## 단체 (동아리, 소모임)
-Club.create(club_name: '멋쟁이사자처럼', introduce: 'Hack Your Life! 나만의 서비스를 내손으로')
-Club.create(club_name: '개발자들', introduce: '성공회대 정통 개발 동아리 개발자들')
-Club.create(club_name: 'Puzzle', introduce: '성공회대 공연기획 동아리!')
-Club.create(club_name: 'BIS', introduce: '성공회대 밴드 동아리')
-Club.create(club_name: '극연꾼', introduce: '성공회대 연극 동아리')
-Club.create(club_name: 'M.R.Crew', introduce: '성공회대 힙합&알앤비 동아리')
-Club.create(club_name: 'ELPIS', introduce: '성공회대 밴드 동아리')
-Club.create(club_name: 'C.O.L', introduce: '성공회대 락밴드 동아리')
-Club.create(club_name: 'NUTEE - 누티', introduce: '성공회대학교 커뮤니티')
-Club.create(club_name: '아침햇살', introduce: '성공회대 동아리 아침햇살')
-Club.create(club_name: 'S.owl', introduce: '성공회대 개발 동아리 소울')
-Club.create(club_name: 'Flow', introduce: '성공회대 농구 동아리')
-Club.create(club_name: '애오라지', introduce: '성공회대 민중가요 동아리')
-Club.create(club_name: 'JOY', introduce: '성공회대 기독교 동아리')
-Club.create(club_name: '탈', introduce: '성공회대 사물놀이패 동아리')
-Club.create(club_name: '일도', introduce: '성공회대 검도 동아리')
-Club.create(club_name: 'CCC', introduce: '성공회대 기독교 동아리')
-Club.create(club_name: '스쿠빌레', introduce: '성공회대 오케스트라 소모임')
+Club.create(club_name: '멋쟁이사자처럼', introduce: 'Hack Your Life! 나만의 서비스를 내손으로') #1
+Club.create(club_name: '개발자들', introduce: '성공회대 정통 개발 동아리 개발자들') #2 
+Club.create(club_name: 'Puzzle', introduce: '성공회대 공연기획 동아리!') #3
+Club.create(club_name: 'BIS', introduce: '성공회대 밴드 동아리') #4
+Club.create(club_name: '극연꾼', introduce: '성공회대 연극 동아리') #5
+Club.create(club_name: 'M.R.Crew', introduce: '성공회대 힙합&알앤비 동아리') #6
+Club.create(club_name: 'ELPIS', introduce: '성공회대 밴드 동아리') # 7
+Club.create(club_name: 'C.O.L', introduce: '성공회대 락밴드 동아리') #8 
+Club.create(club_name: '스쿠빌레', introduce: '성공회대 오케스트라 동아리') #9
+Club.create(club_name: '아침햇살', introduce: '성공회대 동아리 아침햇살') #10
+Club.create(club_name: 'S.owl', introduce: '성공회대 개발 동아리 소울')#11
+Club.create(club_name: 'Flow', introduce: '성공회대 농구 동아리')#12
+Club.create(club_name: '애오라지', introduce: '성공회대 민중가요 동아리') #13
+Club.create(club_name: 'JOY', introduce: '성공회대 기독교 동아리') #14
+Club.create(club_name: '탈', introduce: '성공회대 사물놀이패 동아리') #15
+Club.create(club_name: 'CCC', introduce: '성공회대 기독교 동아리') #16
 
 
 
@@ -52,7 +50,7 @@ Club.create(club_name: '스쿠빌레', introduce: '성공회대 오케스트라 
 # 단체 옵션
 Option.create(club_id: 1, apply_active: 1) # 멋쟁이 사자처럼 옵션
 Option.create(club_id: 2, apply_active: 0) # 개발자들 옵션
-Option.create(club_id: 3, apply_active: 1)
+Option.create(club_id: 3, apply_active: 1) # 퍼즐자들 옵션
 Option.create(club_id: 4, apply_active: 1)
 Option.create(club_id: 5, apply_active: 1)
 Option.create(club_id: 6, apply_active: 0)
@@ -66,8 +64,8 @@ Option.create(club_id: 13, apply_active: 0)
 Option.create(club_id: 14, apply_active: 0)
 Option.create(club_id: 15, apply_active: 0)
 Option.create(club_id: 16, apply_active: 0)
-Option.create(club_id: 17, apply_active: 0)
-Option.create(club_id: 18, apply_active: 0)
+
+
 
 
 
@@ -85,6 +83,10 @@ User.create(email: 'devdogs_admin', password: '123456',
             department_id: 3, name: '개발자들 관리자', phone_number: '000-0000-0000',
             mail: 'devdogs@admin', grade_id: '0', authorization: 1)
             
+User.create(email: 'puzzle_admin', password: '123456',
+            department_id: 3, name: 'Puzzle 관리자', phone_number: '000-0000-0000',
+            mail: 'puzzle@admin', grade_id: '0', authorization: 1)
+
 # 일반 유저
 User.create(email: 'likelion_user1', password: '123456',
             department_id: 3, name: '멋쟁이 사자처럼 회원1', phone_number: '000-0000-0000',
@@ -102,7 +104,7 @@ User.create(email: 'devdogs_user2', password: '123456',
             department_id: 3, name: '개발자들 회원2', phone_number: '000-0000-0000',
             mail: 'devdogs@user2', grade_id: '2', authorization: 2)
 
-# 어떤 단체에도 소속되어있지 않은 회원
+
 #7
 User.create(email: '201812120', password: '123456',
             department_id: 6, name: '김모모', phone_number: '000-0000-0000',
@@ -151,7 +153,6 @@ User.create(email: '201814102', password: '123456',
 
 # 멋쟁이 사자처럼 단체 소속
 ClubMember.create(club_id: 1, user_id: 2)
-ClubMember.create(club_id: 1, user_id: 4)
 ClubMember.create(club_id: 1, user_id: 5)
 ClubMember.create(club_id: 1, user_id: 8)
 ClubMember.create(club_id: 1, user_id: 9)
@@ -167,14 +168,18 @@ ClubMember.create(club_id: 1, user_id: 16)
 ClubMember.create(club_id: 2, user_id: 3)
 ClubMember.create(club_id: 2, user_id: 6)
 ClubMember.create(club_id: 2, user_id: 7)
-ClubMember.create(club_id: 2, user_id: 4)
+ClubMember.create(club_id: 2, user_id: 5)
 ClubMember.create(club_id: 2, user_id: 12)
 ClubMember.create(club_id: 2, user_id: 13)
 ClubMember.create(club_id: 2, user_id: 14)
 ClubMember.create(club_id: 2, user_id: 15)
 
 # Puzzle 단체 소속
-
+ClubMember.create(club_id: 3, user_id: 4)
+ClubMember.create(club_id: 3, user_id: 13)
+ClubMember.create(club_id: 3, user_id: 14)
+ClubMember.create(club_id: 3, user_id: 15)
+ClubMember.create(club_id: 3, user_id: 16)
 
 
 #지원 양식
@@ -190,10 +195,7 @@ ApplyContent.create(
     content1: "4차 산업혁명에 걸맞은 교육은 교실 안이 아니라 밖에서 직접 경험하고 창작하는 것이라는 이야기를 들은 적이 있습니다. 그런 의미에서 '멋쟁이사자처럼'이 하는 그룹 공부와 해커톤 대회는 지금 대학에서 누릴 수 있는 가장 4차 산업에 걸맞은 교육 형태라는 생각이 들었습니다. '멋사'는 학교에서 제공할 수 없는 창의적이며 유연하고 즐거운 배움의 기회가 될 것이라 생각합니다. 이런 기회를 놓칠 수 없기에 '멋사'에 지원하게 되었습니다.
 그리고 밤샘 프로젝트 진행은 제가 정말 좋아하는 일이기도 합니다.  여름에 있을 해커톤 대회가 벌써 기대됩니다.!", 
     content2: "개인용 데이터 분석 시스템입니다. 데이터 과학 분야가 떠오르고 있지만 그 혜택을 받는 곳은 거대한 기관이나 사업 등에 그치고 있습니다. 데이터 활용은 개인의 생활 영역에서도 아주 유용하게 쓰일 수 있다고 생각합니다. 이런 시스템은 생활 패턴 분석과 같은 일상 영역이나 특정 교수님의 시험 데이터를 분석해서 성향을 뽑아내는(?) 응용 영역에서도 유용할 것이라 생각합니다.이", 
-    content3: "지금의 제가 있게 된 배경을 이야기하는 것이 대답이 될 것 같습니다.
-먼저, 고백하면 저는 27살입니다. 그리고 18학년 새내기입니다. 
-저는 24살부터 디자인 사업을 2년 정도 했습니다. 뭣도 모르고 시작했지만 운이 좋아서 일이 잘 풀렸습니다. 투자도 여럿 받았었고,  연예인 측에서 먼저 협찬 요청을 하기도 했습니다. 하지만 저는 실력이 부족했기 때문에 시간이 갈수록 힘이 들었습니다. 공부가 필요하다는 생각이 들었습니다. 저는 이때의 순간이 가장 큰 고난이라 생각합니다. 몇 년을 걸어온 길의 방향을 바꿨을 뿐만 아니라 수능을 보기에는 늦었다는 생각이 들었기 때문입니다. 하지만, 이 문제를 해결하지 않으면 앞으로 같은 이유로 힘들 것이라 생각했고 공부를 시작했습니다. 그리고 18학번 신입생이 되었습니다.
- 경영을 선택하지 않고 IT분야를 선택한 이유는 기술이 더 핵심이라고 판단했기 때문입니다. 새로운 시작이기에 더욱 열심히 공부할 생각입니다. ", 
+    content3: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     content4: "SNS를 예로 들면 좋았던 서비스는 싸이월드이고, 반대는 페이스북입니다. 그 이유는 기록물 탐색의 용이성에서 싸이월드가 페이스북에 비해 더 좋았기 때문입니다. SNS는 타인과 소통하는 플렛폼이지만 개인의 기록 공간이기도 합니다. 싸이월드는 자신의 기록을 원하는 카테고리에 정리할 수 있었지만 페이스북은 그 기능을 갖추지 못하고 있습니다. 페이스북에서 과거에 썼던 글을 찾기 위해서는 끝없는 스크롤을 내려야 하기 때문에 손가락이 고생하게 됩니다..", 
     content5: "열심히 하겠습니다! 멋쟁이 사자처럼 화이팅!!!!!!!!")
 ApplyContent.create(
@@ -201,10 +203,7 @@ ApplyContent.create(
    content1: "4차 산업혁명에 걸맞은 교육은 교실 안이 아니라 밖에서 직접 경험하고 창작하는 것이라는 이야기를 들은 적이 있습니다. 그런 의미에서 '멋쟁이사자처럼'이 하는 그룹 공부와 해커톤 대회는 지금 대학에서 누릴 수 있는 가장 4차 산업에 걸맞은 교육 형태라는 생각이 들었습니다. '멋사'는 학교에서 제공할 수 없는 창의적이며 유연하고 즐거운 배움의 기회가 될 것이라 생각합니다. 이런 기회를 놓칠 수 없기에 '멋사'에 지원하게 되었습니다.
 그리고 밤샘 프로젝트 진행은 제가 정말 좋아하는 일이기도 합니다.  여름에 있을 해커톤 대회가 벌써 기대됩니다.!", 
     content2: "개인용 데이터 분석 시스템입니다. 데이터 과학 분야가 떠오르고 있지만 그 혜택을 받는 곳은 거대한 기관이나 사업 등에 그치고 있습니다. 데이터 활용은 개인의 생활 영역에서도 아주 유용하게 쓰일 수 있다고 생각합니다. 이런 시스템은 생활 패턴 분석과 같은 일상 영역이나 특정 교수님의 시험 데이터를 분석해서 성향을 뽑아내는(?) 응용 영역에서도 유용할 것이라 생각합니다.이", 
-    content3: "지금의 제가 있게 된 배경을 이야기하는 것이 대답이 될 것 같습니다.
-먼저, 고백하면 저는 27살입니다. 그리고 18학년 새내기입니다. 
-저는 24살부터 디자인 사업을 2년 정도 했습니다. 뭣도 모르고 시작했지만 운이 좋아서 일이 잘 풀렸습니다. 투자도 여럿 받았었고,  연예인 측에서 먼저 협찬 요청을 하기도 했습니다. 하지만 저는 실력이 부족했기 때문에 시간이 갈수록 힘이 들었습니다. 공부가 필요하다는 생각이 들었습니다. 저는 이때의 순간이 가장 큰 고난이라 생각합니다. 몇 년을 걸어온 길의 방향을 바꿨을 뿐만 아니라 수능을 보기에는 늦었다는 생각이 들었기 때문입니다. 하지만, 이 문제를 해결하지 않으면 앞으로 같은 이유로 힘들 것이라 생각했고 공부를 시작했습니다. 그리고 18학번 신입생이 되었습니다.
- 경영을 선택하지 않고 IT분야를 선택한 이유는 기술이 더 핵심이라고 판단했기 때문입니다. 새로운 시작이기에 더욱 열심히 공부할 생각입니다. ", 
+    content3: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
     content4: "SNS를 예로 들면 좋았던 서비스는 싸이월드이고, 반대는 페이스북입니다. 그 이유는 기록물 탐색의 용이성에서 싸이월드가 페이스북에 비해 더 좋았기 때문입니다. SNS는 타인과 소통하는 플렛폼이지만 개인의 기록 공간이기도 합니다. 싸이월드는 자신의 기록을 원하는 카테고리에 정리할 수 있었지만 페이스북은 그 기능을 갖추지 못하고 있습니다. 페이스북에서 과거에 썼던 글을 찾기 위해서는 끝없는 스크롤을 내려야 하기 때문에 손가락이 고생하게 됩니다..", 
     content5: "열심히 하겠습니다! 멋쟁이 사자처럼 화이팅!!!!!!!!")
 ApplyContent.create(
@@ -212,10 +211,7 @@ ApplyContent.create(
     content1: "4차 산업혁명에 걸맞은 교육은 교실 안이 아니라 밖에서 직접 경험하고 창작하는 것이라는 이야기를 들은 적이 있습니다. 그런 의미에서 '멋쟁이사자처럼'이 하는 그룹 공부와 해커톤 대회는 지금 대학에서 누릴 수 있는 가장 4차 산업에 걸맞은 교육 형태라는 생각이 들었습니다. '멋사'는 학교에서 제공할 수 없는 창의적이며 유연하고 즐거운 배움의 기회가 될 것이라 생각합니다. 이런 기회를 놓칠 수 없기에 '멋사'에 지원하게 되었습니다.
 그리고 밤샘 프로젝트 진행은 제가 정말 좋아하는 일이기도 합니다.  여름에 있을 해커톤 대회가 벌써 기대됩니다.!", 
     content2: "개인용 데이터 분석 시스템입니다. 데이터 과학 분야가 떠오르고 있지만 그 혜택을 받는 곳은 거대한 기관이나 사업 등에 그치고 있습니다. 데이터 활용은 개인의 생활 영역에서도 아주 유용하게 쓰일 수 있다고 생각합니다. 이런 시스템은 생활 패턴 분석과 같은 일상 영역이나 특정 교수님의 시험 데이터를 분석해서 성향을 뽑아내는(?) 응용 영역에서도 유용할 것이라 생각합니다.이", 
-    content3: "지금의 제가 있게 된 배경을 이야기하는 것이 대답이 될 것 같습니다.
-먼저, 고백하면 저는 27살입니다. 그리고 18학년 새내기입니다. 
-저는 24살부터 디자인 사업을 2년 정도 했습니다. 뭣도 모르고 시작했지만 운이 좋아서 일이 잘 풀렸습니다. 투자도 여럿 받았었고,  연예인 측에서 먼저 협찬 요청을 하기도 했습니다. 하지만 저는 실력이 부족했기 때문에 시간이 갈수록 힘이 들었습니다. 공부가 필요하다는 생각이 들었습니다. 저는 이때의 순간이 가장 큰 고난이라 생각합니다. 몇 년을 걸어온 길의 방향을 바꿨을 뿐만 아니라 수능을 보기에는 늦었다는 생각이 들었기 때문입니다. 하지만, 이 문제를 해결하지 않으면 앞으로 같은 이유로 힘들 것이라 생각했고 공부를 시작했습니다. 그리고 18학번 신입생이 되었습니다.
- 경영을 선택하지 않고 IT분야를 선택한 이유는 기술이 더 핵심이라고 판단했기 때문입니다. 새로운 시작이기에 더욱 열심히 공부할 생각입니다. ", 
+    content3: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
     content4: "SNS를 예로 들면 좋았던 서비스는 싸이월드이고, 반대는 페이스북입니다. 그 이유는 기록물 탐색의 용이성에서 싸이월드가 페이스북에 비해 더 좋았기 때문입니다. SNS는 타인과 소통하는 플렛폼이지만 개인의 기록 공간이기도 합니다. 싸이월드는 자신의 기록을 원하는 카테고리에 정리할 수 있었지만 페이스북은 그 기능을 갖추지 못하고 있습니다. 페이스북에서 과거에 썼던 글을 찾기 위해서는 끝없는 스크롤을 내려야 하기 때문에 손가락이 고생하게 됩니다..", 
     content5: "열심히 하겠습니다! 멋쟁이 사자처럼 화이팅!!!!!!!!")
 ApplyContent.create(
@@ -223,10 +219,7 @@ ApplyContent.create(
    content1: "4차 산업혁명에 걸맞은 교육은 교실 안이 아니라 밖에서 직접 경험하고 창작하는 것이라는 이야기를 들은 적이 있습니다. 그런 의미에서 '멋쟁이사자처럼'이 하는 그룹 공부와 해커톤 대회는 지금 대학에서 누릴 수 있는 가장 4차 산업에 걸맞은 교육 형태라는 생각이 들었습니다. '멋사'는 학교에서 제공할 수 없는 창의적이며 유연하고 즐거운 배움의 기회가 될 것이라 생각합니다. 이런 기회를 놓칠 수 없기에 '멋사'에 지원하게 되었습니다.
 그리고 밤샘 프로젝트 진행은 제가 정말 좋아하는 일이기도 합니다.  여름에 있을 해커톤 대회가 벌써 기대됩니다.!", 
     content2: "개인용 데이터 분석 시스템입니다. 데이터 과학 분야가 떠오르고 있지만 그 혜택을 받는 곳은 거대한 기관이나 사업 등에 그치고 있습니다. 데이터 활용은 개인의 생활 영역에서도 아주 유용하게 쓰일 수 있다고 생각합니다. 이런 시스템은 생활 패턴 분석과 같은 일상 영역이나 특정 교수님의 시험 데이터를 분석해서 성향을 뽑아내는(?) 응용 영역에서도 유용할 것이라 생각합니다.이", 
-    content3: "지금의 제가 있게 된 배경을 이야기하는 것이 대답이 될 것 같습니다.
-먼저, 고백하면 저는 27살입니다. 그리고 18학년 새내기입니다. 
-저는 24살부터 디자인 사업을 2년 정도 했습니다. 뭣도 모르고 시작했지만 운이 좋아서 일이 잘 풀렸습니다. 투자도 여럿 받았었고,  연예인 측에서 먼저 협찬 요청을 하기도 했습니다. 하지만 저는 실력이 부족했기 때문에 시간이 갈수록 힘이 들었습니다. 공부가 필요하다는 생각이 들었습니다. 저는 이때의 순간이 가장 큰 고난이라 생각합니다. 몇 년을 걸어온 길의 방향을 바꿨을 뿐만 아니라 수능을 보기에는 늦었다는 생각이 들었기 때문입니다. 하지만, 이 문제를 해결하지 않으면 앞으로 같은 이유로 힘들 것이라 생각했고 공부를 시작했습니다. 그리고 18학번 신입생이 되었습니다.
- 경영을 선택하지 않고 IT분야를 선택한 이유는 기술이 더 핵심이라고 판단했기 때문입니다. 새로운 시작이기에 더욱 열심히 공부할 생각입니다. ", 
+    content3: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
     content4: "SNS를 예로 들면 좋았던 서비스는 싸이월드이고, 반대는 페이스북입니다. 그 이유는 기록물 탐색의 용이성에서 싸이월드가 페이스북에 비해 더 좋았기 때문입니다. SNS는 타인과 소통하는 플렛폼이지만 개인의 기록 공간이기도 합니다. 싸이월드는 자신의 기록을 원하는 카테고리에 정리할 수 있었지만 페이스북은 그 기능을 갖추지 못하고 있습니다. 페이스북에서 과거에 썼던 글을 찾기 위해서는 끝없는 스크롤을 내려야 하기 때문에 손가락이 고생하게 됩니다..", 
     content5: "열심히 하겠습니다! 멋쟁이 사자처럼 화이팅!!!!!!!!")
 ApplyContent.create(
@@ -234,10 +227,7 @@ ApplyContent.create(
     content1: "4차 산업혁명에 걸맞은 교육은 교실 안이 아니라 밖에서 직접 경험하고 창작하는 것이라는 이야기를 들은 적이 있습니다. 그런 의미에서 '멋쟁이사자처럼'이 하는 그룹 공부와 해커톤 대회는 지금 대학에서 누릴 수 있는 가장 4차 산업에 걸맞은 교육 형태라는 생각이 들었습니다. '멋사'는 학교에서 제공할 수 없는 창의적이며 유연하고 즐거운 배움의 기회가 될 것이라 생각합니다. 이런 기회를 놓칠 수 없기에 '멋사'에 지원하게 되었습니다.
 그리고 밤샘 프로젝트 진행은 제가 정말 좋아하는 일이기도 합니다.  여름에 있을 해커톤 대회가 벌써 기대됩니다.!", 
     content2: "개인용 데이터 분석 시스템입니다. 데이터 과학 분야가 떠오르고 있지만 그 혜택을 받는 곳은 거대한 기관이나 사업 등에 그치고 있습니다. 데이터 활용은 개인의 생활 영역에서도 아주 유용하게 쓰일 수 있다고 생각합니다. 이런 시스템은 생활 패턴 분석과 같은 일상 영역이나 특정 교수님의 시험 데이터를 분석해서 성향을 뽑아내는(?) 응용 영역에서도 유용할 것이라 생각합니다.이", 
-    content3: "지금의 제가 있게 된 배경을 이야기하는 것이 대답이 될 것 같습니다.
-먼저, 고백하면 저는 27살입니다. 그리고 18학년 새내기입니다. 
-저는 24살부터 디자인 사업을 2년 정도 했습니다. 뭣도 모르고 시작했지만 운이 좋아서 일이 잘 풀렸습니다. 투자도 여럿 받았었고,  연예인 측에서 먼저 협찬 요청을 하기도 했습니다. 하지만 저는 실력이 부족했기 때문에 시간이 갈수록 힘이 들었습니다. 공부가 필요하다는 생각이 들었습니다. 저는 이때의 순간이 가장 큰 고난이라 생각합니다. 몇 년을 걸어온 길의 방향을 바꿨을 뿐만 아니라 수능을 보기에는 늦었다는 생각이 들었기 때문입니다. 하지만, 이 문제를 해결하지 않으면 앞으로 같은 이유로 힘들 것이라 생각했고 공부를 시작했습니다. 그리고 18학번 신입생이 되었습니다.
- 경영을 선택하지 않고 IT분야를 선택한 이유는 기술이 더 핵심이라고 판단했기 때문입니다. 새로운 시작이기에 더욱 열심히 공부할 생각입니다. ", 
+    content3: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
     content4: "SNS를 예로 들면 좋았던 서비스는 싸이월드이고, 반대는 페이스북입니다. 그 이유는 기록물 탐색의 용이성에서 싸이월드가 페이스북에 비해 더 좋았기 때문입니다. SNS는 타인과 소통하는 플렛폼이지만 개인의 기록 공간이기도 합니다. 싸이월드는 자신의 기록을 원하는 카테고리에 정리할 수 있었지만 페이스북은 그 기능을 갖추지 못하고 있습니다. 페이스북에서 과거에 썼던 글을 찾기 위해서는 끝없는 스크롤을 내려야 하기 때문에 손가락이 고생하게 됩니다..", 
     content5: "열심히 하겠습니다! 멋쟁이 사자처럼 화이팅!!!!!!!!")
 ApplyContent.create(
@@ -245,10 +235,7 @@ ApplyContent.create(
     content1: "4차 산업혁명에 걸맞은 교육은 교실 안이 아니라 밖에서 직접 경험하고 창작하는 것이라는 이야기를 들은 적이 있습니다. 그런 의미에서 '멋쟁이사자처럼'이 하는 그룹 공부와 해커톤 대회는 지금 대학에서 누릴 수 있는 가장 4차 산업에 걸맞은 교육 형태라는 생각이 들었습니다. '멋사'는 학교에서 제공할 수 없는 창의적이며 유연하고 즐거운 배움의 기회가 될 것이라 생각합니다. 이런 기회를 놓칠 수 없기에 '멋사'에 지원하게 되었습니다.
 그리고 밤샘 프로젝트 진행은 제가 정말 좋아하는 일이기도 합니다.  여름에 있을 해커톤 대회가 벌써 기대됩니다.!", 
     content2: "개인용 데이터 분석 시스템입니다. 데이터 과학 분야가 떠오르고 있지만 그 혜택을 받는 곳은 거대한 기관이나 사업 등에 그치고 있습니다. 데이터 활용은 개인의 생활 영역에서도 아주 유용하게 쓰일 수 있다고 생각합니다. 이런 시스템은 생활 패턴 분석과 같은 일상 영역이나 특정 교수님의 시험 데이터를 분석해서 성향을 뽑아내는(?) 응용 영역에서도 유용할 것이라 생각합니다.이", 
-    content3: "지금의 제가 있게 된 배경을 이야기하는 것이 대답이 될 것 같습니다.
-먼저, 고백하면 저는 27살입니다. 그리고 18학년 새내기입니다. 
-저는 24살부터 디자인 사업을 2년 정도 했습니다. 뭣도 모르고 시작했지만 운이 좋아서 일이 잘 풀렸습니다. 투자도 여럿 받았었고,  연예인 측에서 먼저 협찬 요청을 하기도 했습니다. 하지만 저는 실력이 부족했기 때문에 시간이 갈수록 힘이 들었습니다. 공부가 필요하다는 생각이 들었습니다. 저는 이때의 순간이 가장 큰 고난이라 생각합니다. 몇 년을 걸어온 길의 방향을 바꿨을 뿐만 아니라 수능을 보기에는 늦었다는 생각이 들었기 때문입니다. 하지만, 이 문제를 해결하지 않으면 앞으로 같은 이유로 힘들 것이라 생각했고 공부를 시작했습니다. 그리고 18학번 신입생이 되었습니다.
- 경영을 선택하지 않고 IT분야를 선택한 이유는 기술이 더 핵심이라고 판단했기 때문입니다. 새로운 시작이기에 더욱 열심히 공부할 생각입니다. ", 
+    content3: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
     content4: "SNS를 예로 들면 좋았던 서비스는 싸이월드이고, 반대는 페이스북입니다. 그 이유는 기록물 탐색의 용이성에서 싸이월드가 페이스북에 비해 더 좋았기 때문입니다. SNS는 타인과 소통하는 플렛폼이지만 개인의 기록 공간이기도 합니다. 싸이월드는 자신의 기록을 원하는 카테고리에 정리할 수 있었지만 페이스북은 그 기능을 갖추지 못하고 있습니다. 페이스북에서 과거에 썼던 글을 찾기 위해서는 끝없는 스크롤을 내려야 하기 때문에 손가락이 고생하게 됩니다..", 
     content5: "열심히 하겠습니다! 멋쟁이 사자처럼 화이팅!!!!!!!!")
 ApplyContent.create(
@@ -256,20 +243,27 @@ ApplyContent.create(
     content1: "4차 산업혁명에 걸맞은 교육은 교실 안이 아니라 밖에서 직접 경험하고 창작하는 것이라는 이야기를 들은 적이 있습니다. 그런 의미에서 '멋쟁이사자처럼'이 하는 그룹 공부와 해커톤 대회는 지금 대학에서 누릴 수 있는 가장 4차 산업에 걸맞은 교육 형태라는 생각이 들었습니다. '멋사'는 학교에서 제공할 수 없는 창의적이며 유연하고 즐거운 배움의 기회가 될 것이라 생각합니다. 이런 기회를 놓칠 수 없기에 '멋사'에 지원하게 되었습니다.
 그리고 밤샘 프로젝트 진행은 제가 정말 좋아하는 일이기도 합니다.  여름에 있을 해커톤 대회가 벌써 기대됩니다.!", 
     content2: "개인용 데이터 분석 시스템입니다. 데이터 과학 분야가 떠오르고 있지만 그 혜택을 받는 곳은 거대한 기관이나 사업 등에 그치고 있습니다. 데이터 활용은 개인의 생활 영역에서도 아주 유용하게 쓰일 수 있다고 생각합니다. 이런 시스템은 생활 패턴 분석과 같은 일상 영역이나 특정 교수님의 시험 데이터를 분석해서 성향을 뽑아내는(?) 응용 영역에서도 유용할 것이라 생각합니다.이", 
-    content3: "지금의 제가 있게 된 배경을 이야기하는 것이 대답이 될 것 같습니다.
-먼저, 고백하면 저는 27살입니다. 그리고 18학년 새내기입니다. 
-저는 24살부터 디자인 사업을 2년 정도 했습니다. 뭣도 모르고 시작했지만 운이 좋아서 일이 잘 풀렸습니다. 투자도 여럿 받았었고,  연예인 측에서 먼저 협찬 요청을 하기도 했습니다. 하지만 저는 실력이 부족했기 때문에 시간이 갈수록 힘이 들었습니다. 공부가 필요하다는 생각이 들었습니다. 저는 이때의 순간이 가장 큰 고난이라 생각합니다. 몇 년을 걸어온 길의 방향을 바꿨을 뿐만 아니라 수능을 보기에는 늦었다는 생각이 들었기 때문입니다. 하지만, 이 문제를 해결하지 않으면 앞으로 같은 이유로 힘들 것이라 생각했고 공부를 시작했습니다. 그리고 18학번 신입생이 되었습니다.
- 경영을 선택하지 않고 IT분야를 선택한 이유는 기술이 더 핵심이라고 판단했기 때문입니다. 새로운 시작이기에 더욱 열심히 공부할 생각입니다. ", 
+    content3: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
     content4: "SNS를 예로 들면 좋았던 서비스는 싸이월드이고, 반대는 페이스북입니다. 그 이유는 기록물 탐색의 용이성에서 싸이월드가 페이스북에 비해 더 좋았기 때문입니다. SNS는 타인과 소통하는 플렛폼이지만 개인의 기록 공간이기도 합니다. 싸이월드는 자신의 기록을 원하는 카테고리에 정리할 수 있었지만 페이스북은 그 기능을 갖추지 못하고 있습니다. 페이스북에서 과거에 썼던 글을 찾기 위해서는 끝없는 스크롤을 내려야 하기 때문에 손가락이 고생하게 됩니다..", 
     content5: "열심히 하겠습니다! 멋쟁이 사자처럼 화이팅!!!!!!!!")
 ApplyContent.create(
-    apply_form_id: 1, user_id: 18, 
-    content1: "4차 산업혁명에 걸맞은 교육은 교실 안이 아니라 밖에서 직접 경험하고 창작하는 것이라는 이야기를 들은 적이 있습니다. 그런 의미에서 '멋쟁이사자처럼'이 하는 그룹 공부와 해커톤 대회는 지금 대학에서 누릴 수 있는 가장 4차 산업에 걸맞은 교육 형태라는 생각이 들었습니다. '멋사'는 학교에서 제공할 수 없는 창의적이며 유연하고 즐거운 배움의 기회가 될 것이라 생각합니다. 이런 기회를 놓칠 수 없기에 '멋사'에 지원하게 되었습니다.
-그리고 밤샘 프로젝트 진행은 제가 정말 좋아하는 일이기도 합니다.  여름에 있을 해커톤 대회가 벌써 기대됩니다.!", 
-    content2: "개인용 데이터 분석 시스템입니다. 데이터 과학 분야가 떠오르고 있지만 그 혜택을 받는 곳은 거대한 기관이나 사업 등에 그치고 있습니다. 데이터 활용은 개인의 생활 영역에서도 아주 유용하게 쓰일 수 있다고 생각합니다. 이런 시스템은 생활 패턴 분석과 같은 일상 영역이나 특정 교수님의 시험 데이터를 분석해서 성향을 뽑아내는(?) 응용 영역에서도 유용할 것이라 생각합니다.이", 
-    content3: "지금의 제가 있게 된 배경을 이야기하는 것이 대답이 될 것 같습니다.
-먼저, 고백하면 저는 27살입니다. 그리고 18학년 새내기입니다. 
-저는 24살부터 디자인 사업을 2년 정도 했습니다. 뭣도 모르고 시작했지만 운이 좋아서 일이 잘 풀렸습니다. 투자도 여럿 받았었고,  연예인 측에서 먼저 협찬 요청을 하기도 했습니다. 하지만 저는 실력이 부족했기 때문에 시간이 갈수록 힘이 들었습니다. 공부가 필요하다는 생각이 들었습니다. 저는 이때의 순간이 가장 큰 고난이라 생각합니다. 몇 년을 걸어온 길의 방향을 바꿨을 뿐만 아니라 수능을 보기에는 늦었다는 생각이 들었기 때문입니다. 하지만, 이 문제를 해결하지 않으면 앞으로 같은 이유로 힘들 것이라 생각했고 공부를 시작했습니다. 그리고 18학번 신입생이 되었습니다.
- 경영을 선택하지 않고 IT분야를 선택한 이유는 기술이 더 핵심이라고 판단했기 때문입니다. 새로운 시작이기에 더욱 열심히 공부할 생각입니다. ", 
-    content4: "SNS를 예로 들면 좋았던 서비스는 싸이월드이고, 반대는 페이스북입니다. 그 이유는 기록물 탐색의 용이성에서 싸이월드가 페이스북에 비해 더 좋았기 때문입니다. SNS는 타인과 소통하는 플렛폼이지만 개인의 기록 공간이기도 합니다. 싸이월드는 자신의 기록을 원하는 카테고리에 정리할 수 있었지만 페이스북은 그 기능을 갖추지 못하고 있습니다. 페이스북에서 과거에 썼던 글을 찾기 위해서는 끝없는 스크롤을 내려야 하기 때문에 손가락이 고생하게 됩니다..", 
-    content5: "열심히 하겠습니다! 멋쟁이 사자처럼 화이팅!!!!!!!!")
+    apply_form_id: 3, user_id: 18, 
+    content1: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
+    content2: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
+    content3: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
+    content4: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
+    content5: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+    ApplyContent.create(
+    apply_form_id: 3, user_id: 10, 
+    content1: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
+    content2: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
+    content3: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
+    content4: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
+    content5: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+    ApplyContent.create(
+    apply_form_id: 3, user_id: 15, 
+    content1: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
+    content2: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
+    content3: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
+    content4: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
+    content5: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")

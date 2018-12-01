@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :meetings
   has_many :clubs
   has_many :small_groups
+  has_many :group_members
   
   belongs_to :department
   belongs_to :grade

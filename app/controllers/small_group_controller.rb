@@ -12,7 +12,7 @@ class SmallGroupController < ApplicationController
     
     def create_group
         @user = User.new
-        @user = current_user.id
+        @user.id = current_user.id
         @group = SmallGroup.new
         @group.id = params[:small_group_id]
         @group.group_name = params[:group_name]
@@ -21,7 +21,7 @@ class SmallGroupController < ApplicationController
         uploader = ImguploaderUploader.new
         uploader.store!(params[:img])
         @group.img_url = uploader.url
-        
+            
         @group.save
         
         @option = GroupOption.new
@@ -31,12 +31,23 @@ class SmallGroupController < ApplicationController
         
         @option.save
         
-        # if @user.authorization == '2'
-        #     @user.authorization = '1'
-        # end
-        # puts @user.authorization
-        # @user.save        
+        @member = GroupMember.new
+        @member.user_id = @user.id
+        @member.small_group_id = @group.id
+        @member.save
         
+       
+        
+        if current_user.authorization =='2'
+            current_user.authorization = '4'
+        end
+        
+        current_user.save
+        
+        puts @user[:email]
+        puts @user[:mail]
+        puts @user.authorization
+        puts @user.errors.full_messages
         redirect_to '/small_group/index'
         
 
@@ -57,11 +68,11 @@ class SmallGroupController < ApplicationController
         
         @group.save
 
+
         
         
         redirect_to '/small_group/index'
     end
- 
  
  
 

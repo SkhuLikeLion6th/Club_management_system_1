@@ -7,7 +7,7 @@
         <% @groups.each do |x| %>
           <a href="/small_group/group_view/<%= x.id %>">    
             <div class="card dsply-inbl pl05 pr05 ml10 mr10 mb20 align-center" style="width: 12.2rem;">
-              <img class="card-img-top clubs-index-img" src="/assets/clubs/<%=x.id%>.jpg" alt="Club image">
+              <img class="card-img-top clubs-index-img" src="<%=x.img_url%>" alt="Club image">
               <div class="card-body overflow-hddn">
                 <h5 class="clubs-index-h3"><%= x.group_name %></h5>
                 <div class=" align-left"><p class="card-text clubs-index-p"><%= x.introduce %></p></div>

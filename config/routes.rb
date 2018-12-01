@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'board/content1'
+
+  get 'board/content2'
+
   resources :club_meetings
   resources :meetings
   

@@ -23,12 +23,12 @@
   <link rel="stylesheet" href="/assets/bootstrap_css/bootstrap-reboot.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     
     <!--style-->
-  <link rel="stylesheet" href="/assets/bootstrap_css/bootstrap_custom.css"></link>
+  <link rel="stylesheet" href="/assets/bootstrap_css/bootstrap_custom.css">
 	<link rel="stylesheet" href="/assets/reset.css">
 	<link rel="stylesheet" href="/assets/users/login_style.css">
   <link rel="stylesheet" href="/assets/users/signup.css">
  	<link rel="stylesheet" href="/assets/textarea-style.css">  
-  
+  <link rel="stylesheet" href="/assets/board.css">
   
   <!--font-->
   <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
@@ -83,7 +83,7 @@
                   <a class="dropdown-item" href="/video/index">동영상</a>
                 </div>
               </div>
-              <a href="#"><button type="button" class="btn btn-nav">게시판</button></a>
+              <a href="/post/index"><button type="button" class="btn btn-nav">게시판</button></a>
               <% if current_user != nil %>
 			        <% if current_user.authorization == '0' || current_user.authorization == '1'%>
                 <div class="dropdown">
