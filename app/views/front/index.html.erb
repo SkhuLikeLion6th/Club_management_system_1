@@ -198,75 +198,20 @@
         <div class="row mt30">
           <div class="col">
             <div class="row">
-              <div class="col-3">
-                <% @group_random.each do |x| %>
-                  <a href="/small_group/group_view/<%= x.id %>">    
-                    <div class="card dsply-inbl pl05 pr05 ml10 mr10 mb20 align-center" style="width: 12.2rem;">
-                      <img class="card-img-top clubs-index-img" src="<%=x.img_url%>" alt="Club image">
+              <% @group_random.each do |x| %>
+                <div class="col-2">
+                  <a href="/small_groups/<%= x.id %>"> 
+                    <div class="card dsply-inbl pl05 pr05 ml10 mr10 mb20" style="width: 11rem;">
+                      <img class="card-img-top clubs-index-img" src="<%=x.img_url%>" alt="Card image cap" sytle="overflow: hidden;">
                       <div class="card-body overflow-hddn">
-                        <h5 class="clubs-index-h3"><%= x.group_name %></h5>
-                        <div class=" align-left"><p class="card-text clubs-index-p"><%= x.introduce %></p></div>
+                        <h5 class="artcl-clubs-h"><%= x.group_name %></h5>
+                        <p class="card-text artcl-clubs-p"><%= x.introduce %></p>
                       </div>
                     </div>
-                  </a>   
-                <%end%>
-              </div>
+                  </a>              
+                </div>
+              <%end%>
             </div>
-              <!--<div class="col-2">-->
-              <!--  <div class="card" style="width: 10rem;">-->
-              <!--    <img class="card-img-top" src="/assets/clubs/5.jpg" alt="Card image cap" >-->
-              <!--    <div class="card-body">-->
-              <!--      <h5 class="artcl-clubs-h">소모임 TEST</h5>-->
-              <!--      <p class="card-text artcl-small-p">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
-              <!--    </div>-->
-              <!--  </div>  -->
-              <!--</div>-->
-              <!--<div class="col-2">-->
-              <!--  <div class="card" style="width: 10rem;">-->
-              <!--    <img class="card-img-top" src="/assets/clubs/6.jpg" alt="Card image cap">-->
-              <!--    <div class="card-body">-->
-              <!--      <h5 class="artcl-clubs-h">소모임 TEST</h5>-->
-              <!--      <p class="card-text artcl-small-p">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
-              <!--    </div>-->
-              <!--  </div>  -->
-              <!--</div>-->
-              <!--<div class="col-2">-->
-              <!--  <div class="card" style="width: 10rem;">-->
-              <!--    <img class="card-img-top" src="/assets/clubs/7.jpg" alt="Card image cap">-->
-              <!--    <div class="card-body">-->
-              <!--      <h5 class="artcl-clubs-h">소모임 TEST</h5>-->
-              <!--      <p class="card-text artcl-small-p">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
-              <!--    </div>-->
-              <!--  </div>  -->
-              <!--</div>-->
-              <!--<div class="col-2">-->
-              <!--  <div class="card" style="width: 10rem;">-->
-              <!--    <img class="card-img-top" src="/assets/clubs/8.jpg" alt="Card image cap">-->
-              <!--    <div class="card-body">-->
-              <!--      <h5 class="artcl-clubs-h">소모임 TEST</h5>-->
-              <!--      <p class="card-text artcl-small-p">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
-              <!--    </div>-->
-              <!--  </div>  -->
-              <!--</div>-->
-              <!--<div class="col-2">-->
-              <!--  <div class="card" style="width: 10rem;">-->
-              <!--    <img class="card-img-top" src="/assets/clubs/9.jpg" alt="Card image cap">-->
-              <!--    <div class="card-body">-->
-              <!--      <h5 class="artcl-clubs-h">소모임 TEST</h5>-->
-              <!--      <p class="card-text artcl-small-p">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
-              <!--    </div>-->
-              <!--  </div>  -->
-              <!--</div>-->
-              <!--<div class="col-2">-->
-              <!--  <div class="card" style="width: 10rem;">-->
-              <!--    <img class="card-img-top" src="/assets/clubs/10.jpg" alt="Card image cap">-->
-              <!--    <div class="card-body">-->
-              <!--      <h5 class="artcl-clubs-h">소모임 TEST</h5>-->
-              <!--      <p class="card-text artcl-small-p">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
-              <!--    </div>-->
-              <!--  </div>  -->
-              <!--</div>-->
-              
             <div class="align-center">
                 <a href="#"><button type="button" class="artcl-clubs-more" >더보기</button></a>
             </div>

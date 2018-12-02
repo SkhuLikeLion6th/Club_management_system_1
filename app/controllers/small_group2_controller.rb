@@ -75,6 +75,10 @@ class SmallGroupController < ApplicationController
     end
  
  
-
+    def group_view
+        @group = SmallGroup.find(params[:small_group_id])
+        @new_comment = Comment.build_from(@group, current_user.id, "")
+        
+    end
 
 end

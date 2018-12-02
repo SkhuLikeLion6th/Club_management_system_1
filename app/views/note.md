@@ -431,3 +431,435 @@
 </div>
 
 
+
+<div class="row">
+      <div class="col-1"></div>
+      <div class="col-10 align-center">
+        <% @group_random.each do |x| %>
+          <a href="/small_group/group_view/<%= x.id %>">    
+            <div class="card dsply-inbl pl05 pr05 ml10 mr10 mb20 align-center" style="width: 12.2rem;">
+              <img class="card-img-top clubs-index-img" src="<%=x.img_url%>" alt="Club image">
+              <div class="card-body overflow-hddn">
+                <h5 class="clubs-index-h3"><%= x.group_name %></h5>
+                <div class=" align-left"><p class="card-text clubs-index-p"><%= x.introduce %></p></div>
+              </div>
+            </div>
+          </a>
+        <% end %>
+    </div>
+    
+    sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO
+    sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO
+    sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO
+    
+    
+    소모임 만들기
+    
+    <div class="content-outline">
+    <div class="content">
+        <div class="content-title">소모임 만들기</div>
+        
+        <form action="/small_group/create_group/" method="post" enctype="multipart/form-data">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="e">이미지</div>
+                            <div class="">소모임 이름</div>
+                            <div class="">소개</div>
+                            <div>설명</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="club-edit-content"><input type="file" name="img" accept="image/*"></div>
+                            <div class="club-edit-content"><input type="text" name="group_name"></div>
+                            <div class="club-edit-content"><input type="text" name="introduce"></div>
+                            <div><textarea name="content" cols="40" rows="8" ></textarea></div>
+                        </div>
+                    </div>
+                </div>        
+            </div>
+            <div class="button-in-club-edit">
+                <input class="button-club-edit-submit" type="submit" value="제출">
+            </div>
+        </form>
+
+    </div>
+</div>
+
+    
+지원 양식 확인
+<div class="content-outline">
+    <div class="content">
+        <div class="content-title">지원 양식</div>
+        <% if user_signed_in? %>
+        <!--<div class="current-user-name">현재 로그인: <%= current_user.name %></div>-->
+        
+        <!--동아리 관리자만 지원 양식을 볼 수 있어야 함-->
+        <% if current_user.authorization == '1' %>
+            <!--현재 로그인자의 클럽아이디를 찾아서 변수에 저장해둠(필요할때마다 일일이 찾기 귀찮아서ㅋ)-->
+            <% current_user_club_id = ClubMember.find_by_user_id(current_user.id).club_id%>
+            <!--자신의 동아리에 지원 양식이 없는 경우-->
+                <% if @forms.find_by_club_id(current_user_club_id)==nil%>
+                    동아리 이름: <%=Club.find(current_user_club_id).club_name%>
+                    <a href="/apply_form/new">지원 양식 작성하기</a><br><br>
+                <% end %>
+            <!--자신의 동아리에 지원 양식이 이미 있는 경우-->
+            <% @forms.each do |x| %>
+                <!--자신이 속한 동아리 지원 양식만 보이도록 해야함-->
+                <% if x.club_id == current_user_club_id %>
+                    <div class="current-user-name">동아리 이름: <%=Club.find(x.club_id).club_name%></div>
+                    <div class="apply-form-outline">
+                        <!--<svg class="svg-line-apply-index-pink" height="100" width="100">-->
+                        <!--    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />-->
+                        <!--    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />-->
+                        <!--</svg>-->
+                        <div class="apply-content">
+                            <div class="question-apply-form-index">
+                                <div class="question-q">Q 1.</div>
+                                <p class="apply_form_p"><%=x.title1%></p>
+                            </div>
+                            <div class="question-apply-form-index">
+                                <div class="question-q">Q 2.</div>
+                                <p class="apply_form_p"><%=x.title2%></p>
+                            </div>
+                            <div class="question-apply-form-index">
+                                <div class="question-q">Q 3.</div>
+                                <p class="apply_form_p"><%=x.title3%></p>
+                            </div>
+                            <div class="question-apply-form-index">
+                                <div class="question-q">Q 4.</div>
+                                <p class="apply_form_p"><%=x.title4%></p>
+                            </div>
+                            <div class="question-apply-form-index">
+                                <div class="question-q">Q 5.</div>
+                                <p class="apply_form_p"><%=x.title5%></p>
+                            </div>
+                        </div>
+                        <!--<div class="structure-end">-->
+                        <!--    <svg class="svg-line-apply-index-yellow" height="100" width="100">-->
+                        <!--        <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />-->
+                        <!--        <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />-->
+                        <!--    </svg>-->
+                        <!--</div>-->
+                    </div>
+                    
+                    <div class="button-in-apply-form">
+                        <a href="/apply_form/edit/<%=x.club_id%>"><div class="button-apply-form-edit">수정하기</div></a>
+                    </div>
+                <% end %>
+            <% end %>
+        <% end %>
+        <% end %>
+    </div>
+</div>
+
+
+지원서 수정
+<div class="content-outline">
+    <div class="content">
+        <div class="content-title">지원 질문 수정</div>
+
+        <form action = "/apply_form/update/<%=@form.club.id%>" method="post">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <!-- 1번질문 -->
+            <div class="apply-content-outline">
+                
+                <div class="apply-content">
+                    <div class="question-q">Q 1.</div>
+                    <div class="apply_form_input">
+                        <input type="text" name="title1" value="<%=@form.title1 %>" wrap="soft">
+                    </div>
+                </div>
+               
+            </div>
+            <!-- 2번질문 -->
+            <div class="apply-content-outline">
+                <!--<svg class="svg-line-apply-index-pink" height="100" width="100">-->
+                <!--    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />-->
+                <!--    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />-->
+                <!--</svg>-->
+                <div class="apply-content">
+                    <div class="question-q">Q 2.</div>
+                    <div class="apply_form_input">
+                        <input type="text" name="title2" value="<%=@form.title2 %>">
+                    </div>
+                </div>
+                <!--<div class="structure-end">-->
+                <!--    <svg class="svg-line-apply-index-yellow" height="100" width="100">-->
+                <!--        <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />-->
+                <!--        <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />-->
+                <!--    </svg>-->
+                <!--</div>-->
+            </div>
+            <!-- 3번질문 -->
+            <div class="apply-content-outline">
+                <!--<svg class="svg-line-apply-index-pink" height="100" width="100">-->
+                <!--    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />-->
+                <!--    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />-->
+                <!--</svg>-->
+                <div class="apply-content">
+                    <div class="question-q">Q 3.</div>
+                    <div class="apply_form_input">
+                        <input type="text" name="title3" value="<%=@form.title3 %>">
+                    </div>
+                </div>
+                <!--<div class="structure-end">-->
+                <!--    <svg class="svg-line-apply-index-yellow" height="100" width="100">-->
+                <!--        <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />-->
+                <!--        <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />-->
+                <!--    </svg>-->
+                </div>
+            </div>
+            <!-- 4번질문 -->
+            <div class="apply-content-outline">
+                <!--<svg class="svg-line-apply-index-pink" height="100" width="100">-->
+                <!--    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />-->
+                <!--    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />-->
+                <!--</svg>-->
+                <div class="apply-content">
+                    <div class="question-q">Q 4.</div>
+                    <div class="apply_form_input">
+                        <input type="text" name="title4" value="<%=@form.title4 %>" wrap="soft">
+                    </div>
+                </div>
+                <!--<div class="structure-end">-->
+                <!--    <svg class="svg-line-apply-index-yellow" height="100" width="100">-->
+                <!--        <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />-->
+                <!--        <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />-->
+                <!--    </svg>-->
+                </div>
+            </div>
+            <!-- 5번질문 -->
+            <div class="apply-content-outline">
+                <!--<svg class="svg-line-apply-index-pink" height="100" width="100">-->
+                <!--    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />-->
+                <!--    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />-->
+                <!--</svg>-->
+                <div class="apply-content">
+                    <div class="question-q">Q 5.</div>
+                    <div class="apply_form_input">
+                        <input type="text" name="title5" value="<%=@form.title5 %>">
+                    </div>
+                </div>
+                <!--<div class="structure-end">-->
+                <!--    <svg class="svg-line-apply-index-yellow" height="100" width="100">-->
+                <!--        <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />-->
+                <!--        <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />-->
+                <!--    </svg>-->
+                <!--</div>-->
+            </div>
+            
+            <div class="button-in-apply-form">
+                <input class="button-apply-form-edit" type="submit" value="저장">
+            </div>
+            
+        </form>
+        </div>
+    </div>
+</div>
+
+작성된 지원서 보기
+<!-- => user_application_view.css -->
+
+<!--지원자의 지원서 내용을 볼 수 있는 페이지-->
+<div class="content-outline">
+    <div class="content">
+        <div class="content-title">지원 내용 확인</div>
+        <div class="user_apply_info">
+            <div class="row">
+                <div class="user_info-title col-4">이름</div>
+                <svg class="user-info-line col-1" height="18" width="10">
+                    <line x1="0" y1="0" x2="0" y2="18" style="stroke: #DCDCDC">
+                </svg>
+                <div class="col-7"><%= User.find(@content.user_id).name %></div>
+                <div class="user_info-title col-4">전화번호</div>
+                <svg class="user-info-line col-1" height="18" width="10">
+                    <line x1="0" y1="0" x2="0" y2="18" style="stroke: #DCDCDC">
+                </svg>
+                <div class="col-7"><%= User.find(@content.user_id).phone_number %></div>
+                <div class="user_info-title col-4">이메일</div>
+                <svg class="user-info-line col-1" height="18" width="10">
+                    <line x1="0" y1="0" x2="0" y2="18" style="stroke: #DCDCDC">
+                </svg>
+                <div class="col-7"><%= User.find(@content.user_id).mail %></div>
+                <div class="user_info-title col-4">학번</div>
+                <svg class="user-info-line col-1" height="18" width="10">
+                    <line x1="0" y1="0" x2="0" y2="18" style="stroke: #DCDCDC">
+                </svg>
+                <div class="col-7"><%= User.find(@content.user_id).email %></div>
+                <div class="user_info-title col-4">학부/학과</div>
+                <svg class="user-info-line col-1" height="18" width="10">
+                    <line x1="0" y1="0" x2="0" y2="18" style="stroke: #DCDCDC">
+                </svg>
+                <div class="col-7"><%= User.find(@content.user_id).department.department_name %></div>
+                <div class="user_info-title col-4">학년</div>
+                <svg class="user-info-line col-1" height="18" width="10">
+                    <line x1="0" y1="0" x2="0" y2="18" style="stroke: #DCDCDC">
+                </svg>
+                <div class="col-7"><%= User.find(@content.user_id).grade_id %></div>
+                <div class="user_info-title col-4">작성일자</div>
+                <svg class="user-info-line col-1" height="18" width="10">
+                    <line x1="0" y1="0" x2="0" y2="18" style="stroke: #DCDCDC">
+                </svg>
+                <div class="col-7"><%= @content.updated_at.strftime('%Y년 %m월 %d일 %H시%M분') %></div>
+            </div>
+        </div>
+        <!--첫번째 질문-->
+        <% unless @form.title1 == nil %>
+            <div class="apply-content-outline">
+                <!--<svg class="svg-line-apply-index-pink" height="100" width="100">-->
+                <!--    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />-->
+                <!--    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />-->
+                <!--</svg>-->
+                <div class="apply-content">
+                    <div class="apply-question">
+                        <div class="question-q">Q 1.</div>
+                        <div class="question_box">
+                            <%=@form.title1%>
+                        </div>
+                    </div>                                                                                             
+                    <div class="apply-answer">
+                        <div class="answer-a">A 1.</div>
+                        <div class="answer_box">
+                            <%= @content.content1 %>
+                        </div>
+                    </div>
+                </div>
+                <div class="structure-end">
+                    <!--<svg class="svg-line-apply-index-yellow" height="100" width="100">-->
+                    <!--    <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />-->
+                    <!--    <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />-->
+                    <!--</svg>-->
+                </div>
+            </div>
+        <% end %>
+        <!--두번째 질문-->
+        <% unless @form.title2 == nil %>
+            <div class="apply-content-outline">
+                <!--<svg class="svg-line-apply-index-pink" height="100" width="100">-->
+                <!--    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />-->
+                <!--    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />-->
+                <!--</svg>-->
+                <div class="apply-content">
+                    <div class="apply-question">
+                        <div class="question-q">Q 2.</div>
+                        <div class="question_box">
+                            <%=@form.title2%>
+                        </div>
+                    </div>
+                    <div class="apply-answer">
+                        <div class="answer-a">A 2.</div>
+                        <div class="answer_box">
+                            <%= @content.content2 %>
+                        </div>
+                    </div>
+                </div>
+                <div class="structure-end">
+                    <!--<svg class="svg-line-apply-index-yellow" height="100" width="100">-->
+                    <!--    <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />-->
+                    <!--    <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />-->
+                    <!--</svg>-->
+                </div>
+            </div>
+        <% end %>
+        <!--세번째 질문-->
+        <% unless @form.title3 == nil %>
+            <div class="apply-content-outline">
+                <!--<svg class="svg-line-apply-index-pink" height="100" width="100">-->
+                <!--    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />-->
+                <!--    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />-->
+                <!--</svg>-->
+                <div class="apply-content">
+                    <div class="apply-question">
+                        <div class="question-q">Q 3.</div>
+                        <div class="question_box">
+                            <%=@form.title3%>
+                        </div>
+                    </div>
+                    <div class="apply-answer">
+                        <div class="answer-a">A 3.</div>
+                        <div class="answer_box">
+                            <%= @content.content3 %>
+                        </div>
+                    </div>
+                </div>
+                <div class="structure-end">
+                    <!--<svg class="svg-line-apply-index-yellow" height="100" width="100">-->
+                    <!--    <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />-->
+                    <!--    <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />-->
+                    <!--</svg>-->
+                </div>
+            </div>
+        <% end %>
+        <!--네번째 질문-->
+        <% unless @form.title4 == nil %>
+            <div class="apply-content-outline">
+                <!--<svg class="svg-line-apply-index-pink" height="100" width="100">-->
+                <!--    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />-->
+                <!--    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />-->
+                <!--</svg>-->
+                <div class="apply-content">
+                    <div class="apply-question">
+                        <div class="question-q">Q 4.</div>
+                        <div class="question_box">    
+                            <%=@form.title4%>
+                        </div>
+                    </div>
+                    <div class="apply-answer">
+                        <div class="answer-a">A 4.</div>
+                        <div class="answer_box">
+                            <%= @content.content4 %>
+                        </div>
+                    </div>
+                </div>
+                <div class="structure-end">
+                    <!--<svg class="svg-line-apply-index-yellow" height="100" width="100">-->
+                    <!--    <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />-->
+                    <!--    <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />-->
+                    <!--</svg>-->
+                </div>
+            </div>
+        <% end %>
+        <!--다섯번째 질문-->
+        <% unless @form.title5 == nil %>
+            <div class="apply-content-outline">
+                <!--<svg class="svg-line-apply-index-pink" height="100" width="100">-->
+                <!--    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />-->
+                <!--    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />-->
+                <!--</svg>-->
+                <div class="apply-content">
+                    <div class="apply-question">
+                        <div class="question-q">Q 5.</div>
+                        <div class="question_box">
+                            <%=@form.title5%>
+                        </div>
+                    </div>
+                    <div class="apply-answer">
+                        <div class="answer-a">A 5.</div>
+                        <div class="answer_box">
+                            <%= @content.content5 %>
+                        </div>
+                    </div>
+                </div>
+                <div class="structure-end">
+                    <!--<svg class="svg-line-apply-index-yellow" height="100" width="100">-->
+                    <!--    <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />-->
+                    <!--    <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />-->
+                    <!--</svg>-->
+                </div>
+            </div>
+        <% end %>
+        <div class="button-in-apply-content">
+            <!--현재 로그인한 유저가 일반유저면 내용을 수정,삭제할 수 있다-->
+            <% if current_user.authorization == '2' %>
+                    <a href="/apply_content/edit/<%=@content.id%>"><div class="button-apply-index-edit">수정하기</div></a>
+                    <a href="/apply_content/destroy/<%=@content.id%>"><div class="button-apply-index-edit">삭제하기</div></a>
+            <!--현재 로그인한 유저가 서버관리자 또는 단체관리자이면 글을 쓴 유저를 동아리에 등록하거나 글을 삭제할 수 있다-->
+            <!--글 삭제하는거는 db에 삭제된다는 의미이므로 이부분은 논의를 해야함-->
+            <% else %>
+                <a href='/club/add_club_member/<%= @form.club_id %>/<%= @content.user_id %>'><div class="button-apply-index-edit">수락하기</div></a>
+                <a href="/apply_content/destroy/<%= @content.id %>"><div class="button-apply-index-edit">삭제하기</div></a>
+            <% end %>
+        </div>
+    </div>
+</div>

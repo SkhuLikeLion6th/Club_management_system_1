@@ -1,0 +1,27 @@
+<div class="clubs-index mt60 mb60">
+<p id="notice"><%= notice %></p>
+   
+        
+         <div class="mt60">
+            <img src="<%= @small_group.img_url%>" class="club-view-img mb20 mt20" alt="소모임 이미지">
+            <h2 class="club-view-h"><%= @small_group.group_name %></h2>
+            <h2>-</h2>
+            <p class="club-view-p"><%= @small_group.introduce %></p>
+            <p><%= @small_group.content %></p>
+
+         </div> 
+         <div class="row align-center">
+            <div class="col">
+             <div class="align-center">   
+             </div>
+            </div>
+         </div>
+         
+          <div class="align-center mb60">
+            <%= render partial: "comments/template", locals: {commentable: @small_group, new_comment: @comment} %>
+          </div>
+        
+
+<!--<#%= link_to 'Edit', edit_small_group_path(@small_group) %> |-->
+<!--<#%= link_to 'Back', small_groups_path %>-->
+</div>

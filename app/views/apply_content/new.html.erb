@@ -1,87 +1,65 @@
-<div class="content-outline">
-    <div class="content">
-        <div class="content-title">지원서 작성 페이지</div>
-
-        <form action="/apply_content/create/<%=@apply_form.id%>/<%= current_user.id %>" method="post">
-            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-            <!--title에 해당하는 내용이 없으면 안보이게하고 content도 입력받지 않아야한다.-->
-            <% unless @apply_form.title1 == nil %>
-                <div class="apply-content-outline">
-                    <div class="apply-content">
-                        <div class="apply-question">
-                            <div class="question-q">Q 1.</div>
-                            <div class="question-content"><%= @apply_form.title1 %></div>
-                        </div>  
-                        <div class="apply-answer">
-                            <div class="answer-a">A 1.</div>
-                            <textarea class="textarea-1" name="content1" cols="80" rows="8"></textarea>
-                        </div>
-                    </div>
-                </div>
-            <% end %>
-            <% unless @apply_form.title2 == nil %>
-                <div class="apply-content-outline">
-                    <div class="apply-content">
-                        <div class="apply-question">
-                            <div class="question-q">Q 2.</div>
-                            <div class="question-content"><%= @apply_form.title2 %></div>
-                        </div>  
-                        <div class="apply-answer">
-                            <div class="answer-a">A 2.</div>
-                            <textarea class="textarea-2"name="content2" cols="80" rows="8"></textarea>
-                        </div>
-                    </div>
-                </div>
-            <% end %>
-            <% unless @apply_form.title3 == nil %>
-                <div class="apply-content-outline">
-                    <div class="apply-content">
-                        <div class="apply-question">
-                            <div class="question-q">Q 3.</div>
-                            <div class="question-content"><%= @apply_form.title3 %></div>
-                        </div>  
-                        <div class="apply-answer">
-                            <div class="answer-a">A 3.</div>
-                            <textarea class="textarea-1" name="content3" cols="80" rows="8"></textarea>
-                        </div>
-                    </div>
-                </div>
-            <% end %>
-            <% unless @apply_form.title4 == nil %>
-                <div class="apply-content-outline">
-                    <div class="apply-content">
-                        <div class="apply-question">
-                            <div class="question-q">Q 4.</div>
-                            <div class="question-content"><%= @apply_form.title4 %></div>
-                        </div>  
-                        <div class="apply-answer">
-                            <div class="answer-a">A 4.</div>
-                            <textarea class="textarea-2" name="content4" cols="80" rows="8"></textarea>
-                        </div>
-                    </div>
-                </div>
-            <% end %>
-            <% unless @apply_form.title5 == nil %>
-                <div class="apply-content-outline">
-                    <div class="apply-content">
-                        <div class="apply-question">
-                            <div class="question-q">Q 5.</div>
-                            <div class="question-content"><%= @apply_form.title5 %></div>
-                        </div>  
-                        <div class="apply-answer">
-                            <div class="answer-a">A 5.</div>
-                            <textarea  class="textarea-1" name="content5" cols="80" rows="8"></textarea>
-                        </div>
-                    </div>
-                </div>
-            <% end %>
-            
-            <div class="button-in-apply-content">
-                <input class="button-apply-new-submit" type="submit" value="제출">
+<div class="apply-form-body pt60">
+  <div class="container pt60 pb60">
+    <div class="mt60 mb60">
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+          <form action="/apply_content/create/<%=@apply_form.id%>/<%= current_user.id %>" method="post">
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          <div class="apply-form-box">
+            <div class="align-center mb20">
+              <h2 class="apply-form-h2">동아리 지원서</h2>
             </div>
-            
-        </form>
-        
+            <div class="align-right mb30 apply-form-day"><p><span>작성일 :</span> 제출시 자동으로 등록됩니다.</p></div>
+            <div class="row">
+              <div class="col-3">
+                <div class="align-center ">
+                  <img  class="apply-form-img" src="/assets/clubs/<%= @apply_form.id %>.jpg">
+                  <p class="mt10" style="font-weight: bold;"><%=Club.find(@apply_form.club_id).club_name%></p>
+                </div>
+              </div>
+              <div class="col-9">
+                <div class="apply-form-user-info" style="display: block;">
+                  <div class="align-center"><h3 class="apply-form-h3">인적사항</h3></div>
+                  <div class="row"><div class="col-3"><p>이름: </p></div><div class="col-8"><p> <%= current_user.name %></p> </div></div>
+                  <div class="row"><div class="col-3"><p>전화번호: </p></div><div class="col-8"><p> <%= current_user.phone_number %></p> </div></div>
+                  <div class="row"><div class="col-3"><p>이메일: </p></div><div class="col-8"><p> <%= current_user.mail %></p> </div></div>
+                  <div class="row"><div class="col-3"><p>학번: </p></div><div class="col-8"><p> <%= current_user.email %></p> </div></div>
+                  <div class="row"><div class="col-3"><p>학부/학과: </p></div><div class="col-8"><p> <%= current_user.department.department_name %></p> </div></div>
+                  <div class="row"><div class="col-3"><p>학년: </p></div><div class="col-8"><p> <%= current_user.grade_id %></p> </div></div>
+                </div>
+              </div>
+            </div>
+            <div class="apply-form-question-box">
+              <% unless @apply_form.title1 == nil %>
+                <p>Q1. <span><%= @apply_form.title1 %></span></p>
+                <div><textarea class="answer_box" name="content1"></textarea></div>
+              <% end %>
+              <% unless @apply_form.title2 == nil %>
+                <p>Q2. <span><%= @apply_form.title2 %></span></p>
+                <div><textarea class="answer_box" name="content2"></textarea></div>
+              <% end %>
+              <% unless @apply_form.title3 == nil %>
+                <p>Q3. <span><%= @apply_form.title3 %></span></p>
+                <div><textarea class="answer_box" name="content3"></textarea></div>
+              <% end %>
+              <% unless @apply_form.title4 == nil %>
+                <p>Q4. <span><%= @apply_form.title4 %></span></p>
+                <div><textarea class="answer_box" name="content4"></textarea></div>
+              <% end %>
+              <% unless @apply_form.title5 == nil %>
+                <p>Q5. <span><%= @apply_form.title5 %></span></p>
+                <div><textarea class="answer_box" name="content5"></textarea></div>
+              <% end %>
+            </div>
+            <div class="apply-form-edit-bttn">
+                <input type="submit" value="지원서 제출">
+            </div>
+          </div>
+          </form>
+        </div>
+        <div class="col-2"></div>
+      </div>
     </div>
+  </div>
 </div>
-</body>

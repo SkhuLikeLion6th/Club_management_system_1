@@ -1,0 +1,9 @@
+
+
+<% @group.each do |x| %>
+   
+    <%= x.comment_threads.count %>
+ 
+<% end %>
+
+<%= render partial: "comments/template", locals: {commentable: @group, new_comment: @comment} %>

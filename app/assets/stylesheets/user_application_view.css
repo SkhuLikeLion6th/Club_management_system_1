@@ -1,33 +1,32 @@
-.user_apply_info{
-    width: 470px;
-    margin: auto;
-    margin-bottom: 15px;
-    border: 1.5px solid #FFD0D6;
-    border-radius: 20px;
-    padding: 20px;
+.user-application-bttn-1{
+    margin: 0 1rem;
+	border: none;
+	outline: none;
+	height: 2.5rem;
+	background: url(/assets/index/banner_1.png);
+	font-size: 1.2rem;
+	border-radius: 5px;
+	font-weight: bold;
+	width: 40%;
+	padding: 0.35rem;
+	display: inline-block;
 }
-
-.user-info-line{
-    position: relative;
+.user-application-bttn-1:hover{
+    color: #fff;
 }
-
-.user_info-title{
-    text-align: right;
+.user-application-bttn-2{
+    margin: 0 1rem;
+	border: none;
+	outline: none;
+	height: 2.5rem;
+	background: #ffaaaa;
+	font-size: 1.2rem;
+	border-radius: 5px;
+	font-weight: bold;
+	width: 40%;
+	padding: 0.35rem;
+	display: inline-block;
 }
-
-.question_box{
-    display: inline;
-    padding-bottom: 3px;
-    font-size: 25px;
-    border-bottom: 2px solid #999;
-    font-weight: bold;
-    color: #555;
-}
-.answer_box{
-    min-height: 200px;
-    padding: 5px 1rem;
-    border: 1.5px solid #bbb;
-    border-radius: 7px;
-    font-size: 17px;
-    font-weight: bold;
+.user-application-bttn-2:hover{
+    color: #fff;
 }

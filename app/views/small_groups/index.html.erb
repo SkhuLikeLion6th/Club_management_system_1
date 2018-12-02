@@ -1,0 +1,45 @@
+<div class="clubs-index mt60 mb60">
+  <div class="container">
+    <div class="align-center"><h2 class="clubs-index-h2">소모임</h2></div>
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-10 align-center">
+      <p id="notice"><%= notice %></p>
+      
+
+      
+      <!--<table>-->
+      <!--  <thead>-->
+      <!--    <tr>-->
+      <!--      <th colspan="3"></th>-->
+      <!--    </tr>-->
+      <!--  </thead>-->
+      
+      
+          <% @small_groups.each do |small_group| %>
+    
+              <%= link_to small_group do %>
+                <div class="card dsply-inbl pl05 pr05 ml10 mr10 mb20 align-center" style="width: 12.2rem;">
+                  <img class="card-img-top clubs-index-img" src="<%=small_group.img_url%>" alt="Club image">
+                  <div class="card-body overflow-hddn">
+                    <h5 class="clubs-index-h3"><%= small_group.group_name %></h5>
+                    <div class=" align-left"><p class="card-text clubs-index-p"><%= small_group.introduce %></p></div>
+                  </div>
+                </div>
+              <% end %>
+             
+              
+              <!--<td><#%= link_to 'Edit', edit_small_group_path(small_group) %></td>-->
+              <!--<td><#%= link_to 'Destroy', small_group, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+          
+          <% end %>
+      <!--  </tbody>-->
+      <!--</table>-->
+      
+      <br>
+      
+      <%= link_to 'New Small Group', new_small_group_path %>
+    </div>
+    </div>
+  </div>
+</div>

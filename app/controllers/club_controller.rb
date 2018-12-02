@@ -89,7 +89,7 @@ class ClubController < ApplicationController
       @member.club_id = params[:club_id]
       @member.save
     end
-    redirect_to '/club/index'
+    redirect_to '/apply_content/index'
   end
   
   def delete_club_member # 클럽 멤버를 지우는 함수

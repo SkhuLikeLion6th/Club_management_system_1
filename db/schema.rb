@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181129085410) do
+ActiveRecord::Schema.define(version: 20181201113814) do
 
   create_table "apply_contents", force: :cascade do |t|
     t.integer  "apply_form_id"
@@ -62,6 +62,23 @@ ActiveRecord::Schema.define(version: 20181129085410) do
     t.string   "img_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.string   "title"
+    t.text     "body"
+    t.string   "subject"
+    t.integer  "user_id",          null: false
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "departments", force: :cascade do |t|
@@ -126,6 +143,7 @@ ActiveRecord::Schema.define(version: 20181129085410) do
     t.string   "introduce"
     t.string   "img_url"
     t.string   "content"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,37 +1,21 @@
-<div class="content-outline">
-    <div class="content">
-        <div class="content-title">소모임 만들기</div>
-        
+<div class="container">
+  <div class="row">
+    <div class=col-2></div>
+    <div class="col-8">
+      <div class="new-smgroup-box">
+        <h2 class="new-smgroup-h2">소모임 만들기</h2>
         <form action="/small_group/create_group/" method="post" enctype="multipart/form-data">
-            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-            
-
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="e">이미지</div>
-                            <div class="">소모임 이름</div>
-                            <div class="">소개</div>
-                            <div>설명</div>
-                        </div>
-                        <div class="col-6">
-                            <div class="club-edit-content"><input type="file" name="img" accept="image/*"></div>
-                            <div class="club-edit-content"><input type="text" name="group_name"></div>
-                            <div class="club-edit-content"><input type="text" name="introduce"></div>
-                            <div><textarea name="content" cols="40" rows="8" ></textarea></div>
-                        </div>
-                    </div>
-                </div>        
-                <div class="structure-end">
-                    <svg class="svg-line-apply-index-yellow" height="100" width="100">
-                        <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />
-                        <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />
-                    </svg>
-                </div>
-            </div>
-            <div class="button-in-club-edit">
-                <input class="button-club-edit-submit" type="submit" value="제출">
-            </div>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          <p class="new-smgroup-p">모임 이름</p>
+          <input type="text" name="group_name" placeholder="모임 이름을 적어주세요.">
+          <p class="new-smgroup-p">소개</p>
+          <textarea type="text" name="introduce" placeholder="소개를 적어주세요."></textarea>
+          <p class="new-smgroup-p">이미지</p>
+          <input type="file" name="img" accept="image/*">
+          <input type="submit" name="user[submit]" value="완 료">
         </form>
-
+      </div>
     </div>
+    <div class=col-2></div>    
+  </div>
 </div>

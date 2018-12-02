@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  
+  resources :small_groups
+  resources :comments, only: [:create, :destroy]
+
+  
   get 'board/content1'
 
   get 'board/content2'
@@ -68,17 +73,18 @@ Rails.application.routes.draw do
   
   post 'club/create_club'
   
-  # 소모임을 보는 라우트
-  get 'small_group/index'
+  # # 소모임을 보는 라우트
+  # get 'small_group/index'
+  # 지금 스캐폴드로 다시만들어서
+  # 기달려봐
+  # get 'small_grous/group_view/:group_id' => 'small_group#group_view'
   
-  get 'small_group/group_view/:group_id' => 'small_group#group_view'
+  # # group을 새로 만드는 라우트
+  # get 'small_group/new_group'
   
-  # group을 새로 만드는 라우트
-  get 'small_group/new_group'
+  # post 'small_group/create_group'
   
-  post 'small_group/create_group'
-  
-  
+
   ##############################
   
   get 'club/index'

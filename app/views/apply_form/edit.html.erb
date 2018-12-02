@@ -1,110 +1,56 @@
-<div class="content-outline">
-    <div class="content">
-        <div class="content-title">지원 질문 수정</div>
-
-        <form action = "/apply_form/update/<%=@form.club.id%>" method="post">
+<div class="apply-form-body pt60">
+  <div class="container pt60 pb60">
+    <div class="mt60 mb60">
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+          <div class="apply-form-box">
+            <div class="align-center mb20">
+              <h2 class="apply-form-h2">동아리 지원서</h2>
+              <p class="apply-form-edit-p">(질 문 수 정)</p>
+            </div>
+            <div class="align-right mb30 apply-form-day"><p><span>작성일 :</span> x년 x월 x일 x시 x분</p></div>
+            <div class="row">
+              <div class="col-3">
+                <div class="align-center ">
+                  <img  class="apply-form-img" src="/assets/clubs/<%=@form.club_id%>.jpg">
+                  <p class="mt10" style="font-weight: bold;"><%=Club.find(@form.club_id).club_name%></p>
+                </div>
+              </div>
+              <div class="col-9">
+                <div class="apply-form-user-info" style="display: block;">
+                  <div class="align-center"><h3 class="apply-form-h3">인적사항</h3></div>
+                  <p>이름:</p>
+                  <p>전화번호:</p>
+                  <p>이메일:</p>
+                  <p>학번:</p>
+                  <p>학부/학과:</p>
+                  <p>학년:</p>
+                </div>
+              </div>
+            </div>
+            <form action = "/apply_form/update/<%=@form.club.id%>" method="post">
             <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-            <!-- 1번질문 -->
-            <div class="apply-content-outline">
-                <!--<svg class="svg-line-apply-index-pink" height="100" width="100">-->
-                <!--    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />-->
-                <!--    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />-->
-                <!--</svg>-->
-                <div class="apply-content">
-                    <div class="question-q">Q 1.</div>
-                    <div class="apply_form_input">
-                        <input type="text" name="title1" value="<%=@form.title1 %>" wrap="soft">
-                    </div>
-                </div>
-                <!--<div class="structure-end">-->
-                <!--    <svg class="svg-line-apply-index-yellow" height="100" width="100">-->
-                <!--        <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />-->
-                <!--        <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />-->
-                <!--    </svg>-->
-                <!--</div>-->
-            </div>
-            <!-- 2번질문 -->
-            <div class="apply-content-outline">
-                <!--<svg class="svg-line-apply-index-pink" height="100" width="100">-->
-                <!--    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />-->
-                <!--    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />-->
-                <!--</svg>-->
-                <div class="apply-content">
-                    <div class="question-q">Q 2.</div>
-                    <div class="apply_form_input">
-                        <input type="text" name="title2" value="<%=@form.title2 %>">
-                    </div>
-                </div>
-                <!--<div class="structure-end">-->
-                <!--    <svg class="svg-line-apply-index-yellow" height="100" width="100">-->
-                <!--        <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />-->
-                <!--        <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />-->
-                <!--    </svg>-->
-                <!--</div>-->
-            </div>
-            <!-- 3번질문 -->
-            <div class="apply-content-outline">
-                <!--<svg class="svg-line-apply-index-pink" height="100" width="100">-->
-                <!--    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />-->
-                <!--    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />-->
-                <!--</svg>-->
-                <div class="apply-content">
-                    <div class="question-q">Q 3.</div>
-                    <div class="apply_form_input">
-                        <input type="text" name="title3" value="<%=@form.title3 %>">
-                    </div>
-                </div>
-                <!--<div class="structure-end">-->
-                <!--    <svg class="svg-line-apply-index-yellow" height="100" width="100">-->
-                <!--        <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />-->
-                <!--        <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />-->
-                <!--    </svg>-->
-                </div>
-            </div>
-            <!-- 4번질문 -->
-            <div class="apply-content-outline">
-                <!--<svg class="svg-line-apply-index-pink" height="100" width="100">-->
-                <!--    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />-->
-                <!--    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />-->
-                <!--</svg>-->
-                <div class="apply-content">
-                    <div class="question-q">Q 4.</div>
-                    <div class="apply_form_input">
-                        <input type="text" name="title4" value="<%=@form.title4 %>" wrap="soft">
-                    </div>
-                </div>
-                <!--<div class="structure-end">-->
-                <!--    <svg class="svg-line-apply-index-yellow" height="100" width="100">-->
-                <!--        <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />-->
-                <!--        <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />-->
-                <!--    </svg>-->
-                </div>
-            </div>
-            <!-- 5번질문 -->
-            <div class="apply-content-outline">
-                <!--<svg class="svg-line-apply-index-pink" height="100" width="100">-->
-                <!--    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />-->
-                <!--    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />-->
-                <!--</svg>-->
-                <div class="apply-content">
-                    <div class="question-q">Q 5.</div>
-                    <div class="apply_form_input">
-                        <input type="text" name="title5" value="<%=@form.title5 %>">
-                    </div>
-                </div>
-                <!--<div class="structure-end">-->
-                <!--    <svg class="svg-line-apply-index-yellow" height="100" width="100">-->
-                <!--        <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />-->
-                <!--        <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />-->
-                <!--    </svg>-->
-                <!--</div>-->
-            </div>
-            
-            <div class="button-in-apply-form">
-                <input class="button-apply-form-edit" type="submit" value="저장">
-            </div>
-            
-        </form>
+              <div class="apply-form-question-box">
+                <p>Q1. <span class="title-edit"><input type="text" name="title1" value="<%=@form.title1 %>" wrap="soft"></span></p>
+                <div class="answer_box"></div>
+                <p>Q2. <span class="title-edit"><input type="text" name="title2" value="<%=@form.title2 %>" wrap="soft"></span></p>
+                <div class="answer_box"></div>
+                <p>Q3. <span class="title-edit"><input type="text" name="title3" value="<%=@form.title3 %>" wrap="soft"></span></p>
+                <div class="answer_box"></div>
+                <p>Q4. <span class="title-edit"><input type="text" name="title4" value="<%=@form.title4 %>" wrap="soft"></span></p>
+                <div class="answer_box"></div>
+                <p>Q5. <span class="title-edit"><input type="text" name="title5" value="<%=@form.title5 %>" wrap="soft"></span></p>
+                <div class="answer_box"></div>
+              </div>
+              <div class="apply-form-edit-bttn">
+                <input type="submit" value="완료">
+              </div>
+            </form>
+          </div>
         </div>
+        <div class="col-2"></div>
+      </div>
     </div>
+  </div>
 </div>

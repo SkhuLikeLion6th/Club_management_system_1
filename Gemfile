@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'devise'
 gem "simple_calendar", "~> 2.0"
 
+#중첩댓글
+gem 'acts_as_commentable_with_threading'
 
 #carrierwave
 gem 'carrierwave'
