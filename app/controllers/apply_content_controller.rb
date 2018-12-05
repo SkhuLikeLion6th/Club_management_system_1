@@ -39,7 +39,7 @@ class ApplyContentController < ApplicationController
   end
   
   def create
-    if user_signed_in?
+    if user_signed_in? && ApplyContent.where(apply_form_id: params[:apply_form_id], user_id: params[:user_id]).exists? == false
       @apply_content = ApplyContent.new
       @apply_content.apply_form_id = params[:apply_form_id]
       @apply_content.user_id = params[:user_id]
@@ -72,6 +72,7 @@ class ApplyContentController < ApplicationController
       @apply_content.content5 = params[:content5]
       @apply_content.save
     end
+    
     redirect_to '/apply_content/user_application_view/' + @apply_content.id.to_s
   end
   

@@ -1,21 +1,156 @@
-.new-smgroup-box{
-    padding: 3rem;
-	box-sizing: border-box;
-	border-radius: 5px;
-	border: 1px solid #ddd;
+.small-groups-body-1{
+	background-color: #4363a4;
+	padding: 100px 0;
+	/*margin: 50px 0;*/
+} 
+
+.small-groups-body{
+	
+	padding: 50px 0;
+	margin: 30px 0;
+} 
+
+
+.small-groups-index-new-bttn{
+	width: 8rem;
+    height: 2.2em;
+    padding: 0.45rem;
+    background: #3596b0;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 2rem;
+    display: inline-block;
+}
+.small-groups-index-new-bttn:hover{
+	cursor: pointer;
+    color: #fff;
+    background-color: #4363a4;
+}
+.small-groups-index-h2{
+	font-size: 2rem;
+	color: #000;
+	font-weight: bold;
+	
+	margin:3.5rem 0;
 }
 
-.new-smgroup-h2{
+.samll-groups-index-title{
+	height: 3.75rem;
+	overflow: hidden;
 	font-size: 1.5rem;
-	color: #000;
-	font-weight: bold;
-	margin-bottom: 2rem;
 }
 
-.new-smgroup-p{
-	/*font-size: 1rem;*/
+.small-groups-index-p{
+	height: 5em;
+	font-weight: bold;
+	color: #000;
+	overflow-y: hidden;
+}
+
+.small-groups-index-img{
+	width: 12rem;
+	height: 12rem;
+	padding: 0.5rem;
+	border-radius: 20px;
+	margin: 1rem 0;
+}
+
+.small-groups-index-more{
+	
+    margin-top: 1rem;
+    background-color: transparent;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    color: #999;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.2rem 0.5rem;
+}
+.small-groups-index-more:hover{
+    color: #999;
+    color: #4363a4;
+    border: 2px solid #4363a4;
+}
+
+
+/*만들기*/
+
+.small-groups-create-box{
+	padding: 2rem 3rem;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background-color: #fff;
+}
+
+.small-groups-create-h3{
+	padding-bottom: 1rem;
+	font-weight: bold;
+}
+
+.small-groups-create-p{
+	margin-top: 2rem;
 	font-weight: bold;
 	color: #000;
 }
 
+.small-groups-create-input input[type="text"]{
+	width: 100%;
+	border: none;
+	border-bottom: 1px solid #000;
+	background: transparent;
+	outline: none;
+	height: 40px;
+	color: #333;
+	font-size: 1rem;
+	padding:0 1rem;
+}
 
+.small-groups-create-input input[type="file"]{
+	
+}
+
+.small-groups-create-input textarea{
+	width: 100%;
+	height: 8rem;
+	border: 1px solid #000;
+	border-radius: 5px;
+}
+
+
+
+
+/*show*/
+
+.small-groups-show-box{
+	border: 1px solid #ccc;
+	background-color: #fff;
+	padding: 3rem 2rem;
+	border-radius: 20px;
+}
+
+.small-groups-show-title{
+	margin: 3rem 0;
+	width: 100%;
+	/*overflow: hidden;*/
+	font-weight: bold;
+}
+
+.small-groups-show-h2{
+	font-size: 2.5rem;
+	width: 100%;
+	overflow: hidden;
+	height: 3.5rem;
+	font-weight: bold;
+}
+
+.small-groups-show-content{
+	margin: 2rem 0;
+}
+
+.small-groups-show-p{
+	overflow: hidden;
+	font-size: 1.5rem;
+	
+}

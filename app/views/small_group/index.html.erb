@@ -3,18 +3,22 @@
     <div class="align-center"><h2 class="clubs-index-h2">소모임</h2></div>
     <div class="row">
       <div class="col-1"></div>
-      <div class="col-10 align-center">
-        <% @groups.each do |x| %>
-          <a href="/small_group/group_view/<%= x.id %>">    
-            <div class="card dsply-inbl pl05 pr05 ml10 mr10 mb20 align-center" style="width: 12.2rem;">
-              <img class="card-img-top clubs-index-img" src="<%=x.img_url%>" alt="Club image">
-              <div class="card-body overflow-hddn">
-                <h5 class="clubs-index-h3"><%= x.group_name %></h5>
-                <div class=" align-left"><p class="card-text clubs-index-p"><%= x.introduce %></p></div>
-              </div>
-            </div>
-          </a>
-        <% end %>
+      <div class="col-10 ">
+        <div class="row">
+          <% @groups.each do |x| %>
+            <div class="col-3">
+              <a href="/small_group/group_view/<%= x.id %>">    
+                <div class="card dsply-inbl pl05 pr05 ml10 mr10 mb20 align-center" style="width: 12.2rem;">
+                  <img class="card-img-top clubs-index-img" src="<%=x.img_url%>" alt="Club image">
+                  <div class="card-body overflow-hddn">
+                    <h5 class="clubs-index-h3"><%= x.group_name %></h5>
+                    <div class=" align-left"><p class="card-text clubs-index-p"><%= x.introduce %></p></div>
+                  </div>
+                </div>
+              </a>
+            </div>  
+          <% end %>
+        </div>
       </div>
       <a href="/small_group/new_group">소모임 개설</a>
       <div class="col-1"></div>

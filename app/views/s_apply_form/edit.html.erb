@@ -1,0 +1,63 @@
+<div class="apply-form-body pt60">
+  <div class="container pt60 pb60">
+    <div class="mt60 mb60">
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+          <div class="apply-form-box">
+            <div class="align-center mb20">
+              <h2 class="apply-form-h2">소모임 지원서</h2>
+              <p class="apply-form-edit-p">(질 문 수 정)</p>
+            </div>
+            <div class="align-right mb30 apply-form-day"><p><span>작성일 :</span> x년 x월 x일 x시 x분</p></div>
+            <div class="row">
+              <div class="col-3">
+                <div class="align-center ">
+                  <% if current_user.authorization == '4' %>
+  
+                    <% if @form.small_group.img_url.to_s == nil || @form.small_group.img_url.to_s == "" %>
+                      <img  class="apply-form-img" src="<%= "/assets/small_groups/11.png"%>">
+                    <% else %>
+                      <img class="apply-form-img" src="<%= @form.small_group.img_url %>">
+                    <% end %>
+                    <p class="mt10" style="font-weight: bold;"><%=SmallGroup.find(@form.small_group).group_name%></p>
+                  <% end %>
+                </div>
+              </div>
+              <div class="col-9">
+                <div class="apply-form-user-info" style="display: block;">
+                  <div class="align-center"><h3 class="apply-form-h3">인적사항</h3></div>
+                  <p>이름:</p>
+                  <p>전화번호:</p>
+                  <p>이메일:</p>
+                  <p>학번:</p>
+                  <p>학부/학과:</p>
+                  <p>학년:</p>
+                </div>
+              </div>
+            </div>
+            <form action = "/s_apply_form/update/<%=@form.small_group.id%>" method="post">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+              <div class="apply-form-question-box">
+                <p>Q1. <span class="title-edit"><input type="text" name="title1" value="<%=@form.title1 %>" wrap="soft"></span></p>
+                <div class="answer_box"></div>
+                <p>Q2. <span class="title-edit"><input type="text" name="title2" value="<%=@form.title2 %>" wrap="soft"></span></p>
+                <div class="answer_box"></div>
+                <p>Q3. <span class="title-edit"><input type="text" name="title3" value="<%=@form.title3 %>" wrap="soft"></span></p>
+                <div class="answer_box"></div>
+                <p>Q4. <span class="title-edit"><input type="text" name="title4" value="<%=@form.title4 %>" wrap="soft"></span></p>
+                <div class="answer_box"></div>
+                <p>Q5. <span class="title-edit"><input type="text" name="title5" value="<%=@form.title5 %>" wrap="soft"></span></p>
+                <div class="answer_box"></div>
+              </div>
+              <div class="apply-form-edit-bttn">
+                <input type="submit" value="완료">
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-2"></div>
+      </div>
+    </div>
+  </div>
+</div>

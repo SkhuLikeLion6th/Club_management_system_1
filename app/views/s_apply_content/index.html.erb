@@ -1,0 +1,39 @@
+<!--서버관리자: 전체 지원목록을 볼수 있음, 단체관리자: 소속된 단체의 지원 목록을 볼 수 있음, 일반 유저: 자신이 쓴 지원 목록밖에 못봄-->
+<div class="applicant-index-body pt30 pb60">
+    <div class="container pt60 pb60">
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+         <% if user_signed_in? %>
+            <% if current_user.authorization == '4' %>
+              <div class="applicant-index-title">
+                <p class="p1"><%= GroupMember.find_by_user_id(current_user.id).small_group.group_name %> </p> 
+                <p class="p2">지원자 목록</p>
+              </div>
+              <div class="row">
+                <% @contents.each do |x| %>
+                <!--                                                          지원자 아이디가 클럽멤버에 속해 있지 않은 경우-->
+                  <% if @current_check_club.small_group_id == x.s_apply_form.small_group_id && GroupMember.find_by_user_id(x.user_id) == nil %>
+                    <div class="col-3">  
+                      <div class="card dsply-inbl pl05 pr05 ml10 mr10 mb20" style="width: 13rem;">
+                        <img class="card-img-top applicant-index-img" src="/assets/user-img/person<%= (x.user_id)%15 %>.png" alt="Card image cap">
+                        <div class="card-body">
+                          <div class="align-center"><h5 class="card-title"><%= User.find(x.user_id).name %></h5></div>
+                          <div class="card-text mb20 applicant-info">
+                            <p>학과: <span><%= User.find(x.user_id).department.department_name %></span></p>
+                            <p>학년: <span><%= User.find(x.user_id).grade_id %></span></p>
+                          </div>
+                          <div class="align-center"><a href="/s_apply_content/user_application_view/<%= x.id %>" class="applicant-bttn">지원서 보기</a></div>
+                        </div>
+                      </div>
+                    </div>  
+                  <% end %>    
+                <% end %>      
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="col-1"></div>
+      </div>
+    </div>
+</div>    

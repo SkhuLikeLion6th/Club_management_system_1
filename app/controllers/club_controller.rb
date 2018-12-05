@@ -83,7 +83,10 @@ class ClubController < ApplicationController
   end
   
   def add_club_member # 클럽 멤버를 추가하는 함수
-    if user_signed_in? && current_user.authorization != '2'
+    if user_signed_in? && current_user.authorization != '2' &&
+      # 클럽 멤버에 존재하지 않은 경우만 추가
+      ClubMember.where(club_id: params[:club_id], user_id: params[:user_id]).exists? == false
+      
       @member = ClubMember.new
       @member.user_id = params[:user_id]
       @member.club_id = params[:club_id]

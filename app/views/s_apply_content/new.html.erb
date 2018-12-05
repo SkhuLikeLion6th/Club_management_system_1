@@ -1,0 +1,69 @@
+<div class="apply-form-body pt60">
+  <div class="container pt60 pb60">
+    <div class="mt60 mb60">
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+          <form action="/s_apply_content/create/<%=@apply_form.id%>/<%= current_user.id %>" method="post">
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          <div class="apply-form-box">
+            <div class="align-center mb20">
+              <h2 class="apply-form-h2">소모임 지원서</h2>
+            </div>
+            <div class="align-right mb30 apply-form-day"><p><span>작성일 :</span> 제출시 자동으로 등록됩니다.</p></div>
+            <div class="row">
+              <div class="col-3">
+                <div class="align-center ">
+                  <% if SmallGroup.find(@apply_form.small_group_id).img_url.to_s == nil ||SmallGroup.find(@apply_form.small_group_id).img_url.to_s == "" %>
+                    <img  class="apply-form-img" src="<%= "/assets/small_groups/11.png"%>">
+                  <% else %>
+                    <img  class="apply-form-img" src="<%= SmallGroup.find(@apply_form.small_group_id).img_url%>">
+                  <% end %>
+                  <p class="mt10" style="font-weight: bold;"><%= SmallGroup.find(@apply_form.small_group_id).group_name%></p>
+                </div>
+              </div>
+              <div class="col-9">
+                <div class="apply-form-user-info" style="display: block;">
+                  <div class="align-center"><h3 class="apply-form-h3">인적사항</h3></div>
+                  <div class="row"><div class="col-3"><p>이름: </p></div><div class="col-8"><p> <%= current_user.name %></p> </div></div>
+                  <div class="row"><div class="col-3"><p>전화번호: </p></div><div class="col-8"><p> <%= current_user.phone_number %></p> </div></div>
+                  <div class="row"><div class="col-3"><p>이메일: </p></div><div class="col-8"><p> <%= current_user.mail %></p> </div></div>
+                  <div class="row"><div class="col-3"><p>학번: </p></div><div class="col-8"><p> <%= current_user.email %></p> </div></div>
+                  <div class="row"><div class="col-3"><p>학부/학과: </p></div><div class="col-8"><p> <%= current_user.department.department_name %></p> </div></div>
+                  <div class="row"><div class="col-3"><p>학년: </p></div><div class="col-8"><p> <%= current_user.grade_id %></p> </div></div>
+                </div>
+              </div>
+            </div>
+            <div class="apply-form-question-box">
+              <% unless @apply_form.title1 == nil %>
+                <p>Q1. <span><%= @apply_form.title1 %></span></p>
+                <div><textarea class="answer_box" name="content1"></textarea></div>
+              <% end %>
+              <% unless @apply_form.title2 == nil %>
+                <p>Q2. <span><%= @apply_form.title2 %></span></p>
+                <div><textarea class="answer_box" name="content2"></textarea></div>
+              <% end %>
+              <% unless @apply_form.title3 == nil %>
+                <p>Q3. <span><%= @apply_form.title3 %></span></p>
+                <div><textarea class="answer_box" name="content3"></textarea></div>
+              <% end %>
+              <% unless @apply_form.title4.to_s == nil %>
+                <p>Q4. <span><%= @apply_form.title4 %></span></p>
+                <div><textarea class="answer_box" name="content4"></textarea></div>
+              <% end %>
+              <% unless @apply_form.title5.to_s == nil %>
+                <p>Q5.<span><%= @apply_form.title5 %></span></p>
+                <div><textarea class="answer_box" name="content5"></textarea></div>
+              <% end %>
+            </div>
+            <div class="apply-form-edit-bttn">
+                <input type="submit" value="지원서 제출">
+            </div>
+          </div>
+          </form>
+        </div>
+        <div class="col-2"></div>
+      </div>
+    </div>
+  </div>
+</div>

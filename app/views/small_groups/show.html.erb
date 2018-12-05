@@ -1,27 +1,82 @@
-<div class="clubs-index mt60 mb60">
-<p id="notice"><%= notice %></p>
-   
-        
-         <div class="mt60">
-            <img src="<%= @small_group.img_url%>" class="club-view-img mb20 mt20" alt="소모임 이미지">
-            <h2 class="club-view-h"><%= @small_group.group_name %></h2>
-            <h2>-</h2>
-            <p class="club-view-p"><%= @small_group.introduce %></p>
-            <p><%= @small_group.content %></p>
-
-         </div> 
-         <div class="row align-center">
-            <div class="col">
-             <div class="align-center">   
-             </div>
+<div class="small-groups-body-1 mh700">
+  <div class="containerpt">
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-6">
+        <div class="small-groups-show-box">
+          <div class="align-center">
+            <% if @small_group.img_url.to_s == nil || @small_group.img_url.to_s == "" %>
+                <img src="/assets/small_groups/<%= (@small_group.id)%13 %>.png" class="club-view-img mb20 mt20" alt="소모임 이미지">
+            <% elsif %>
+                <img src="<%= @small_group.img_url%>" class="club-view-img mb20 mt20" alt="소모임 이미지">
+            <% end %>
+            <div class="dropdown-divider"></div>
+            <div class="small-groups-show-title">
+              <p>모임 이름</p>
+              <h2 class="small-groups-show-h2"><%= @small_group.group_name %></h2>
             </div>
-         </div>
-         
-          <div class="align-center mb60">
-            <%= render partial: "comments/template", locals: {commentable: @small_group, new_comment: @comment} %>
-          </div>
-        
-
-<!--<#%= link_to 'Edit', edit_small_group_path(@small_group) %> |-->
-<!--<#%= link_to 'Back', small_groups_path %>-->
+            <div class="small-groups-show-content">
+              <p><소개></p>
+              <p class="small-groups-show-p"><%= @small_group.introduce %></p>
+              
+            </div>
+             <% if @current_check_option.apply_active == '1' %>
+                  <!--로그인 된 상태면 현재 로그인 한 권한에 따라 보이는게 다름-->
+                  <% if user_signed_in? %>
+                      <!--서버 관리자인 경우-->
+                      <% if current_user.authorization == '4' %>
+                          <!--현재 로그인 한 단체 관리자가 현재 클럽의 단체 관리자가 아닌경우-->
+                          <% if GroupMember.find_by_user_id(current_user.id).small_group_id != @small_group.id  %>
+                              
+                          <!--현재 로그인 한 단체 관리자가 현재 클럽의 단체 관리자인 경우-->
+                          <% else %>
+                              <a href="/small_groups/option_change/<%= @small_group.id %>"><div class="club-view-app-btn-3">지원기간 마감</div></a>
+                          <% end %>
+                      <!--일반 회원인 경우-->
+                      <% else %>
+                          <!--현재 로그인 한 일반 회원이 클럽에 소속 되어있는 경우,
+                          지원 양식이 없는 경우, 클럽에 지원한 적 없는 경우-->
+                          <% if @current_check_group != nil && @current_check_group.small_group_id == @small_group.id || SApplyForm.find_by_small_group_id(@small_group.id) == nil %>
+                              
+                          <!--현재 로그인 한 일반 회원이 클럽에 소속 되어있지 않은 경우-->
+                          <% else %>
+                              <a href="/s_apply_content/new/<%=@small_group.id%>"><div class="club-view-app-btn-1">지원하기</div></a>
+                          <% end %>
+                      <% end %>
+                  <% else %>
+                      <!--로그인이 안되어 있으면 지원하기 버튼을 누르면 로그인 창으로 감.-->
+                      <a href="/users/sign_in"><div class="club-view-app-btn-1">지원하기</div></a>
+                  <% end %>
+              <!--현재 옵션 테이블의 apply_active가 "0"이면 지원할 수 없음-->
+              <% else %>
+                  <!--현재 로그인한 아이디가 보고있는 클럽에 속해있고 단체 관리자이면 지원을 마감할 수 있음.-->
+                  <% if user_signed_in? && current_user.authorization == '0' %>
+                      <a href="/small_groups/option_change/<%= @small_group.id %>"><div class="club-view-app-btn-2">지원기간 시작</div></a>
+                      <% if ApplyForm.find_by_club_id(@club.id) == nil %>
+                      <!--<%# else %>-->
+                      <!--    <a href="/apply_form/edit/<%= @club.id %>"><div class="button-in-club-view-yellow">지원서 양식 수정</div></a>-->
+                      <% end %>
+                      <!--<a href="/apply_content/index"><div class="button-in-club-view-pink">지원 내용 확인</div></a>-->
+                  <% elsif user_signed_in? && current_user.authorization == "4" %>
+                      <% if @current_check_group != nil && @current_check_group.small_group_id == @small_group.id %>
+                          <a href="/small_groups/option_change/<%= @small_group.id %>"><div class="club-view-app-btn-2">지원기간 시작</div></a>
+                          <!--<a href="/apply_content/index"><div class="button-in-club-view-pink">지원 내용 확인</div></a>-->
+                      <% else %>
+                          
+                      <% end %>
+                  <% else %>
+                    
+                  <% end %>
+              <% end %>
+              
+            <div class="align-center mb60">
+              <%= render partial: "comments/template", locals: {commentable: @small_group, new_comment: @comment} %>
+            </div>
+          </div> 
+        </div>
+      </div>
+      <div class="col-3"></div>
+      </div>
+    </div>
+  </div>
 </div>

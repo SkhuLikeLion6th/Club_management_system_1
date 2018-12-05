@@ -73,7 +73,7 @@
               <h4 class="artcl-add-h">SKHU-CHECK 출시! 사용법을 익혀보세요.</h4>
             </div>
             <div class="col-3">
-              <a href="#"><button type="button" class="artcl-add-btn">배우러 가기</button></a>
+              <a href="/board/manual"><button type="button" class="artcl-add-btn">사용자 메뉴얼</button></a>
             </div>
           </div>
         </div>
@@ -123,7 +123,7 @@
               <div class="card-body">
                 <h5 class="card-title">어느 신입생 X의 고민</h5>
                 <p class="card-text">동아리 탐색을 해봤던 신입생이라면 모두 공감할 이야기! </p>
-                <div class="align-center"><a href="#" class="btn artcl_2-add-more">자세히</a></div>
+                <div class="align-center"><a href="/board/content1" class="btn artcl_2-add-more">자세히</a></div>
               </div>
             </div>
           </a>
@@ -135,7 +135,7 @@
               <div class="card-body">
                 <h5 class="card-title">어느 운영진 Y의 고2</h5>
                 <p class="card-text">동아리를 이끄는 운영진에게 전하는 기분 좋은 메시지! </p>
-                <div class="align-center"><a href="#" class="btn artcl_2-add-more">자세히</a></div>
+                <div class="align-center"><a href="/board/content2" class="btn artcl_2-add-more">자세히</a></div>
               </div>
             </div>
           </a>
@@ -146,8 +146,8 @@
           <div class="card" style="width: 15rem;">
             <img class="card-img-top" src="/assets/add/add_3.jpg" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title">홍보 TEST 3</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <h5 class="card-title">홍보 예시 1</h5>
+              <p class="card-text">각종 홍보가 올라올 공간입니다.</p>
               <div class="align-center"><a href="#" class="btn artcl_2-add-more">자세히</a></div>
             </div>
           </div>
@@ -156,8 +156,8 @@
           <div class="card" style="width: 15rem;">
             <img class="card-img-top" src="/assets/add/add_4.jpg" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title">홍보 TEST 4</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <h5 class="card-title">홍보 예시 2</h5>
+              <p class="card-text">각종 홍보가 올라올 공간입니다.</p>
               <div class="align-center"><a href="#" class="btn artcl_2-add-more">자세히</a></div>
             </div>
           </div>
@@ -166,8 +166,8 @@
           <div class="card" style="width: 15rem;">
             <img class="card-img-top" src="/assets/add/add_5.jpg" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title">홍보 TEST 5</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <h5 class="card-title">홍보 예시 3</h5>
+              <p class="card-text">각종 홍보가 올라올 공간입니다.</p>
               <div class="align-center"><a href="#" class="btn artcl_2-add-more">자세히</a></div>
             </div>
           </div>
@@ -176,8 +176,8 @@
           <div class="card" style="width: 15rem;">
             <img class="card-img-top" src="/assets/add/add_6.jpg" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title">홍보 TEST 6</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <h5 class="card-title">홍보 예시 4</h5>
+              <p class="card-text">각종 홍보가 올라올 공간입니다.</p>
               <div class="align-center"><a href="#" class="btn artcl_2-add-more">자세히</a></div>
             </div>
           </div>
@@ -200,20 +200,42 @@
             <div class="row">
               <% @group_random.each do |x| %>
                 <div class="col-2">
-                  <a href="/small_groups/<%= x.id %>"> 
-                    <div class="card dsply-inbl pl05 pr05 ml10 mr10 mb20" style="width: 11rem;">
-                      <img class="card-img-top clubs-index-img" src="<%=x.img_url%>" alt="Card image cap" sytle="overflow: hidden;">
-                      <div class="card-body overflow-hddn">
-                        <h5 class="artcl-clubs-h"><%= x.group_name %></h5>
-                        <p class="card-text artcl-clubs-p"><%= x.introduce %></p>
+                  <% if user_signed_in? %> 
+                    <a href="/small_groups/<%= x.id %>"> 
+                      <div class="card dsply-inbl pl05 pr05 ml10 mr10 mb20" style="width: 11rem;">
+                        <% if x.img_url.to_s == nil || x.img_url.to_s == "" %>
+                          <img class="card-img-top small-index-main-img" src="/assets/small_groups/<%= x.id %>.png" alt="Card image cap" sytle="overflow: hidden;">
+                        <% elsif %>
+                          <img class="card-img-top small-index-main-img" src="<%=x.img_url%>" alt="Card image cap" sytle="overflow: hidden;">
+                        <% end %>
+                        <div class="dropdown-divider"></div>
+                        <div class="card-body overflow-hddn">
+                          <h5 class="card-title samll-index-main-title "><%= x.group_name %></h5>
+                          <p class="card-text small-index-main-p"><%= x.introduce %></p>
+                        </div>
                       </div>
-                    </div>
-                  </a>              
+                    </a>
+                  <% else %>
+                    <a href="/users/sign_in">
+                        <div class="card dsply-inbl pl05 pr05 ml10 mr10 mb20" style="width: 11rem;">
+                        <% if x.img_url.to_s == nil || x.img_url.to_s == "" %>
+                          <img class="card-img-top small-index-main-img" src="/assets/small_groups/<%= (x.id)%13 %>.png" alt="Card image cap" sytle="overflow: hidden;">
+                        <% elsif %>
+                          <img class="card-img-top small-index-main-img" src="<%=x.img_url%>" alt="Card image cap" sytle="overflow: hidden;">
+                        <% end %>
+                        <div class="dropdown-divider"></div>
+                        <div class="card-body overflow-hddn">
+                          <h5 class="card-title samll-index-main-title "><%= x.group_name %></h5>
+                          <p class="card-text small-index-main-p"><%= x.introduce %></p>
+                        </div>
+                      </div>
+                    </a>
+                  <% end %>
                 </div>
               <%end%>
             </div>
             <div class="align-center">
-                <a href="#"><button type="button" class="artcl-clubs-more" >더보기</button></a>
+                <a href="/small_groups/"><button type="button" class="artcl-clubs-more" >더보기</button></a>
             </div>
           </div>  
         </div>
@@ -226,7 +248,7 @@
             <div class="row">
               <div class="col-4">
                 <div class="card" style="width: 22rem;">
-                  <img class="card-img-top" src="/assets/clubs/11.jpg" alt="Card image cap">
+                  <img class="card-img-top" src="http://203.246.75.30/common/Handler/DownloadHandler.ashx?path=/bbs/uni_int/%B4%EB%C7%D0%B8%B6%C5%A9.jpg" alt="Card image cap" style="padding: 1rem; width: 21rem; height: 21rem;">
                   <div class="card-body">
                     <h5 class="artcl-clubs-h">학생회 TEST</h5>
                     <p class="card-text artcl-clubs-p">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -235,7 +257,7 @@
               </div>
               <div class="col-4">
                 <div class="card" style="width: 22rem;">
-                  <img class="card-img-top" src="/assets/clubs/12.jpg" alt="Card image cap">
+                  <img class="card-img-top" src="https://scontent-icn1-1.xx.fbcdn.net/v/t1.0-9/43737376_2095335823821418_9143025817360531456_n.jpg?_nc_cat=103&_nc_ht=scontent-icn1-1.xx&oh=47e2878ee8a3289a39c94e725f1a0276&oe=5C666D9D" alt="Card image cap" style="padding: 1rem;  width: 21rem; height: 21rem;">
                   <div class="card-body">
                     <h5 class="artcl-clubs-h">학생회 TEST</h5>
                     <p class="card-text artcl-clubs-p">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -244,7 +266,7 @@
               </div>
               <div class="col-4">
                 <div class="card" style="width: 22rem;">
-                  <img class="card-img-top" src="/assets/clubs/13.jpg" alt="Card image cap">
+                  <img class="card-img-top" src="data:image/jpeg;base64,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" alt="Card image cap "  style="padding: 1rem; width: 21rem; height: 21rem;">
                   <div class="card-body">
                     <h5 class="artcl-clubs-h">학생회 TEST</h5>
                     <p class="card-text artcl-clubs-p">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -254,8 +276,8 @@
             </div>  
           </div>  
         </div>
-        <div class="align-center">
-            <a href="/club/index"><button type="button" class="artcl-clubs-more" >더보기</button></a>
+        <div class="align-center mb60">
+            <a href="#"><button type="button" class="artcl-clubs-more" >더보기</button></a>
         </div>
       </section>
     </div>

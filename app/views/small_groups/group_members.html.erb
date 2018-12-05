@@ -1,0 +1,75 @@
+<div class="club-members-index">
+  <div class="container mt60 mb60">
+    <div class="row mt60">
+      <div class="col">
+        <% if current_user.authorization == '0' %>
+          <div class="align-center"><div class="clubmember-title">전체 회원 목록</div></div>
+          <table class="table table-striped">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">이름</th>
+                <th scope="col">전화번호</th>
+                <th scope="col">이메일</th>
+                <th scope="col">학번</th>
+                <th scope="col">학과</th>
+                <th scope="col">학년</th>
+                <th scope="col">소속 단체</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <% @members.each do |x| %>
+            <tbody>
+              <tr>
+                <th scope="row"> </th>
+                <td><%= x.user.name %></td>
+                <td><%= x.user.phone_number %></td>
+                <td><%= x.user.mail %></td>
+                <td><%= x.user.email %></td>
+                <td><%= x.user.department.department_name %></td>
+                <td><%= x.user.grade_id %></td>
+                <td><%= x.small_group.group_name %></td>
+                <td><a id="" href = "/small_groups/delete_group_member/<%= x.id %>">삭제</a></td>
+              </tr>
+            </tbody>
+          <% end %>
+          </table>
+        <% elsif current_user.authorization == '4' %>
+       
+          <div class="align-center"><div class="clubmember-title"><%= GroupMember.find_by_user_id(current_user.id).small_group.group_name %> 회원 목록</div></div>
+          <table class="table table-striped">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">이름</th>
+                <th scope="col">전화번호</th>
+                <th scope="col">이메일</th>
+                <th scope="col">학번</th>
+                <th scope="col">학과</th>
+                <th scope="col">학년</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+          <% @members.each do |x| %>
+            <% if @group_check.small_group_id == x.small_group_id %>
+              <tbody>
+                <tr>
+                  <th scope="col"> </th>
+                  <td><%= x.user.name %></td>
+                  <td><%= x.user.phone_number %></td>
+                  <td><%= x.user.mail %></td>
+                  <td><%= x.user.email %></td>
+                  <td><%= x.user.department.department_name %></td>
+                  <td><%= x.user.grade_id %> </td>
+                  <td><a id="" href = "/small_groups/delete_group_member/<%= x.id %>">삭제</a></td>
+                </tr>
+              </tbody>
+            <% end %>
+          <% end %>
+          </table>
+        <% end %>
+  
+      </div>
+    </div>
+  </div>
+</div>

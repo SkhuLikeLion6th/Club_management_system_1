@@ -11,24 +11,61 @@
       <div class="row align-center">
         <div class="col">
          <div class="align-center">
-              <% if user_signed_in? %>
-                <!--현재 로그인 한 일반 회원이 클럽에 소속 되어있는 경우, 지원 양식이 없는 경우-->
-                <% if @current_check_club != nil && @current_check_club.club_id == @club.id || ApplyForm.find_by_club_id(@club.id) == nil %>
-                    <!--<p></p>-->
-                <!--현재 로그인 한 일반 회원이 클럽에 소속 되어있지 않은 경우-->
-                <% else %>
-                  <a href="/apply_content/new/<%=@club.id%>" role="button"><div class="club-view-app-btn">지원하기</div></a>
-                <% end %>
+             <% if @current_check_option.apply_active == '1' %>
+                  <!--로그인 된 상태면 현재 로그인 한 권한에 따라 보이는게 다름-->
+                  <% if user_signed_in? %>
+                      <!--서버 관리자인 경우-->
+                      <% if current_user.authorization == '1' %>
+                          <!--현재 로그인 한 단체 관리자가 현재 클럽의 단체 관리자가 아닌경우-->
+                          <% if ClubMember.find_by_user_id(current_user.id).club_id != @club.id %>
+                              
+                          <!--현재 로그인 한 단체 관리자가 현재 클럽의 단체 관리자인 경우-->
+                          <% else %>
+                              <a href="/club/option_change/<%= @club.id %>"><div class="club-view-app-btn-3">지원기간 마감</div></a>
+                          <% end %>
+                      <!--일반 회원인 경우-->
+                      <% else %>
+                          <!--현재 로그인 한 일반 회원이 클럽에 소속 되어있는 경우,
+                          지원 양식이 없는 경우, 클럽에 지원한 적 없는 경우-->
+                          <!--<#% if @current_check_club != nil && @current_check_club.club_id == @club.id || -->
+                          <!--ApplyForm.find_by_club_id(@club.id) == nil  || ApplyContent.where(user_id: current_user.id, apply_form: @club.id) %>-->
+                          <% if @current_check_club != nil && @current_check_club.club_id == @club.id || ApplyForm.find_by_club_id(@club.id) == nil %>    
+                          <!--현재 로그인 한 일반 회원이 클럽에 소속 되어있지 않은 경우-->
+                          <% else %>
+                              <a href="/apply_content/new/<%=@club.id%>"><div class="club-view-app-btn-1">지원하기</div></a>
+                          <% end %>
+                      <% end %>
+                  <% else %>
+                      <!--로그인이 안되어 있으면 지원하기 버튼을 누르면 로그인 창으로 감.-->
+                      <a href="/users/sign_in"><div class="club-view-app-btn-1">지원하기</div></a>
+                  <% end %>
+              <!--현재 옵션 테이블의 apply_active가 "0"이면 지원할 수 없음-->
               <% else %>
-                <!--로그인이 안되어 있으면 지원하기 버튼을 누르면 로그인 창으로 감.-->
-                <a href="/users/sign_in"><div class="club-view-app-btn">지원하기</div></a>
+                  <!--현재 로그인한 아이디가 보고있는 클럽에 속해있고 단체 관리자이면 지원을 마감할 수 있음.-->
+                  <% if user_signed_in? && current_user.authorization == '0' %>
+                      <a href="/club/option_change/<%= @club.id %>"><div class="club-view-app-btn-2">지원기간 시작</div></a>
+                      <% if ApplyForm.find_by_club_id(@club.id) == nil %>
+                      <!--<%# else %>-->
+                      <!--    <a href="/apply_form/edit/<%= @club.id %>"><div class="button-in-club-view-yellow">지원서 양식 수정</div></a>-->
+                      <% end %>
+                      <!--<a href="/apply_content/index"><div class="button-in-club-view-pink">지원 내용 확인</div></a>-->
+                  <% elsif user_signed_in? && current_user.authorization == "1" %>
+                      <% if @current_check_club != nil && @current_check_club.club_id == @club.id %>
+                          <a href="/club/option_change/<%= @club.id %>"><div class="club-view-app-btn-2">지원기간 시작</div></a>
+                          <!--<a href="/apply_content/index"><div class="button-in-club-view-pink">지원 내용 확인</div></a>-->
+                      <% else %>
+                          
+                      <% end %>
+                  <% else %>
+                    
+                  <% end %>
               <% end %>
             
           </div>
         </div>  
       </div>
       <div class="align-center mb60">
-        <h4>동아리 소개 공간은 곧 개발됩니다.</h4>
+        <h4 style="color: #ff5757;">동아리 소개 공간은 곧 개발됩니다.</h4>
       </div>
       <div class="club-view-member pt30 pb30">
         <div class="row">

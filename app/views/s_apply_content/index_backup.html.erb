@@ -1,0 +1,195 @@
+<!--이거 인덱스 뜯어고칠라고 백업해서 참고용으로 쓸거니까 건들이지 말 것 feat.현수-->
+
+<div class="content-outline">
+    <div class="content">
+        <div class="content-title">지원 내용 확인</div>
+        <% if user_signed_in? %>
+        <div class="current-user-name">현재 로그인: <%= current_user.name %></div>
+        
+        동아리 관리자는 지원서를 볼 수 있어야함
+            <% if current_user.authorization == '1' %>
+                <% current_user_club_id = ClubMember.find_by_user_id(current_user.id).club_id %>
+                <% @forms.each do |x| %>
+                    자신이 속한 동아리 지원서만 보이도록 해야함
+                    <% if x.club_id == current_user_club_id %>
+                        <div class="current-user-name">동아리 이름: <%=Club.find(x.club_id).club_name%></div>
+                        <div class="row">
+                        <% @apply_contents.each do |c| %>
+                            <% if c.apply_form_id == current_user_club_id %>
+                                <div class="applicant-name">지원자: <%= User.find(c.user_id).name %></div>
+                                <% unless x.title1 == nil %>
+                                    Q 1. <%=x.title1%><br>
+                                    A 1: <%= c.content1 %><br>
+                                <% end %>
+                                <% unless x.title2 == nil %>
+                                    Q 2. <%=x.title2%><br>
+                                    A 2: <%= c.content2 %><br>
+                                <% end %>
+                                <% unless x.title3 == nil %>
+                                    Q 3. <%=x.title3%><br>
+                                    A 3: <%= c.content3 %><br>
+                                <% end %>
+                                <% unless x.title4 == nil %>
+                                    Q 4. <%=x.title4%><br>
+                                    A 4: <%= c.content4 %><br>
+                                <% end %>
+                                <% unless x.title5 == nil %>
+                                    Q 5. <%=x.title5%><br>
+                                    A 5: <%= c.content5 %><br>
+                                <% end %>
+                            <% end %>
+                            지원자 동아리 멤버로 등록하기
+                            <a>작성일: <%= x.created_at %></a>
+                            <a><%= c.apply_form.club_id %></a>
+                            <% if (ClubMember.find_by_user_id(c.user_id) && ClubMember.find_by_club_id(c.apply_form.club_id)) == nil %>
+                                <div class="button-in-apply-card">
+                                    <a href='/club/add_club_member/<%=x.club_id%>/<%=c.user_id%>'><div class="button-apply-card-pink">수락하기</div></a>
+                                    <a href="/apply_content/destroy/<%=c.user_id%>"><div class="button-apply-card-yellow">삭제하기</div></a>
+                                </div>
+                            <% end %>
+                        <% end %>
+                        </div>
+                    <% end %>
+                <% end %>
+                
+            일반인라면 자신이 지원한 내용 확인하기
+            <% elsif current_user.authorization == '2' %>
+                <% @apply_contents.each do |c| %>
+                        <% if c.user_id == current_user.id %>
+                        <% @forms.each do |f| %>
+                            <% if c.apply_form_id == f.id %>
+                                <% unless f.title1 == nil %>
+                                    <div class="apply-content-outline">
+                                        <svg class="svg-line-apply-index-pink" height="100" width="100">
+                                            <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />
+                                            <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />
+                                        </svg>
+                                        <div class="apply-content">
+                                            <div class="apply-question">
+                                                <div class="question-q">Q 1.</div>
+                                                <%=f.title1%>
+                                            </div>
+                                            <div class="apply-answer">
+                                                <div class="answer-a">A 1.</div>
+                                                <%= c.content1 %>
+                                            </div>
+                                        </div>
+                                        <div class="structure-end">
+                                            <svg class="svg-line-apply-index-yellow" height="100" width="100">
+                                                <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />
+                                                <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                <% end %>
+                                <% unless f.title2 == nil %>
+                                    <div class="apply-content-outline">
+                                        <svg class="svg-line-apply-index-pink" height="100" width="100">
+                                            <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />
+                                            <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />
+                                        </svg>
+                                        <div class="apply-content">
+                                            <div class="apply-question">
+                                                <div class="question-q">Q 2.</div>
+                                                <%=f.title2%>
+                                            </div>
+                                            <div class="apply-answer">
+                                                <div class="answer-a">A 2.</div>
+                                                <%= c.content2 %>
+                                            </div>
+                                        </div>
+                                        <div class="structure-end">
+                                            <svg class="svg-line-apply-index-yellow" height="100" width="100">
+                                                <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />
+                                                <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                <% end %>
+                                <% unless f.title3 == nil %>
+                                    <div class="apply-content-outline">
+                                        <svg class="svg-line-apply-index-pink" height="100" width="100">
+                                            <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />
+                                            <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />
+                                        </svg>
+                                        <div class="apply-content">
+                                            <div class="apply-question">
+                                                <div class="question-q">Q 3.</div>
+                                                <%=f.title3%>
+                                            </div>
+                                            <div class="apply-answer">
+                                                <div class="answer-a">A 3.</div>
+                                                <%= c.content3 %>
+                                            </div>
+                                        </div>
+                                        <div class="structure-end">
+                                            <svg class="svg-line-apply-index-yellow" height="100" width="100">
+                                                <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />
+                                                <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                <% end %>
+                                <% unless f.title4 == nil %>
+                                    <div class="apply-content-outline">
+                                        <svg class="svg-line-apply-index-pink" height="100" width="100">
+                                            <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />
+                                            <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />
+                                        </svg>
+                                        <div class="apply-content">
+                                            <div class="apply-question">
+                                                <div class="question-q">Q 4.</div>
+                                                <%=f.title4%>
+                                            </div>
+                                            <div class="apply-answer">
+                                                <div class="answer-a">A 4.</div>
+                                                <%= c.content4 %>
+                                            </div>
+                                        </div>
+                                        <div class="structure-end">
+                                            <svg class="svg-line-apply-index-yellow" height="100" width="100">
+                                                <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />
+                                                <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                <% end %>
+                                <% unless f.title5 == nil %>
+                                    <div class="apply-content-outline">
+                                        <svg class="svg-line-apply-index-pink" height="100" width="100">
+                                            <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />
+                                            <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />
+                                        </svg>
+                                        <div class="apply-content">
+                                            <div class="apply-question">
+                                                <div class="question-q">Q 5.</div>
+                                                <%=f.title5%>
+                                            </div>
+                                            <div class="apply-answer">
+                                                <div class="answer-a">A 5.</div>
+                                                <%= c.content5 %>
+                                            </div>
+                                        </div>
+                                        <div class="structure-end">
+                                            <svg class="svg-line-apply-index-yellow" height="100" width="100">
+                                                <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />
+                                                <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                        <div class="button-in-apply-content">
+                            아직 회원으로 등록되지 않은 경우에만 수정, 삭제 가능
+                            <% if ClubMember.find_by_user_id(c.user_id) == nil %>
+                                <a href="/apply_content/edit/<%=c.id%>"><div class="button-apply-index-edit">수정하기</div></a>
+                                <a href="/apply_content/destroy/<%=c.id%>"><div class="button-apply-index-edit">삭제하기</div></a>
+                            <% end %>
+                        </div>
+                    <% end %>
+                <% end %>
+            <% end %>
+            <% end %>
+    </div>
+</div>

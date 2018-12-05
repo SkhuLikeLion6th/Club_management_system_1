@@ -20,13 +20,16 @@ class ApplyFormController < ApplicationController
         @form.title4 = params[:title4]
         @form.title5 = params[:title5]
         @form.save
+        
       end
     end
+
     redirect_to '/apply_form/index'
   end
   
   def edit
     @form = ApplyForm.find(params[:club_id])
+
   end
   
   def update
@@ -40,6 +43,7 @@ class ApplyFormController < ApplicationController
       @form.title4 = params[:title4]
       @form.title5 = params[:title5]
       @form.save
+      
     end
     redirect_to '/apply_form/index'
   end

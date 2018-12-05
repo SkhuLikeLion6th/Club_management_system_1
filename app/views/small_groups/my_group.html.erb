@@ -1,0 +1,28 @@
+<div class="my_club mt60 mb60">
+  <div class="container">
+    <div class="align-center"><h2 class="myclub-h2">나의 소속</h2></div>
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-10 align-center">
+        <% if @club_check != nil %>
+          <% @small_groups.each do |x| %>
+            <% if current_user.id == x.user_id %>
+              <a href="/club/club_view/<%= x.club.id %>">    
+                <div class="card dsply-inbl pl05 pr05 ml10 mr10 mb20" style="width: 13rem;">
+                  <img class="card-img-top" src="/assets/clubs/<%=x.club_id%>.jpg" alt="Club image">
+                  <div class="card-body">
+                    <h5 class="myclubs-h3"><%= x.club.club_name %></h5>
+                    <p class="card-text clubs-p"><%= x.club.introduce %></p>
+                  </div>
+                </div>
+              </a>
+            <% end %>
+          <% end %>
+        <% else %>
+            <div class="if-none-contents mt60 mb100 pb100"><p style="font-size: 2rem; font-weight: bold;">가입한 동아리가 없습니다.</p></div>
+        <% end %>
+      </div>
+      <div class="col-1"></div>
+    </div>  
+  </div>
+</div>

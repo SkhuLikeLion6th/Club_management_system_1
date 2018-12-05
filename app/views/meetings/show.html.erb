@@ -1,35 +1,42 @@
-<p id="notice"><%= notice %></p>
+<div class="calendar-show mh700">
+  <div class="container">
+    <div class="row">
+      <div  class="col-3"></div>
+      <div  class="col-6">
+        <div class="align-center calendar-show-body">
+          <div>
+            <p class="calendar-show-title"><%= @meeting.name %></p>
+          </div>
+          <div>
+            <p>- <%= @meeting.club.club_name %> -</p>
 
-<p>
-  <strong>일정:</strong>
-  <%= @meeting.name %>
-</p>
+          </div>
 
-<p>
-  <strong>내용:</strong>
-  <%= @meeting.content %>
-</p>
+          <div class="calendar-show-day">
+            <p class="calendar-show-day-p"  align="left">시작일</p>
+            <p class="calendar-show-day-s"><%= @meeting.start_time %></p>
+          </div>
+          
+          <div class="calendar-show-day">
+            <p class="calendar-show-day-p"align="left">종료일</p>
+            <p class="calendar-show-day-s"> <%= @meeting.end_time %></p>
+          </div>
+          <div class="dropdown-divider"></div>
+          <div>
+            <p style="font-weight: bold; font-size: 1.2rem; padding: 1rem;">내용</p>
+            <div class="calendar-show-box align-left"><%= @meeting.content %></div>
+          </div>
+          
+          <div class="align-center">
+            
+            <div class=""><%= link_to '목록', meetings_path ,{:class => "calendar-show-bttn-1"} %></div>
+            <div class="calendar-show-bttn-2 align-center"><%= link_to '삭제', meeting_path, method: :delete, data: { confirm: '삭제하시겠습니까?'}%></div>
+          </div>
+        </div>   
+      </div>
+      <div  class="col-3"></div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>단체:</strong>
-        <% @meetings.each do |meeting| %>
-          <% @clubs.each do |c| %>
-            <% if meeting.club_id == c.id %>
-              <%=c.club.club_name%>
-            <%end%>
-          <%end%>
-        <%end%>
-</p>
 
-<p>
-  <strong>시작 시간:</strong>
-  <%= @meeting.start_time %>
-</p>
-
-<p>
-  <strong>끝나는 시간:</strong>
-  <%= @meeting.end_time %>
-</p>
-
-<%= link_to '수정', edit_meeting_path(@meeting) %> |
-<%= link_to '이전', meetings_path %>

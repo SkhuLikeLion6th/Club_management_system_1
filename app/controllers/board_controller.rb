@@ -4,4 +4,7 @@ class BoardController < ApplicationController
 
   def content2
   end
+  
+  def sorry
+  end
 end

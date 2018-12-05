@@ -1,9 +1,20 @@
+
 <% comments.each do |comment| %>  
     <div class="comments-show">
         <div class="comment">
-            <%= comment.user != nil ? comment.user.name : comment.name %> / <%= time_ago_in_words(comment.created_at) %>전 [ <%= comment.created_at.strftime('%Y-%m-%d %H:%M') %> ] /
-            <%= link_to "지우기", comment_path(comment), method: :delete, remote: false, data: { confirm: "정말로 지우시겠습니까?" }, style: "color: red; font-weight: bold" %>
-            <%= content_tag(:div, comment.body, style: "white-space: pre-wrap;") %>
+            <div class="row">
+                <div class="col-1"><img src="/assets/user-img/person<%= (comment.user.id)%15 %>.png" style="width: 1.5rem;"></div>
+                <div class="col-9">
+                    <div class="comment-reply-user"><%= comment.user != nil ? comment.user.name : comment.name %></div> 
+                    <%= content_tag(:div, comment.body, {:class => "comment-reply-content"}) %>
+                    <div class="comment-reply-time"><%= time_ago_in_words(comment.created_at) %>전</div>
+                    
+                </div>
+                <div class="col-2 mt35">
+                    <%= link_to "지우기", comment_path(comment), method: :delete, remote: false, data: { confirm: "정말로 지우시겠습니까?" }, style: "color: red; font-weight: bold;padding: 0.3rem 0.5rem; color: red; font-weight: bold;" %>
+                    
+                </div>
+            </div>
         </div>
     </div>
 <% end %>

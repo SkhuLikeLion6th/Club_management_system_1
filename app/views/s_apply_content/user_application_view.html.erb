@@ -1,0 +1,70 @@
+<div class="apply-form-body pt60">
+  <div class="container pt60 pb60">
+    <div class="mt60 mb60">
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+          <div class="apply-form-box">
+            <div class="align-center mb20">
+              <h2 class="apply-form-h2">소모임 지원서</h2>
+            </div>
+            <div class="align-right mb30 apply-form-day"><p><span>작성일 :</span><%= @content.updated_at.strftime('%Y년 %m월 %d일 %H시%M분') %></p></div>
+            <div class="row">
+              <div class="col-3">
+                <div class="align-center ">
+                  <img  class="apply-form-img" src="<%= @form.small_group.img_url%>">
+                  <p class="mt10" style="font-weight: bold;"><%=SmallGroup.find(@form.small_group_id).group_name%></p>
+                </div>
+              </div>
+              <div class="col-9">
+                <div class="apply-form-user-info" style="display: block;">
+                  <div class="align-center"><h3 class="apply-form-h3">인적사항</h3></div>
+                  <div class="row"><div class="col-3"><p>이름: </p></div><div class="col-8"><p> <%= User.find(@content.user_id).name %></p> </div></div>
+                  <div class="row"><div class="col-3"><p>전화번호: </p></div><div class="col-8"><p> <%= User.find(@content.user_id).phone_number %></p> </div></div>
+                  <div class="row"><div class="col-3"><p>이메일: </p></div><div class="col-8"><p> <%= User.find(@content.user_id).mail %></p> </div></div>
+                  <div class="row"><div class="col-3"><p>학번: </p></div><div class="col-8"><p> <%= User.find(@content.user_id).email %></p> </div></div>
+                  <div class="row"><div class="col-3"><p>학부/학과: </p></div><div class="col-8"><p> <%= User.find(@content.user_id).department.department_name %></p> </div></div>
+                  <div class="row"><div class="col-3"><p>학년: </p></div><div class="col-8"><p> <%= User.find(@content.user_id).grade_id %></p> </div></div>
+                </div>
+              </div>
+            </div>
+            <div class="apply-form-question-box">
+              <% unless @form.title1 == nil %>
+                <p>Q1. <span><%= @form.title1 %></span></p>
+                <div class="answer_box"><%= @content.content1 %></div>
+              <% end %>
+              <% unless @form.title2 == nil %>
+                <p>Q2. <span><%= @form.title2 %></span></p>
+                <div class="answer_box"><%= @content.content2 %></div>
+              <% end %>
+              <% unless @form.title3 == nil %>
+                <p>Q3. <span><%= @form.title3 %></span></p>
+                <div class="answer_box"><%= @content.content3 %></div>
+              <% end %>
+              <% unless @form.title4 == nil %>
+                <p>Q4. <span><%= @form.title4 %></span></p>
+                <div class="answer_box"><%= @content.content4 %></div>
+              <% end %>
+              <% unless @form.title5 == nil %>
+                <p>Q5. <span><%= @form.title5 %></span></p>
+                <div class="answer_box"><%= @content.content5 %></div>
+              <% end %>
+            </div>
+            <div class="align-center user-application-bttn">
+              <% if current_user.authorization == '4' %>
+                <a href="/s_apply_content/edit/<%=@content.id%>"><div class="user-application-bttn-1">수정</div></a>
+                <a href="/s_apply_content/destroy/<%=@content.id%>"><div class="user-application-bttn-2">삭제</div></a>
+              <!--현재 로그인한 유저가 서버관리자 또는 단체관리자이면 글을 쓴 유저를 동아리에 등록하거나 글을 삭제할 수 있다-->
+              <!--글 삭제하는거는 db에 삭제된다는 의미이므로 이부분은 논의를 해야함-->
+              <% else %>
+                <a href='/small_groups/add_group_member/<%= @form.small_group_id %>/<%= @content.user_id %>'><div class="user-application-bttn-1">수락</div></a>
+                <a href="/s_apply_content/destroy/<%= @content.id %>"><div class="user-application-bttn-2">거절</div></a>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="col-2"></div>
+      </div>
+    </div>
+  </div>
+</div>

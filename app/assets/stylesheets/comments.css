@@ -1,0 +1,65 @@
+.comment-h4{
+    font-size: 1.2rem;
+    text-align: left;
+    margin: 1rem;
+}
+
+.comment-form{
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.comment-form-btn{
+    margin-top: 0.4rem;
+    width: 5rem;
+    height: 3rem;
+    background-color: #17a2b8;
+    padding: 0.5rem;
+    font-size: 1.25rem;
+    color: #fff;
+}
+
+.comment-reply-content{
+    text-align: left;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: #000;
+    display: inline-block;
+    border: 1px solid #eee;
+    background-color: #eee;
+    border-radius: 5px;
+}
+
+.comment-reply-user{
+    text-align: left;
+    color: #aaa;
+}
+
+.comment-reply-btn{
+    display: inline-block;
+}
+
+
+.comment-reply-btn-1{
+    padding: 0.3rem 0.5rem;
+    color: red; 
+    font-weight: bold;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+
+.comment-reply-btn-2{
+    
+    padding: 0.2rem 0.5rem;
+    
+}
+.comment-reply-btn-2:hover{
+    cursor: pointer;
+}
+
+.comment-reply-time{
+    coler: #eee;
+    font-size: 0.8rem;
+    text-align: left;
+}

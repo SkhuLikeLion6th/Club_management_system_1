@@ -27,7 +27,8 @@
     padding: 1rem 0 2rem 0;
 }
 
-.club-view-app-btn{
+/*일반 유저 지원버튼*/
+.club-view-app-btn-1{
     width: 7rem;
     height: 2.2em;
     padding: 0.45rem;
@@ -40,10 +41,52 @@
     display: inline-block;
 }
 
-.club-view-app-btn:hover{
+.club-view-app-btn-1:hover{
     cursor: pointer;
     color: #fff;
     background-color: #56cec1;    
+    
+}
+
+/*관리자 지원 시작 버튼*/
+.club-view-app-btn-2{
+    width: 10rem;
+    height: 2.2em;
+    padding: 0.45rem;
+    background: #3596b0;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 2rem;
+    display: inline-block;
+}
+
+.club-view-app-btn-2:hover{
+    cursor: pointer;
+    color: #fff;
+    background-color: #56cec1;    
+    
+}
+
+/*관리자 지원 마감 버튼*/
+.club-view-app-btn-3{
+    width: 10rem;
+    height: 2.2em;
+    padding: 0.45rem;
+    background-color: #ff6666;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 2rem;
+    display: inline-block;
+}
+
+.club-view-app-btn-3:hover{
+    cursor: pointer;
+    color: #fff;
+    background-color: #ff8888;    
     
 }
 

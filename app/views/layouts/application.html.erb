@@ -29,7 +29,8 @@
   <link rel="stylesheet" href="/assets/users/signup.css">
  	<link rel="stylesheet" href="/assets/textarea-style.css">  
   <link rel="stylesheet" href="/assets/board.css">
-  
+  <link rel="stylesheet" href="/assets/comments.css">
+  <link rel="stylesheet" href="/assets/sorry.css">
   <!--font-->
   <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script" rel="stylesheet">
@@ -85,48 +86,71 @@
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                   <a class="dropdown-item" href="/club/index">동아리</a>
                   <a class="dropdown-item" href="/small_groups/">소모임</a>
-                  <a class="dropdown-item" href="#">학생회</a>
+                  <a class="dropdown-item" href="/board/sorry">학생회</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="/club/appliable_club">지원 가능 동아리</a>
                 </div>
+                
               </div>
               <div class="dropdown">
                 <a class="btn btn-nav dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   행사&광고
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="#">행사</a>
-                  <a class="dropdown-item" href="#">광고</a>
+                  <a class="dropdown-item" href="/board/sorry">행사</a>
+                  <a class="dropdown-item" href="/board/sorry">광고</a>
                 </div>
               </div>
               <div class="dropdown">
                 <a class="btn btn-nav dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  일정&영상
+                  달력&영상
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="/meetings">단체 일정</a>
+                  <a class="dropdown-item" href="/meetings">슼쳌 달력</a>
                   <a class="dropdown-item" href="/video/index">동영상</a>
                 </div>
               </div>
-              <a href="/post/index"><button type="button" class="btn btn-nav">게시판</button></a>
+              <a href="/board/sorry"><button type="button" class="btn btn-nav">게시판</button></a>
+              
               <% if current_user != nil %>
-			        <% if current_user.authorization == '0' || current_user.authorization == '1'%>
-                <div class="dropdown">
-                  <a class="btn btn-nav btn-admin dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    관리자
-                  </a>
-                
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="/club/club_members">회원 목록</a>
-                    <a class="dropdown-item" href="/apply_content/index">지원자 관리</a>
-                    <div class="dropdown-divider"></div>
-                    <% if ApplyForm.find_by_club_id(@club_id) == nil %>
-                      <a class="dropdown-item" href="/apply_form/index">지원서 관리</a>
-                    <% else %>
-                      <a class="dropdown-item" href="/apply_form/edit/<%= @club_id %>">지원서 관리</a>
-                    <% end %>
+  			        <% if current_user.authorization == '0' || current_user.authorization == '1' %>
+                  <div class="dropdown">
+                    <a  href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <div class="btn btn-nav btn-admin dropdown-toggle">관리자</div>
+                    </a>
+                  
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <% if current_user.authorization == '0' || current_user.authorization == '1'  %>
+                        <a class="dropdown-item" href="/club/club_members">회원 목록</a>
+                        <a class="dropdown-item" href="/apply_content/index">지원자 관리</a>
+                        <div class="dropdown-divider"></div> 
+                        <% if ApplyForm.find_by_club_id(@club_id) == nil %>
+                          <a class="dropdown-item" href="/apply_form/index">지원서 관리</a>
+                        <% else %>
+                          <a class="dropdown-item" href="/apply_form/edit/<%= @club_id %>">지원서 관리</a>
+                        <% end %>
+                      <%end%>
+                    </div>
                   </div>
-                </div>
+                <% elsif current_user.authorization =='4' %>  
+                  <div class="dropdown">
+                    <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <div class="btn btn-nav btn-admin-1 dropdown-toggle">소모임 관리자</div>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <% if current_user.authorization == '4' %>
+                        <a class="dropdown-item" href="/small_groups/1/group_members">회원 목록</a>
+                        <a class="dropdown-item" href="/s_apply_content/index">지원자 관리</a>
+                        <% if SApplyForm.find_by_small_group_id(@small_groups_id) == nil %>
+                          <a class="dropdown-item" href="/s_apply_form/index">지원서 관리</a>
+                        <% else %>
+                          <a class="dropdown-item" href="/s_apply_form/edit/<%= @small_groups_id %>">지원서 관리</a>
+                        <% end %>   
+                      <%end%>
+                    </div>
+                  </div>
+                <% end %>
               <% end %>
-            <% end %>
             </div>
           </div>
         </div>
@@ -144,6 +168,8 @@
               <a class="dropdown-item" href="/users/index">내 정보</a>
               <a class="dropdown-item" href="/club/my_club">내 동아리</a>
               <a class="dropdown-item" href="/users/sign_out">로그아웃</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/board/sorry">지원 현황</a>
             </div>
           </div>
 		  	<% end %>

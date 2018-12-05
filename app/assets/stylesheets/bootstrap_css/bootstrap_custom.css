@@ -37,9 +37,12 @@
 .btn-admin{
     color: #FF5757;
 }
-.btn-admin:hover{
-    color: #FF5757;
+
+.btn-admin-1{
+    color: #4363a4;
 }
+
+
 
 /*align*/
 .align-right{
@@ -90,4 +93,18 @@
 
 .overflow-hddn{
     overflow: hidden;
+}
+
+/*min-height*/
+.mh600{
+    min-height: 600px;
+}
+.mh700{
+    min-height: 700px;
+}
+.mh800{
+    min-height: 800px;
+}
+.mh900{
+    min-height: 900px;
 }

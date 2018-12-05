@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181201113814) do
+ActiveRecord::Schema.define(version: 20181202131350) do
 
   create_table "apply_contents", force: :cascade do |t|
     t.integer  "apply_form_id"
@@ -26,15 +26,13 @@ ActiveRecord::Schema.define(version: 20181201113814) do
 
   create_table "apply_forms", force: :cascade do |t|
     t.integer  "club_id"
-    t.integer  "small_group_id"
     t.string   "title1"
     t.string   "title2"
     t.string   "title3"
     t.string   "title4"
     t.string   "title5"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.index ["small_group_id"], name: "index_apply_forms_on_small_group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "club_meetings", force: :cascade do |t|
@@ -138,14 +136,37 @@ ActiveRecord::Schema.define(version: 20181201113814) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "s_apply_contents", force: :cascade do |t|
+    t.integer  "s_apply_form_id"
+    t.integer  "user_id"
+    t.text     "content1"
+    t.text     "content2"
+    t.text     "content3"
+    t.text     "content4"
+    t.text     "content5"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "s_apply_forms", force: :cascade do |t|
+    t.integer  "small_group_id"
+    t.string   "title1"
+    t.string   "title2"
+    t.string   "title3"
+    t.string   "title4"
+    t.string   "title5"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
   create_table "small_groups", force: :cascade do |t|
     t.text     "group_name"
     t.string   "introduce"
-    t.string   "img_url"
+    t.string   "img_url",    default: ""
     t.string   "content"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "users", force: :cascade do |t|

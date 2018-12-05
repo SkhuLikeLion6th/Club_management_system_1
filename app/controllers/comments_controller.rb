@@ -18,10 +18,16 @@ class CommentsController < ApplicationController
     
     def destroy
         @comment = Comment.find_by(id: params[:id])
-        @comment.delete
-        respond_to do |format|
-            format.html { redirect_to(request.referrer, :notice => '댓글이 삭제되었습니다.')}
-            format.js
+        if @comment.user_id == current_user.id
+            @comment.delete
+            respond_to do |format|
+                format.html { redirect_to(request.referrer, :notice => '댓글이 삭제되었습니다.')}
+                format.js
+            end
+        else
+            respond_to do |format|
+                format.html { redirect_to(request.referrer, :alert => '댓글을 삭제할 수 없습니다.')}
+            end
         end
     end
     

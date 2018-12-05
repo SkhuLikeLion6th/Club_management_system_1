@@ -1,0 +1,85 @@
+<div class="apply-form-body pt60">
+  <div class="container pt60 pb60">
+    <div class="mt60 mb60">
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+          <div class="apply-form-box">
+            <div class="align-center mb20">
+              <h2 class="apply-form-h2">동아리 지원서</h2>
+              <p>(관리자용 미리보기)</p>
+            </div>
+            <% if user_signed_in? %>
+            
+              <!--동아리 관리자만 지원 양식을 볼 수 있어야 함-->
+              <% if current_user.authorization == '4' %>
+                <!--현재 로그인자의 클럽아이디를 찾아서 변수에 저장해둠(필요할때마다 일일이 찾기 귀찮아서ㅋ)-->
+                <% current_user_small_group_id = GroupMember.find_by_user_id(current_user.id).small_group_id%>
+                <!--자신의 동아리에 지원 양식이 없는 경우-->
+                  <% if @forms.find_by_small_group_id(current_user_small_group_id)==nil%>
+                      소모임 이름: <%=SmallGroup.find(current_user_small_group_id).group_name%>
+                      <a href="/s_apply_form/new">지원 양식 작성하기</a>
+                  <% end %>
+                <!--자신의 동아리에 지원 양식이 이미 있는 경우-->
+                <% @forms.each do |x| %>
+                  <!--자신이 속한 동아리 지원 양식만 보이도록 해야함-->
+                  <% if x.small_group_id == current_user_small_group_id %>
+                    <div class="align-right mb30 apply-form-day"><p><span>작성일 :</span> x년 x월 x일 x시 x분</p></div>
+                    <div class="row">
+                      <div class="col-3">
+                        <div class="align-center ">
+ 
+                          <% if x.small_group.img_url.to_s == nil || x.small_group.img_url.to_s == "" %>
+                            <img  class="apply-form-img" src="<%= "/assets/small_groups/11.png"%>">
+                          <% else %>
+                            <img  class="apply-form-img" src="<%= x.small_group.img_url %>">
+                          <% end %>
+                          <p class="mt10" style="font-weight: bold;"><%=SmallGroup.find(x.small_group_id).group_name%></p>
+                        </div>
+                      </div>
+                      <div class="col-9">
+                        <div class="apply-form-user-info" style="display: block;">
+                          <div class="align-center"><h3 class="apply-form-h3">인적사항</h3></div>
+                          <p>이름:</p>
+                          <p>전화번호:</p>
+                          <p>이메일:</p>
+                          <p>학번:</p>
+                          <p>학부/학과:</p>
+                          <p>학년:</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="apply-form-question-box">
+                      <% unless x.title1 == nil %>
+                      <p>Q1. <span><%= x.title1 %></span></p>
+                      <div class="answer_box"></div>
+                      <% end %>
+                      <% unless x.title2 == nil %>
+                      <p>Q2. <span><%= x.title2 %></span></p>
+                      <div class="answer_box"></div>
+                      <% end %>
+                      <% unless x.title3 == nil %>
+                      <p>Q3. <span><%= x.title3 %></span></p>
+                      <div class="answer_box"></div>
+                      <% end %>
+                      <% unless x.title4 == nil %>
+                      <p>Q4. <span><%= x.title4 %></span></p>
+                      <div class="answer_box"></div>
+                      <% end %>
+                      <% unless x.title5 == nil %>
+                      <p>Q5. <span><%= x.title5 %></span></p>
+                      <div class="answer_box"></div>
+                      <% end %>
+                    </div>
+                    <a href="/s_apply_form/edit/<%=x.small_group_id%>"><div class="apply-form-bttn align-center">수정하기</div></a>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% end %> 
+          </div>
+        </div>
+        <div class="col-2"></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,19 +3,19 @@
 # rake db:seed
 
 ## 학부, 학과
-Department.create(department_name: 'IT융합 자율학부')
+Department.create(department_name: 'IT융합자율학부')
 Department.create(department_name: '컴퓨터공학')
 Department.create(department_name: '소프트웨어공학')
 Department.create(department_name: '정보통신공학')
 Department.create(department_name: '글로컬IT')
-Department.create(department_name: '미디어컨텐츠융합 자율학부')
+Department.create(department_name: '미디어컨텐츠학부')
 Department.create(department_name: '신문방송학')
 Department.create(department_name: '디지털컨텐츠')
-Department.create(department_name: '사회융합 자율학부')
+Department.create(department_name: '사회융합자율학부')
 Department.create(department_name: '사회과학')
 Department.create(department_name: '사회복지학')
 Department.create(department_name: '경영학')
-Department.create(department_name: '인문융합 자율학부')
+Department.create(department_name: '인문융합자율학부')
 Department.create(department_name: '일어일본학')
 Department.create(department_name: '중어중국학')
 Department.create(department_name: '기독교문화')
@@ -184,7 +184,7 @@ ClubMember.create(club_id: 3, user_id: 16)
 
 #지원 양식
 ApplyForm.create(club_id: 1, title1: '지원 동기는 무엇인가요?', title2: '만들고 싶은 서비스는 무엇인가요?' , title3: '살면서 기억에 남는 고난을 적어주세요..', title4: '기억에 남는 서비스가 있나요?', title5: '마지막으로 하고 싶은 말을 적어주세요')
-ApplyForm.create(club_id: 2, title1: '개발자들 질문1', title2: '개발자들 질문2', title3: '개발자들 질문3')
+# ApplyForm.create(club_id: 2, title1: '개발자들 질문1', title2: '개발자들 질문2', title3: '개발자들 질문3')
 ApplyForm.create(club_id: 3, title1: '기획한 적이 있으면 어떤 것을 기획했는지 알려주세요.', title2: '만약 기획을 한다면 어떤 기획을 하고 싶으세요?', title3: '마지막으로 할 말 적어주세요.')
 ApplyForm.create(club_id: 4, title1: '어떤 악기를 다룰 수 있나요?', title2: '좋아하는 노래를 말해주세요.', title3: '연습 가능한 시간 적어주세요.')
 ApplyForm.create(club_id: 5, title1: '어떤 연기를 해보셨나요?', title2: '재밌게 본 연극 이름 말해주세dy.', title3: '연습 가능한 시간 적어주세요.', title4: '마지막으로 하고싶은 말은?')
@@ -267,3 +267,74 @@ ApplyContent.create(
     content3: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
     content4: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
     content5: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+    
+SApplyForm.create(
+    small_group_id: 1
+    )
+SApplyForm.create(
+    small_group_id: 2
+    )    
+    
+SApplyForm.create(
+    small_group_id: 3
+    )
+SApplyForm.create(
+    small_group_id: 4
+    )
+SApplyForm.create(
+    small_group_id: 5
+    )    
+    
+SApplyForm.create(
+    small_group_id: 6
+    )    
+SApplyForm.create(
+    small_group_id: 8
+    )
+SApplyForm.create(
+    small_group_id: 9
+    )    
+    
+SApplyForm.create(
+    small_group_id: 10
+    )
+SApplyForm.create(
+    small_group_id: 11
+    )
+SApplyForm.create(
+    small_group_id: 12
+    )    
+    
+SApplyForm.create(
+    small_group_id: 13
+    )
+SApplyForm.create(
+    small_group_id: 14
+    )
+SApplyForm.create(
+    small_group_id: 15
+    )    
+    
+SApplyForm.create(
+    small_group_id: 16
+    )
+SApplyForm.create(
+    small_group_id: 17
+    )
+SApplyForm.create(
+    small_group_id: 18
+    )    
+    
+SApplyForm.create(
+    small_group_id: 19
+    )
+SApplyForm.create(
+    small_group_id: 20
+    )
+SApplyForm.create(
+    small_group_id: 21
+    )    
+    
+SApplyForm.create(
+    small_group_id: 22
+    )        

@@ -11,7 +11,7 @@
             <div class="club-select">
 
                 
-                <select onchange="window.location=this.value">
+                <select class="selc_club" onchange="window.location=this.value">
                   <option>단체를 고르세요</option>
                   <% @clubs.each do |c| %> 
                     <option value=<%= c.id %>><%= c.club_name %></option>

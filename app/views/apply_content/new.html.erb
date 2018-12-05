@@ -14,7 +14,7 @@
             <div class="row">
               <div class="col-3">
                 <div class="align-center ">
-                  <img  class="apply-form-img" src="/assets/clubs/<%= @apply_form.id %>.jpg">
+                  <img  class="apply-form-img" src="/assets/clubs/<%=@apply_form.club_id%>.jpg">
                   <p class="mt10" style="font-weight: bold;"><%=Club.find(@apply_form.club_id).club_name%></p>
                 </div>
               </div>
@@ -48,7 +48,7 @@
                 <div><textarea class="answer_box" name="content4"></textarea></div>
               <% end %>
               <% unless @apply_form.title5 == nil %>
-                <p>Q5. <span><%= @apply_form.title5 %></span></p>
+                <p>Q5.<span><%= @apply_form.title5 %></span></p>
                 <div><textarea class="answer_box" name="content5"></textarea></div>
               <% end %>
             </div>

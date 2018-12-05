@@ -1,162 +1,47 @@
-.apply-content-outline{
-    width: 780px;
-    margin: auto;
-    padding: 15px;
-    position: relative;
+.applicant-index-body{
+     background-color: #eee;   
 }
 
-.apply-content{
-    padding: 25px 60px;
-    margin: auto;
-}
-
-.current-user-name{
-    text-align: right;
-    margin-bottom:10px;
-}
-
-.svg-line-apply-index-pink{
-    position: absolute;
-}
-
-.svg-line-apply-index-yellow{
-	position: absolute;
-}
-
-.structure-end{
-    display: flex;
-    align-items: flex-end;
-    flex-direction: row;
-    justify-content: flex-end;
-}
-
-.question-q{
-    display: inline-block;
-    color: #FFD0D6;
-    font-size: 26px;
-    padding-right: 10px;
-    padding-bottom: 5px;
-}
-
-.answer-a{
-    color: #FEE19F;
-    font-size: 26px;
-    padding-right: 10px;
-    padding-bottom: 5px;
-
-}
-
-.button-apply-index-edit{
-    font-size: 18px;
-    margin: 0.3rem;
-    padding-top: 0.45rem;
-    padding-bottom: 0.45rem;
-    padding-right: 0.7rem;
-    padding-left: 0.7rem;
-    background-color: #FFD0D6;
-    color: white !important;
-    border-radius: 20px;
-    display: inline-block;
-}
-
-.button-in-apply-content{
-    margin: auto;
-    margin-top: 4rem;
+.applicant-index-title{
     text-align: center;
+    margin: 1rem 0 3rem 0;
+    font-weight: bold;
 }
 
-.button-apply-new-submit{
-    font-size: 18px;
-    margin: 0.3rem;
-    padding-top: 0.45rem;
-    padding-bottom: 0.45rem;
-    padding-right: 0.9rem;
-    padding-left: 0.9rem;
-    background-color: #FFD0D6;
-    color: white !important;
-    border-radius: 20px;
-    display: inline-block;
-    border-color: white;
+.applicant-index-title .p1{
+    font-size: 2rem;
 }
 
-.question-content{
-	display: inline-block;
-	font-size: 22.5px;
-	bottom: 7px;
-	color: #434343;
-	line-height: 16px;
+.applicant-index-title .p2{
+    font-size: 1.5rem;
 }
 
-.applicant-card{
-    border: solid;
-    border-color: #FFD0D6;
-    border-width: 3px;
+.applicant-index-img{
+    padding: 1.5rem 3.5rem 0rem 3.5rem;
 }
 
-.apply-card-for-manager{
-    display: inline-block;
-    margin: 5px;
-    padding: 8px;
+.applicant-info{
+    font-size: 0.8rem;
+    color: #444;
+}
+.applicant-info span{
+    font-size: 1rem;
+    color: #000;
+    font-weight: bold;
 }
 
-.apply-card-outline{
-    margin-top: 20px;
-    padding: 5px;
-    border: solid;
-    border-width: 4px;
-    border-color: #FFD0D6;
+.applicant-bttn{
+    margin-top: 1rem;
+    background-color: transparent;
+    border: 2px solid #87a8e8;
+    border-radius: 5px;
+    color: #4363a4;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.2rem 0.5rem;
 }
 
-.apply-card-align{
-    max-width: 50%;
+.applicant-bttn:hover{
+    border: 2px solid #4363a4;
+    color: #4363a4;
 }
-
-.button-in-apply-card{
-    text-align: center;
-}
-
-.button-apply-card-pink{
-    font-size: 18px;
-    margin: 0.3rem;
-    padding-top: 0.45rem;
-    padding-bottom: 0.45rem;
-    padding-right: 0.7rem;
-    padding-left: 0.7rem;
-    background-color: #FFD0D6;
-    color: white !important;
-    border-radius: 20px;
-    display: inline-block;
-}
-
-.button-apply-card-yellow{
-    font-size: 18px;
-    margin: 0.3rem;
-    padding-top: 0.45rem;
-    padding-bottom: 0.45rem;
-    padding-right: 0.7rem;
-    padding-left: 0.7rem;
-    background-color: #FEE19F;
-    color: white !important;
-    border-radius: 20px;
-    display: inline-block;
-}
-
-/* apply_form */
-.apply_form_input input[type="text"]{
-	/*border-bottom: 1px solid #000;*/
-	/*background: transparent;*/
-	/*outline: none;*/
-	/*height: 40px;*/
-	/*color: #222;*/
-	/*font-size: 25px;*/
-	/*width: 120%;*/
-    width: 100%;
-    border: 1.5px solid #9b9596;
-    border-radius: 10px;
-    font-size: 15px;
-    color: #333;
-    padding: 10px 15px;
-    outline: none;
-    
-}
-

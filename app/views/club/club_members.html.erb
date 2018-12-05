@@ -1,71 +1,79 @@
-<div class="container mt60 mb60">
-  <div class="row mt60">
-    <div class="col">
-      <% if current_user.authorization == '0' %>
-        <div class="clubmember-title">전체 회원 목록</div>
-        <table class="table table-striped">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">이름</th>
-              <th scope="col">전화번호</th>
-              <th scope="col">이메일</th>
-              <th scope="col">학번</th>
-              <th scope="col">학과</th>
-              <th scope="col">학년</th>
-              <th scope="col">소속 단체</th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <% @members.each do |x| %>
-          <tbody>
-            <tr>
-              <th scope="row"> </th>
-              <td><%= x.user.name %></td>
-              <td><%= x.user.phone_number %></td>
-              <td><%= x.user.mail %></td>
-              <td><%= x.user.email %></td>
-              <td><%= x.user.department.department_name %></td>
-              <td><%= x.user.grade_id %></td>
-              <td><%= x.club.club_name %></td>
-              <td><a id="" href = "/club/delete_club_member/<%= x.id %>">삭제</a></td>
-            </tr>
-          </tbody>
-        <% end %>
-        </table>
-      <% elsif current_user.authorization == '1' %>
-        <div class="clubmember-title"><%= ClubMember.find_by_user_id(current_user.id).club.club_name %> 회원 목록</div>
-        <table class="table table-striped">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">이름</th>
-              <th scope="col">전화번호</th>
-              <th scope="col">이메일</th>
-              <th scope="col">학번</th>
-              <th scope="col">학과</th>
-              <th scope="col">학년</th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-        <% @members.each do |x| %>
-          <% if @club_check.club_id == x.club_id %>
-            <tbody>
+<div class="club-members-index">
+  <div class="container mt60 mb60">
+    <div class="row mt60">
+      <div class="col">
+        <% if current_user.authorization == '0' %>
+          <div class="align-center"><div class="clubmember-title">전체 회원 목록</div></div>
+          <table class="table table-striped">
+            <thead class="">
               <tr>
-                <th scope="col"> </th>
-                <td><%= x.user.name %></td>
-                <td><%= x.user.phone_number %></td>
-                <td><%= x.user.mail %></td>
-                <td><%= x.user.email %></td>
-                <td><%= x.user.department.department_name %></td>
-                <td><%= x.user.grade_id %> </td>
-                <td><a id="" href = "/club/delete_club_member/<%= x.id %>">삭제</a></td>
+                <th scope="col">#</th>
+                <th scope="col">이름</th>
+                <th scope="col">전화번호</th>
+                <th scope="col">이메일</th>
+                <th scope="col">학번</th>
+                <th scope="col">학과</th>
+                <th scope="col">학년</th>
+                <th scope="col">소속 단체</th>
+                <th scope="col"></th>
               </tr>
+            </thead>
+            
+              <tbody>
+                <% @members.each do |x| %>
+                  <tr>
+                    <th scope="row"> </th>
+                    <td><%= x.user.name %></td>
+                    <td><%= x.user.phone_number %></td>
+                    <td><%= x.user.mail %></td>
+                    <td><%= x.user.email %></td>
+                    <td><%= x.user.department.department_name %></td>
+                    <td><%= x.user.grade_id %></td>
+                    <td><%= x.club.club_name %></td>
+                    <td><a id="" href = "/club/delete_club_member/<%= x.id %>">삭제</a></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            
+          </table>
+          
+          
+        <% elsif current_user.authorization == '1' %>
+          <div class="align-center"><div class="clubmember-title"><%= ClubMember.find_by_user_id(current_user.id).club.club_name %> 회원 목록</div></div>
+          <table class="table table-striped">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">이름</th>
+                <th scope="col">전화번호</th>
+                <th scope="col">이메일</th>
+                <th scope="col">학번</th>
+                <th scope="col">학과</th>
+                <th scope="col">학년</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+       
+            <tbody>
+             <% @members.each do |x| %>
+              <% if @club_check.club_id == x.club_id %>
+                <tr>
+                  <th scope="col"> </th>
+                  <td><%= x.user.name %></td>
+                  <td><%= x.user.phone_number %></td>
+                  <td><%= x.user.mail %></td>
+                  <td><%= x.user.email %></td>
+                  <td><%= x.user.department.department_name %></td>
+                  <td><%= x.user.grade_id %> </td>
+                  <td><a id="" href = "/club/delete_club_member/<%= x.id %>">삭제</a></td>
+                </tr>
+              <% end %>
+              <% end %>
             </tbody>
-          <% end %>
+          
+          </table>
         <% end %>
-        </table>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>

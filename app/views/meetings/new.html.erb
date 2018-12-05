@@ -1,5 +1,15 @@
-<h1>새로운 일정</h1>
-
-<%= render 'form', meeting: @meeting %>
-
-<%= link_to '이전', meetings_path %>
+<div class="calendar-show mh700">
+    <div class="container">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="calendar-new">
+                    <h1>새로운 일정 등록</h1>
+                    
+                    <%= render 'form', meeting: @meeting %>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+</div>

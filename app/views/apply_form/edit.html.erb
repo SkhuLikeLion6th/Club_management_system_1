@@ -13,8 +13,10 @@
             <div class="row">
               <div class="col-3">
                 <div class="align-center ">
-                  <img  class="apply-form-img" src="/assets/clubs/<%=@form.club_id%>.jpg">
-                  <p class="mt10" style="font-weight: bold;"><%=Club.find(@form.club_id).club_name%></p>
+                  <% if current_user.authorization == '1' %>
+                    <img class="apply-form-img" src="/assets/clubs/<%=@form.club_id%>.jpg">
+                    <p class="mt10" style="font-weight: bold;"><%=Club.find(@form.club_id).club_name%></p>
+                  <% end %>
                 </div>
               </div>
               <div class="col-9">
