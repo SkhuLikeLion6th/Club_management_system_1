@@ -29,6 +29,7 @@
     padding: 5rem 0;
 }
 .calendar-index-body-1{
+    margin: 2rem 0;
     padding: 2rem 0;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -151,6 +152,7 @@
 }
 
 .calendar-show-box{
+    
     min-height: 10rem;
     padding: 1rem;
     border: 1px solid #ccc;
@@ -190,6 +192,11 @@
 	text-align: center;
 }
 
+.calendar-new input[type="submit"]:hover{
+    color: #fff;
+    cursor: pointer;
+}
+
 .calendar-new input[type="text"]{
 	border: none;
 	border-bottom: 1px solid #000;
@@ -199,7 +206,8 @@
 	color: #333;
 	font-size: 1rem;
 	padding-left: 1rem;
-	width: 100%;
+	width: 80%;
+	margin: 0 2rem;
 }
 
 .calendar-new label{
@@ -207,4 +215,15 @@
     font-weight: bold;
 	color: #000;
     
+}
+
+.calendar-new textarea[name="meeting[content]"]{
+	margin: 0.5rem 2rem 2rem 1rem;
+    height: 10rem;
+    padding: 1rem;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    font-size: 1rem;
+    overflow-y: scroll;
+    width: 90%;
 }

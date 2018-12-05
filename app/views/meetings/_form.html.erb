@@ -17,11 +17,12 @@
     <%= f.text_field :name %>
   </div>
 
-  <div class="field">
+  <div class="field mt60">
     <%= f.label :내용 %>
-    <%= f.text_field :content %>
+    <%= f.text_area :content %>
   </div>
   
+
   <div class="field">
     <%= f.label :단체 %>
     <%= f.select :club_id, options_for_select(@clubs.collect {|c| [c.club_name, c.id] if ClubMember.find_by_user_id(current_user.id).club_id == c.id})  %>
@@ -30,12 +31,12 @@
 
   <div class="field">
     <%= f.label :시작시간 %>
-    <%= f.datetime_select :start_time %>
+    <div class="ml40"><%= f.datetime_select :start_time , {:class => "selc"}%></div>
   </div>
 
-  <div class="field">
+  <div class="field ">
     <%= f.label :끝나는시간 %>
-    <%= f.datetime_select :end_time %>
+    <div class="ml40"><%= f.datetime_select :end_time %></div>
   </div>
 
   <div class="actions">

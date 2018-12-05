@@ -27,6 +27,7 @@ class MeetingsController < ApplicationController
       @meeting = Meeting.new
       # @clubs=Club.all
       @clubs = Club.all
+      
     
   end
 
