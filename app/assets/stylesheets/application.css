@@ -55,12 +55,12 @@ nav{
     padding-top: 0.5rem;
     padding-left: 0.5rem;
     color: #fff;
-    width: 7rem;
-    height: 3.5rem;
+    width: 6rem;
+    height: 3rem;
     border: 5px solid #ddd;
     background-color: #ff7f00;
-    right: 3rem;
-    bottom: 3rem;
+    right: 2rem;
+    bottom: 2rem;
     z-index: 1;
     border-radius: 20px;
 }
