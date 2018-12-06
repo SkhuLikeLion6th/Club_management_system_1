@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20181202131350) do
     t.string   "name"
     t.string   "content"
     t.integer  "club_id"
+    t.integer  "user_id"
     t.datetime "start_time"
     t.datetime "end_time"
     t.datetime "created_at", null: false
@@ -113,6 +114,7 @@ ActiveRecord::Schema.define(version: 20181202131350) do
     t.string   "name"
     t.string   "content"
     t.integer  "club_id"
+    t.integer  "user_id"
     t.datetime "start_time"
     t.datetime "end_time"
     t.datetime "created_at", null: false

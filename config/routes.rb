@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'board/manual4'
   get 'board/staff'
   get 'board/event'
+  get 'board/investigation'
 
   resources :club_meetings
   resources :meetings

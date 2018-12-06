@@ -18,6 +18,9 @@ class MeetingsController < ApplicationController
   def show
     @meetings = Meeting.all
     @clubs = ClubMember.all
+    
+    @meeting = Meeting.find_by(id: params[:id])
+
   end
 
   # GET /meetings/new
@@ -38,9 +41,10 @@ class MeetingsController < ApplicationController
   # POST /meetings
   # POST /meetings.json
   def create
-
+    @club = Club.find_by(params[:club_id])
     @meeting = Meeting.new(meeting_params )
-    
+    @meeting.user_id = current_user.id
+    @meeting.club_id = @club.id
     
     
     respond_to do |format|
@@ -93,6 +97,6 @@ class MeetingsController < ApplicationController
     
     # Never trust parameters from the scary internet, only allow the white list through.
     def meeting_params
-      params.require(:meeting).permit(:name, :content, :club_id, :start_time, :end_time)
+      params.require(:meeting).permit(:name, :content, :club_id, :user_id, :start_time, :end_time)
     end
 end

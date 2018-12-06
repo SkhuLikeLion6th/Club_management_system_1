@@ -23,11 +23,7 @@
   </div>
   
 
-  <div class="field">
-    <%= f.label :단체 %>
-    <%= f.select :club_id, options_for_select(@clubs.collect {|c| [c.club_name, c.id] if ClubMember.find_by_user_id(current_user.id).club_id == c.id})  %>
-  </div>
-  
+
 
   <div class="field">
     <%= f.label :시작시간 %>

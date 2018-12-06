@@ -30,7 +30,9 @@
           <div class="align-center">
             
             <div class=""><%= link_to '목록', meetings_path ,{:class => "calendar-show-bttn-1"} %></div>
-            <div class="calendar-show-bttn-2 align-center"><%= link_to '삭제', meeting_path, method: :delete, data: { confirm: '삭제하시겠습니까?'}%></div>
+            <% if @meeting.user_id == current_user.id  %>
+              <div class="calendar-show-bttn-2 align-center"><%= link_to '삭제', meeting_path, method: :delete, data: { confirm: '삭제하시겠습니까?'}%></div>
+            <% end %>
           </div>
         </div>   
       </div>

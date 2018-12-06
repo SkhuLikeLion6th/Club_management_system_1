@@ -6,12 +6,12 @@
             <div class="video-index-menu">
                 
                     <% if user_signed_in? && (current_user.authorization == "1" || current_user.authorization == "0") %>
-                        <a class="button-in-video-new" href="/video/new">동영상 등록</a>
+                        <a href="/video/new"><span class="hello-man-zz align-center">동영상등록</span></a>
                     <% end %>
             <div class="club-select">
 
                 
-                <select class="selc_club" onchange="window.location=this.value">
+                <select class="selc" onchange="window.location=this.value">
                   <option>단체를 고르세요</option>
                   <% @clubs.each do |c| %> 
                     <option value=<%= c.id %>><%= c.club_name %></option>
@@ -31,9 +31,9 @@
                         <div class="col-4">
                             <%= raw(youtube_embed(video.content)) %>
                             <div class="video-name"><%= video.title %> </div>
-                            <svg class="svg-line-video" height="25" width="150">
+                            <!--<svg class="svg-line-video" height="25" width="150">-->
                                 <line x1="0" y1="0" x2="150" y2="0" style="stroke:#FEE19F; stroke-width:5" />
-                            </svg>
+                            <!--</svg>-->
                             <div class="video-uploader"><%= video.user.name %></div>
                             <% if current_user.id == video.user.id %>
                                 <%= link_to '삭제' , "/video/#{video.id}", method: 'delete'%>

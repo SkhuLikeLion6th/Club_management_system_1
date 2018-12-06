@@ -109,8 +109,8 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                   <a class="dropdown-item" href="/meetings">슼쳌 달력</a>
-                  <!--<a class="dropdown-item" href="/video/index">동영상</a>-->
-                  <a class="dropdown-item" href="/board/sorry">동영상</a>
+                  <a class="dropdown-item" href="/video/index">동영상</a>
+                  <!--<a class="dropdown-item" href="/board/sorry">동영상</a>-->
                 </div>
               </div>
               <a href="/board/sorry"><button type="button" class="btn btn-nav">게시판</button></a>
@@ -119,7 +119,7 @@
   			        <% if current_user.authorization == '0' || current_user.authorization == '1' %>
                   <div class="dropdown">
                     <a  href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <div class="btn btn-nav btn-admin dropdown-toggle">관리자</div>
+                      <div class="btn btn-nav dropdown-toggle btn-admin">관리자</div>
                     </a>
                   
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -138,7 +138,7 @@
                 <% elsif current_user.authorization =='4' %>  
                   <div class="dropdown">
                     <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <div class="btn btn-nav btn-admin-1 dropdown-toggle">소모임 관리자</div>
+                      <div class="btn btn-nav btn-admin-1 dropdown-toggle">소모임</div>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                       <% if current_user.authorization == '4' %>
@@ -180,6 +180,7 @@
     </div>    
   </div>
 </nav>
+<a href="/board/investigation/" target="_blink"><div class="btn1018">설문조사</div></a>
   <!--nav end -->
 
   <%= yield %>
@@ -204,14 +205,16 @@
           <div class="col-2">
             <button type="button" class="btn btn-footer">Q & A</button>
           </div>
-          <a href="#"><div class="col-2">만든이</div></a>
+          <div class="col-2">
+            <a href="/board/staff"><button type="button" class="btn btn-footer" style="color: #56cec1">만든이들</button></a>
+          </div>
           <div class="col-3"></div>
           </div>
           <div class="">
             <p class="footer-p">
-              멋쟁이사자처럼atSKHU | 서울특별시 구로구 항동 1-1 성공회대학교 나눔관 5A114 실 |<br> 개인정보보호관리자 : 박 결 | 
-서비스 문의: gyul611@likelion.org
-<br>© SKHUCHECK, Inc.
+              멋쟁이사자처럼atSKHU | 서울특별시 구로구 항동 1-1 성공회대학교 나눔관 5A114 실 <br>
+              서비스 문의: gyul611@likelion.org / 카카오톡 플러스친구 '스쿠체크'<br>
+              SKHUCHECK, Inc.
             </p>
           </div>
         

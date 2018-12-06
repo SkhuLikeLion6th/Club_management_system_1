@@ -16,9 +16,9 @@
 }
 
 .clubs-index-img{
-    width: 11rem;
-    height: 11rem;
-    padding: 0.5rem;
+    width: 11rem!important;
+    height: 11rem!important;
+    padding: 0.5rem!important;
 }
 
 

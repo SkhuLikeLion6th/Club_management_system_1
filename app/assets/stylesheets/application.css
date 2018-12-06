@@ -47,6 +47,27 @@ nav{
 }
 
 
+/**/
+.btn1018{
+    position: fixed;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+    color: #fff;
+    width: 7rem;
+    height: 3.5rem;
+    border: 5px solid #ddd;
+    background-color: #ff5757;
+    right: 3rem;
+    bottom: 3rem;
+    z-index: 1;
+    border-radius: 20px;
+}
+.btn1018:hover{
+    background-color: #4363a4;
+    color: #fff;
+}
 /*footer*/
 
 footer{

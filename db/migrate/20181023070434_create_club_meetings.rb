@@ -4,6 +4,7 @@ class CreateClubMeetings < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :content
       t.integer :club_id
+      t.integer :user_id
       t.datetime :start_time
       t.datetime :end_time
 

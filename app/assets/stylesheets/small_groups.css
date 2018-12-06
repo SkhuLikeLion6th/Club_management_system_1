@@ -23,6 +23,21 @@
     margin: 2rem;
     display: inline-block;
 }
+
+.hello-man-zz{
+	width: 8rem;
+    height: 2.2em;
+    padding: 0.2rem;
+    background: #3596b0;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 0.2rem;
+    display: inline-block;
+}
+
+
 .small-groups-index-new-bttn:hover{
 	cursor: pointer;
     color: #fff;
