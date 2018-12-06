@@ -374,3 +374,76 @@ ApplyContent.create(
     content4: "간손미라는 단어는 삼국지 팬덤에서 예전부터 사용하던 단어다. 연의나 정사에 기초했을 수도 있지만, 주로 게임 상에서 유비의 주요 측근인 이들의 능력치가 어중간하여 언급되었을 가능성이 높다. ", 
     content5: "열심히 하겠습니다!")    
     
+SApplyForm.create(
+    small_group_id: 1
+    )
+SApplyForm.create(
+    small_group_id: 2
+    )    
+    
+SApplyForm.create(
+    small_group_id: 3
+    )
+SApplyForm.create(
+    small_group_id: 4
+    )
+SApplyForm.create(
+    small_group_id: 5
+    )    
+    
+SApplyForm.create(
+    small_group_id: 6
+    )    
+SApplyForm.create(
+    small_group_id: 7
+    )    
+SApplyForm.create(
+    small_group_id: 8
+    )
+SApplyForm.create(
+    small_group_id: 9
+    )    
+    
+SApplyForm.create(
+    small_group_id: 10
+    )
+SApplyForm.create(
+    small_group_id: 11
+    )
+SApplyForm.create(
+    small_group_id: 12
+    )    
+    
+SApplyForm.create(
+    small_group_id: 13
+    )
+SApplyForm.create(
+    small_group_id: 14
+    )
+SApplyForm.create(
+    small_group_id: 15
+    )    
+    
+SApplyForm.create(
+    small_group_id: 16
+    )
+SApplyForm.create(
+    small_group_id: 17
+    )
+SApplyForm.create(
+    small_group_id: 18
+    )    
+    
+SApplyForm.create(
+    small_group_id: 19
+    )
+SApplyForm.create(
+    small_group_id: 20
+    )
+SApplyForm.create(
+    small_group_id: 21
+    )    
+    
+SApplyForm.create(
+    small_group_id: 22
+    )        
