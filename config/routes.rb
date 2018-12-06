@@ -8,6 +8,12 @@ Rails.application.routes.draw do
   get 'board/content2'
   get 'board/sorry'
   get 'board/manual'
+  get 'board/manual1'
+  get 'board/manual2'
+  get 'board/manual3'
+  get 'board/manual4'
+  get 'board/staff'
+  get 'board/event'
 
   resources :club_meetings
   resources :meetings
