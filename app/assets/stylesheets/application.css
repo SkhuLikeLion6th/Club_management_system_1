@@ -50,7 +50,7 @@ nav{
 /**/
 .btn1018{
     position: fixed;
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: bold;
     padding-top: 0.5rem;
     padding-left: 0.5rem;
@@ -58,7 +58,7 @@ nav{
     width: 7rem;
     height: 3.5rem;
     border: 5px solid #ddd;
-    background-color: #ff5757;
+    background-color: #ff7f00;
     right: 3rem;
     bottom: 3rem;
     z-index: 1;
